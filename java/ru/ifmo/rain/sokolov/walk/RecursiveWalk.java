@@ -19,10 +19,8 @@ public class RecursiveWalk {
             System.out.println("Invalid paths arguments (" + e.getMessage() + ")");
             return;
         }
-        try (
-                var input = Files.newBufferedReader(inputFile);
-                var output = new PrintWriter(Files.newBufferedWriter(outputFile));
-        ) {
+        try (var input = Files.newBufferedReader(inputFile);
+             var output = new PrintWriter(Files.newBufferedWriter(outputFile))) {
             final int[] line = {0};
             final String format = "%08x %s" + System.lineSeparator();
             input.lines().forEach(curPath -> {
