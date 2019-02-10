@@ -1,7 +1,7 @@
 package ru.ifmo.rain.sokolov.walk;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
@@ -11,35 +11,27 @@ public class RecursiveWalk {
             System.out.println("invalid arguments\nExpected arguments: <input file> <output file>");
             return;
         }
+        Path inputFile, outputFile;
         try {
-            Paths.get(args[0]);
-            Path out = Paths.get(args[1]);
-            Path par = out.getParent();
-            if (par != null)
-                Files.createDirectories(par);
-        } catch (IOException | SecurityException e) {
-            System.out.println("Failed to create destination directories for output (" + e.getMessage() + ")");
+            inputFile = Paths.get(args[0]);
+            outputFile = Paths.get(args[1]);
         } catch (InvalidPathException e) {
-            System.out.println("input paths are not paths (" + e.getMessage() + ")");
+            System.out.println("Invalid paths arguments (" + e.getMessage() + ")");
+            return;
         }
         try (
-                BufferedReader input = new BufferedReader(new InputStreamReader(
-                        new FileInputStream(args[0]), StandardCharsets.UTF_8));
-                PrintWriter output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-                        new FileOutputStream(args[1]), StandardCharsets.UTF_8)))
+                var input = Files.newBufferedReader(inputFile);
+                var output = new PrintWriter(Files.newBufferedWriter(outputFile));
         ) {
             final int[] line = {0};
+            final String format = "%08x %s" + System.lineSeparator();
             input.lines().forEach(curPath -> {
                 line[0]++;
                 try {
                     Files.walkFileTree(Paths.get(curPath), new SimpleFileVisitor<Path>() {
                         @Override
                         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                            output.printf(
-                                    "%08x %s" + System.lineSeparator(),
-                                    HashCounter.getFNV1Hash(file),
-                                    file.toString()
-                            );
+                            output.printf(format, HashCounter.getFNV1Hash(file), file.toString());
                             if (output.checkError()) {
                                 System.out.println("Output failed");
                             }
@@ -47,18 +39,18 @@ public class RecursiveWalk {
                         }
 
                         @Override
-                        public FileVisitResult visitFileFailed(Path file, IOException exc) {
-                            output.printf("%08x %s" + System.lineSeparator(), 0, file.toString());
+                        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+                            output.printf(format, 0, file.toString());
                             if (output.checkError()) {
                                 System.out.println("Output failed");
                             }
-                            return FileVisitResult.CONTINUE;
+                            return FileVisitResult.SKIP_SUBTREE;
                         }
                     });
                 } catch (IOException | SecurityException e) {
-                    System.out.println("failed to read file from file " + curPath + " at line " + line[0]);
+                    System.out.println("Failed to read file from " + curPath + " at line " + line[0]);
                 } catch (InvalidPathException e) {
-                    System.out.println("invalid path (at file " + curPath + " on line " + line[0] + ")");
+                    System.out.println("Invalid path (at file " + curPath + " on line " + line[0] + ")");
                 }
             });
         } catch (IOException | SecurityException e) {

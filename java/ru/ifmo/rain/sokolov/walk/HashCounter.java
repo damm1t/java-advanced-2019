@@ -12,17 +12,17 @@ public class HashCounter {
     private static byte[] buffer = new byte[1024];
 
     public static int getFNV1Hash(Path file) {
-        int hval = FNV_START;
+        int hash = FNV_START;
         try (InputStream inputStream = new FileInputStream(file.toString())) {
             int sz;
             while ((sz = inputStream.read(buffer, 0, 1024)) != -1) {
-                for (int i = 0; i < sz; i++) {
-                    hval = (hval * FNV_PRIME) ^ (buffer[i] & FNV_AND);
+                for (int i = 0; i < sz; ++i) {
+                    hash = (hash * FNV_PRIME) ^ (buffer[i] & FNV_AND);
                 }
             }
         } catch (IOException e) {
-            hval = 0;
+            hash = 0;
         }
-        return hval;
+        return hash;
     }
 }
