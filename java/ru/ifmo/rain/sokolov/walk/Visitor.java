@@ -7,20 +7,12 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
-import static java.nio.file.FileVisitResult.CONTINUE;
-
 public class Visitor extends SimpleFileVisitor<Path> {
     private PrintWriter writer;
     private final String format = "%08x %s" + System.lineSeparator();
 
     public Visitor(PrintWriter writer) {
         this.writer = writer;
-    }
-
-    private FileVisitResult write(int hash, String filePath) throws IOException {
-        //HashCounter.getFNV1Hash(file)
-        writer.printf(format, hash, filePath);
-        return CONTINUE;
     }
 
     @Override
