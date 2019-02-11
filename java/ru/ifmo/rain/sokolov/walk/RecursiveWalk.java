@@ -2,27 +2,30 @@ package ru.ifmo.rain.sokolov.walk;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UncheckedIOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
 public class RecursiveWalk {
-    public static void main(String[] args) {
-        if (args == null || args.length != 2 || args[0] == null || args[1] == null) {
-            System.out.println("invalid arguments\nExpected arguments: <input file> <output file>");
-            return;
-        }
-        Path inputFile, outputFile;
+    private final Path inputPath;
+    private final Path outputPath;
+
+    public RecursiveWalk(String input, String output) throws WalkException {
         try {
-            inputFile = Paths.get(args[0]);
-            outputFile = Paths.get(args[1]);
+            inputPath = Paths.get(input);
+            outputPath = Paths.get(output);
         } catch (InvalidPathException e) {
-            System.out.println("Invalid paths arguments (" + e.getMessage() + ")");
-            return;
+            throw new WalkException("Invalid paths arguments (" + e.getMessage() + ")");
         }
-        try (var input = Files.newBufferedReader(inputFile);
-             var output = new PrintWriter(Files.newBufferedWriter(outputFile))) {
+    }
+
+    public void doWork() throws WalkException {
+
+        try (var input = Files.newBufferedReader(inputPath);
+             var output = new PrintWriter(Files.newBufferedWriter(outputPath))) {
             final int[] line = {0};
             final String format = "%08x %s" + System.lineSeparator();
+
             input.lines().forEach(curPath -> {
                 line[0]++;
                 try {
@@ -38,21 +41,36 @@ public class RecursiveWalk {
 
                         @Override
                         public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+                            System.err.println("sooooqa");
                             output.printf(format, 0, file.toString());
                             if (output.checkError()) {
                                 System.out.println("Output failed");
                             }
-                            return FileVisitResult.SKIP_SUBTREE;
+                            return FileVisitResult.CONTINUE;
                         }
                     });
-                } catch (IOException | SecurityException e) {
-                    System.out.println("Failed to read file from " + curPath + " at line " + line[0]);
                 } catch (InvalidPathException e) {
-                    System.out.println("Invalid path (at file " + curPath + " on line " + line[0] + ")");
+                    throw new WalkException("Invalid path (at file " + curPath + " on line " + line[0] + ")");
+
+                } catch (IOException | SecurityException e) {
+                    throw new WalkException("Failed to read file from \" + curPath + \" at line \" + line[0]");
                 }
             });
-        } catch (IOException | SecurityException e) {
-            System.out.println("Failed to open input/output files" + e.getMessage() + ")");
+        } catch (UncheckedIOException | IOException | SecurityException e) {
+            throw new WalkException("Failed to open input/output files" + e.getMessage() + ")");
         }
+    }
+
+    public static void main(String[] args) {
+        try {
+            if (args == null || args.length != 2 || args[0] == null || args[1] == null) {
+                throw new WalkException("invalid arguments\nExpected arguments: <input file> <output file>");
+            }
+            var dude = new RecursiveWalk(args[0], args[1]);
+            dude.doWork();
+        } catch (WalkException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
