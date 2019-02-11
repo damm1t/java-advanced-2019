@@ -1,0 +1,6 @@
+java -p . -m info.kgeorgiy.java.advanced.walk RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk
+java -p /artifacts;/lib; -classpath . -m info.kgeorgiy.java.advanced.walk RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk
+java -p artifacts:lib:out/production/java-advanced-2019 -classpath . -m info.kgeorgiy.java.advanced.walk RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk
+
+this work:
+java -p ../artifacts:../lib: -classpath . -m info.kgeorgiy.java.advanced.walk RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk
