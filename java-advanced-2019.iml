@@ -9,5 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="WalkTest (2)" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.base" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.walk" level="project" />
   </component>
 </module>

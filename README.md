@@ -6,20 +6,25 @@
 
 Для того, чтобы протестировать программу:
 
- * Скачайте тесты ([WalkTest.jar](artifacts/WalkTest.jar)) и библиотеки к ним:
-    [junit-4.11.jar](lib/junit-4.11.jar), [hamcrest-core-1.3.jar](lib/hamcrest-core-1.3.jar)
+ * Скачайте
+    * тесты
+        * [info.kgeorgiy.java.advanced.base.jar](artifacts/info.kgeorgiy.java.advanced.base.jar)
+        * [info.kgeorgiy.java.advanced.walk.jar](artifacts/info.kgeorgiy.java.advanced.walk.jar)
+    * и библиотеки к ним:
+        * [junit-4.11.jar](lib/junit-4.11.jar)
+        * [hamcrest-core-1.3.jar](lib/hamcrest-core-1.3.jar)
  * Откомпилируйте решение домашнего задания
  * Протестируйте домашнее задание
+    * Текущая директория должна:
+       * содержать все скачанные `.jar` файлы;
+       * содержать скомпилированное решение;
+       * __не__ содержать скомпилированные самостоятельно тесты.
     * простой вариант:
-        ```info.kgeorgiy.java.advanced.walk.Tester Walk <полное имя класса>```
+        ```java -p . -m info.kgeorgiy.java.advanced.walk Walk <полное имя класса>```
     * сложный вариант:
-        ```info.kgeorgiy.java.advanced.walk.Tester RecursiveWalk <полное имя класса>```
- * `CLASSPATH` должен
- 	* содержать все скачанные `.jar` файлы;
- 	* содержать скомпилированное решение;
- 	* __не__ содержать скомпилированные самостоятельно тесты.
+        ```java -p . -m info.kgeorgiy.java.advanced.walk RecursiveWalk <полное имя класса>```
 
 Исходный код тестов:
 
- * [простой вариант](java/info/kgeorgiy/java/advanced/walk/WalkTest.java)
- * [сложный вариант](java/info/kgeorgiy/java/advanced/walk/RecursiveWalkTest.java)
+ * [простой вариант](modules/info.kgeorgiy.java.advanced.walk/info/kgeorgiy/java/advanced/walk/WalkTest.java)
+ * [сложный вариант](modules/info.kgeorgiy.java.advanced.walk/info/kgeorgiy/java/advanced/walk/RecursiveWalkTest.java)
