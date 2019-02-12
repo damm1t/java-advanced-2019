@@ -5,7 +5,9 @@
  * @author Georgiy Korneev (kgeorgiy@kgeorgiy.info)
  */
 module info.kgeorgiy.java.advanced.walk {
-    requires info.kgeorgiy.java.advanced.base;
+    requires transitive info.kgeorgiy.java.advanced.base;
+
+    exports info.kgeorgiy.java.advanced.walk;
 
     opens info.kgeorgiy.java.advanced.walk to junit;
 }

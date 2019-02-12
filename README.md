@@ -2,6 +2,21 @@
 
 [Условия домашних заданий](http://www.kgeorgiy.info/courses/java-advanced/homeworks.html)
 
+## Домашнее задание 2. ArraySortedSet
+
+Тестирование
+
+ * простой вариант:
+    ```info.kgeorgiy.java.advanced.arrayset SortedSet <полное имя класса>```
+ * сложный вариант:
+    ```info.kgeorgiy.java.advanced.arrayset NavigableSet <полное имя класса>```
+
+Исходный код тестов:
+
+ * [простой вариант](modules/info.kgeorgiy.java.advanced.arrayset/info/kgeorgiy/java/advanced/arrayset/SortedSetTest.java)
+ * [сложный вариант](modules/info.kgeorgiy.java.advanced.arrayset/info/kgeorgiy/java/advanced/arrayset/NavigableSetTest.java)
+
+
 ## Домашнее задание 1. Обход файлов
 
 Для того, чтобы протестировать программу:
@@ -20,9 +35,9 @@
        * содержать скомпилированное решение;
        * __не__ содержать скомпилированные самостоятельно тесты.
     * простой вариант:
-        ```java -p . -m info.kgeorgiy.java.advanced.walk Walk <полное имя класса>```
+        ```java -cp . -p . -m info.kgeorgiy.java.advanced.walk Walk <полное имя класса>```
     * сложный вариант:
-        ```java -p . -m info.kgeorgiy.java.advanced.walk RecursiveWalk <полное имя класса>```
+        ```java -cp . -p . -m info.kgeorgiy.java.advanced.walk RecursiveWalk <полное имя класса>```
 
 Исходный код тестов:
 
