@@ -27,14 +27,14 @@ public class RecursiveWalk {
             try {
                 Files.walkFileTree(filePath, new Visitor(writer));
             } catch (IOException e) {
-                writer.write(String.format("%08x", 0) + " " + filePath);
+                writer.printf(Visitor.format, 0, filePath);
             }
         } catch (InvalidPathException e) {
-            writer.write(String.format("%08x", 0) + " " + path);
+            writer.printf(Visitor.format, 0, path);
         }
     }
 
-    private void doWork() throws WalkException {
+    private void walk() throws WalkException {
 
         try (var bufferedReader = Files.newBufferedReader(inputPath);
              var writer = new PrintWriter(Files.newBufferedWriter(outputPath))) {
@@ -60,11 +60,10 @@ public class RecursiveWalk {
             if (args == null || args.length != 2 || args[0] == null || args[1] == null) {
                 throw new WalkException("Invalid arguments\nExpected arguments: <input file> <output file>");
             }
-            var dude = new RecursiveWalk(args[0], args[1]);
-            dude.doWork();
+            var recursiveWalk = new RecursiveWalk(args[0], args[1]);
+            recursiveWalk.walk();
         } catch (WalkException e) {
             System.out.println(e.getMessage());
         }
-
     }
 }
