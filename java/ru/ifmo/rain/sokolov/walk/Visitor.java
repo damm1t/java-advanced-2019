@@ -30,7 +30,7 @@ public class Visitor extends SimpleFileVisitor<Path> {
         if (writer.checkError()) {
             System.out.println("Output failed");
         }
-        return FileVisitResult.CONTINUE;
+        return FileVisitResult.SKIP_SUBTREE;
     }
 
 }
