@@ -8,13 +8,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class RecursiveWalk {
-    private final Path inputPath;
-    private final Path outputPath;
+    private final String inputPath;
+    private final String outputPath;
 
     public RecursiveWalk(String input, String output) throws WalkException {
         try {
-            inputPath = Paths.get(input);
-            outputPath = Paths.get(output);
+            inputPath = input;
+            outputPath = output;
+            Paths.get(input);
+            Paths.get(output);
         } catch (InvalidPathException e) {
             throw new WalkException("Invalid paths arguments (" + e.getMessage() + ")");
         }
@@ -36,10 +38,10 @@ public class RecursiveWalk {
     private void walk() throws WalkException {
 
         try (var bufferedReader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(inputPath.toString()), StandardCharsets.UTF_8))
+                new FileInputStream(inputPath), StandardCharsets.UTF_8))
         ) {
             try (var writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(outputPath.toString()), StandardCharsets.UTF_8)))
+                    new FileOutputStream(outputPath), StandardCharsets.UTF_8)))
             ) {
                 try {
                     String line;
@@ -47,17 +49,17 @@ public class RecursiveWalk {
                         try {
                             walker(line, writer);
                         } catch (IOException e) {
-                            throw new WalkException("Failed to write to file from \\" + outputPath);
+                            System.err.println("Failed write to \\" + outputPath);
                         }
                     }
                 } catch (IOException e) {
                     throw new WalkException("Failed to read file from \\" + inputPath);
                 }
             } catch (IOException | SecurityException e) {
-                throw new WalkException("Failed to open output file" + e.getMessage() + ")");
+                throw new WalkException("Failed to open output file " + e.getMessage() + ")");
             }
         } catch (IOException | SecurityException e) {
-            throw new WalkException("Failed to open input file" + e.getMessage() + ")");
+            throw new WalkException("Failed to open input file " + e.getMessage() + ")");
         }
     }
 
