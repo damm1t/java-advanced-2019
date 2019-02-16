@@ -13,7 +13,7 @@ public class Tester extends BaseTester {
     public static void main(final String... args) {
         new Tester()
                 .add("SortedSet", SortedSetTest.class)
-                .add("NavigableSet", NavigableSetTest.class)
+                .add("ArraySet", NavigableSetTest.class)
                 .run(args);
     }
 }
