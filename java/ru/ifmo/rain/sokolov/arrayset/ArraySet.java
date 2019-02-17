@@ -42,6 +42,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean contains(Object o) {
         return Collections.binarySearch(data, o, (Comparator<Object>) comparator) >= 0;
     }
@@ -125,21 +126,22 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
 
     @Override
     public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
-        if (isEmpty()) return this;
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
-        int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
-        return (right < left ?
+        int right = abstractFind(toElement, toInclusive ? 0 : -1, -1);
+        return (right <= left ?
                 Collections.emptyNavigableSet() :
-                new ArraySet<>(data.subList(left, right), comparator, false));
+                new ArraySet<>(data.subList(left, right + 1), comparator, false));
     }
 
     @Override
     public NavigableSet<T> headSet(T toElement, boolean inclusive) {
+        if (isEmpty()) return this;
         return subSet(first(), true, toElement, inclusive);
     }
 
     @Override
     public NavigableSet<T> tailSet(T fromElement, boolean inclusive) {
+        if (isEmpty()) return this;
         return subSet(fromElement, inclusive, last(), true);
     }
 
@@ -163,17 +165,20 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         return tailSet(fromElement, true);
     }
 
+    private void emptyCheck() {
+        if (data.isEmpty())
+            throw new NoSuchElementException();
+    }
+
     @Override
     public T first() {
-        if (isEmpty())
-            throw new NoSuchElementException();
+        emptyCheck();
         return data.get(0);
     }
 
     @Override
     public T last() {
-        if (isEmpty())
-            throw new NoSuchElementException();
+        emptyCheck();
         return data.get(data.size() - 1);
     }
 
