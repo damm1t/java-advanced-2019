@@ -2,6 +2,25 @@
 
 [Условия домашних заданий](http://www.kgeorgiy.info/courses/java-advanced/homeworks.html)
 
+## Домашнее задание 3. Студенты
+
+Тестирование
+
+ * простой вариант:
+    ```info.kgeorgiy.java.advanced.student StudentQuery <полное имя класса>```
+ * сложный вариант:
+    ```info.kgeorgiy.java.advanced.student StudentGroupQuery <полное имя класса>```
+
+Исходный код
+
+ * простой вариант:
+    [интерфейс](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentQuery.java),
+    [тесты](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentQueryTest.java)
+ * сложный вариант:
+    [интерфейс](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentGroupQuery.java),
+    [тесты](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentGroupQueryTest.java)
+
+
 ## Домашнее задание 2. ArraySortedSet
 
 Тестирование
