@@ -26,10 +26,10 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         this(data, cmp, true);
     }
 
-    private ArraySet(Collection<T> data, Comparator<? super T> comparator, boolean doSort) {
+    private ArraySet(Collection<T> data, Comparator<? super T> cmp, boolean doSort) {
         List<T> sortedData;
         if (doSort) {
-            var s = new TreeSet<T>(comparator);
+            var s = new TreeSet<T>(cmp);
             s.addAll(data);
             sortedData = new ArrayList<T>(s);
         } else if (data instanceof List) {
@@ -38,7 +38,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
             sortedData = new ArrayList<T>(data);
         }
         this.data = Collections.unmodifiableList(sortedData);
-        this.comparator = comparator;
+        this.comparator = cmp;
     }
 
     @Override
@@ -47,20 +47,25 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         return Collections.binarySearch(data, o, (Comparator<Object>) comparator) >= 0;
     }
 
+    private T get(int index) {
+        try {
+            return data.get(index);
+        } catch (IndexOutOfBoundsException e) {
+            return null;
+        }
+    }
 
     private int abstractFind(T t, int inclusive, int lower) {
-        int pos = Collections.binarySearch(data, Objects.requireNonNull(t), comparator);
+        int pos = Collections.binarySearch(data, t, comparator);
         return (pos >= 0 ? pos + inclusive : ~pos + lower);
     }
 
     private T findLower(T t, boolean inclusive) {
-        int i = abstractFind(t, inclusive ? 0 : -1, -1);
-        return i >= 0 ? data.get(i) : null;
+        return get(abstractFind(t, inclusive ? 0 : -1, -1));
     }
 
     private T findUpper(T t, boolean inclusive) {
-        int i = abstractFind(t, inclusive ? 0 : 1, 0);
-        return i < data.size() ? data.get(i) : null;
+        return get(abstractFind(t, inclusive ? 0 : 1, 0));
     }
 
     @Override
@@ -115,7 +120,6 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
 
     @Override
     public NavigableSet<T> descendingSet() {
-
         return new ArraySet<>(new ReversedList<>(data), Collections.reverseOrder(comparator), false);
     }
 
@@ -127,10 +131,10 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     @Override
     public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
-        int right = abstractFind(toElement, toInclusive ? 0 : -1, -1);
-        return (right <= left ?
-                Collections.emptyNavigableSet() :
-                new ArraySet<>(data.subList(left, right + 1), comparator, false));
+        int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
+        return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right))
+                , comparator,
+                false);
     }
 
     @Override
@@ -166,7 +170,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     private void emptyCheck() {
-        if (data.isEmpty())
+        if (isEmpty())
             throw new NoSuchElementException();
     }
 

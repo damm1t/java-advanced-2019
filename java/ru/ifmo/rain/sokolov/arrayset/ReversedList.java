@@ -7,7 +7,7 @@ import java.util.RandomAccess;
 public class ReversedList<T> extends AbstractList<T> implements RandomAccess {
 
     private final List<T> data;
-    private final boolean dataIsReversed;
+    private boolean isReversed;
 
     ReversedList(List<T> data) {
         if (!(data instanceof RandomAccess)) {
@@ -15,16 +15,20 @@ public class ReversedList<T> extends AbstractList<T> implements RandomAccess {
         }
         if (data instanceof ReversedList) {
             this.data = ((ReversedList<T>) data).data;
-            dataIsReversed = !((ReversedList<T>) data).dataIsReversed;
+            isReversed = !((ReversedList<T>) data).isReversed;
         } else {
             this.data = data;
-            dataIsReversed = true;
+            isReversed = true;
         }
+    }
+
+    public void reverse() {
+        isReversed = !isReversed;
     }
 
     @Override
     public T get(int index) {
-        return dataIsReversed ? data.get(size() - index - 1) : data.get(index);
+        return isReversed ? data.get(size() - index - 1) : data.get(index);
     }
 
     @Override
