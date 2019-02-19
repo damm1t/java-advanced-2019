@@ -4,3 +4,6 @@ java -p artifacts:lib:out/production/java-advanced-2019 -classpath . -m info.kge
 
 this work:
 java -p ../artifacts:../lib: -classpath . -m info.kgeorgiy.java.advanced.walk RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk
+
+
+java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m info.kgeorgiy.java.advanced.arrayset NavigableSet ru.ifmo.rain.sokolov.arrayset.ArraySet

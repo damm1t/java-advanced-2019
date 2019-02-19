@@ -48,11 +48,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     private T get(int index) {
-        try {
-            return data.get(index);
-        } catch (IndexOutOfBoundsException e) {
-            return null;
-        }
+        return ((index < 0 || index >= size()) ? null : data.get(index));
     }
 
     private int abstractFind(T t, int inclusive, int lower) {
