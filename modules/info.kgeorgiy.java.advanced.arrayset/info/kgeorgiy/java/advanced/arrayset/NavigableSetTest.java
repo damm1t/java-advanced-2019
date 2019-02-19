@@ -1,6 +1,7 @@
 package info.kgeorgiy.java.advanced.arrayset;
 
 import net.java.quickcheck.collection.Pair;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -169,6 +170,13 @@ public class NavigableSetTest extends SortedSetTest {
     }
 
     @Test
+    public void test25_mutators() {
+        final NavigableSet<Integer> set = set(Arrays.asList(1, 2, 3), Integer::compareTo);
+        testMutator(set::pollFirst);
+        testMutator(set::pollLast);
+    }
+
+    @Test
     public void test26_descendingSet() {
         final NavigableSet<Integer> set = set(Arrays.asList(10, 20, 30), Integer::compareTo).descendingSet();
         assertEquals("toArray()", Arrays.asList(30, 20, 10), toArray(set));
@@ -210,6 +218,15 @@ public class NavigableSetTest extends SortedSetTest {
 
     private static <T> Pair<T, T> pair(final T arg, final T result) {
         return new Pair<>(arg, result);
+    }
+
+    protected void testMutator(final Runnable mutator) {
+        try {
+            mutator.run();
+            Assert.fail("Expected UnsupportedOperationException");
+        } catch (final UnsupportedOperationException ignore) {
+            // Passed
+        }
     }
 
     protected NavigableSet<Integer> set(final List<Integer> elements, final Comparator<Integer> comparator) {
