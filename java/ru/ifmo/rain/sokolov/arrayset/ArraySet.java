@@ -11,31 +11,34 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     private Comparator<? super T> comparator;
 
     public ArraySet() {
-        this(Collections.emptyList(), null, false);
+        this(Collections.emptyList(), null);
     }
 
     public ArraySet(Comparator<? super T> cmp) {
-        this(Collections.emptyList(), cmp, false);
+        this(Collections.emptyList(), cmp);
     }
 
-    public ArraySet(Collection<T> data) {
+    public ArraySet(Collection<? extends T> data) {
         this(data, null, true);
     }
 
-    public ArraySet(Collection<T> data, Comparator<? super T> cmp) {
+    public ArraySet(Collection<? extends T> data, Comparator<? super T> cmp) {
         this(data, cmp, true);
     }
 
-    private ArraySet(Collection<T> data, Comparator<? super T> cmp, boolean doSort) {
+    private ArraySet(List<T> data, Comparator<? super T> cmp) {
+        this.data = data;
+        this.comparator = cmp;
+    }
+
+    private ArraySet(Collection<? extends T> data, Comparator<? super T> cmp, boolean doSort) {
         List<T> sortedData;
         if (doSort) {
             var s = new TreeSet<T>(cmp);
             s.addAll(data);
-            sortedData = new ArrayList<T>(s);
-        } else if (data instanceof List) {
-            sortedData = (List<T>) data;
+            sortedData = new ArrayList<>(s);
         } else {
-            sortedData = new ArrayList<T>(data);
+            sortedData = new ArrayList<>(data);
         }
         this.data = Collections.unmodifiableList(sortedData);
         this.comparator = cmp;
@@ -116,7 +119,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
 
     @Override
     public NavigableSet<T> descendingSet() {
-        return new ArraySet<>(new ReversedList<>(data), Collections.reverseOrder(comparator), false);
+        return new ArraySet<>(new ReversedList<>(data), Collections.reverseOrder(comparator));
     }
 
     @Override
@@ -128,9 +131,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
         int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
-        return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right))
-                , comparator,
-                false);
+        return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right)), comparator);
     }
 
     @Override
@@ -181,21 +182,6 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         emptyCheck();
         return data.get(data.size() - 1);
     }
-
-    /*@Override
-    public Spliterator<T> spliterator() {
-        return null;
-    }
-
-    @Override
-    public Stream<T> stream() {
-        return null;
-    }
-
-    @Override
-    public Stream<T> parallelStream() {
-        return null;
-    }*/
 
     @Override
     public int size() {
