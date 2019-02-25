@@ -73,7 +73,7 @@ public class BaseTest {
         parallelCommands(threads, Collections.nCopies(threads, command));
     }
 
-    protected void checkConstructor(final String description, final Class<?> token, final Class<?>... params) {
+    public static void checkConstructor(final String description, final Class<?> token, final Class<?>... params) {
         try {
             token.getConstructor(params);
         } catch (final NoSuchMethodException e) {

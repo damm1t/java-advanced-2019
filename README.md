@@ -2,6 +2,24 @@
 
 [Условия домашних заданий](http://www.kgeorgiy.info/courses/java-advanced/homeworks.html)
 
+## Домашнее задание 4. Implementor
+
+Класс должен реализовывать интерфейс
+[Impler](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/Impler.java).
+
+Тестирование
+
+ * простой вариант:
+    ```info.kgeorgiy.java.advanced.implementor interface <полное имя класса>```
+ * сложный вариант:
+    ```info.kgeorgiy.java.advanced.implementor class <полное имя класса>```
+
+Исходный код тестов:
+
+* [простой вариант](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/InterfaceImplementorTest.java)
+* [сложный вариант](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/ClassImplementorTest.java)
+
+
 ## Домашнее задание 3. Студенты
 
 Тестирование
@@ -15,10 +33,10 @@
 
  * простой вариант:
     [интерфейс](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentQuery.java),
-    [тесты](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentQueryTest.java)
+    [тесты](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/FullStudentQueryTest.java)
  * сложный вариант:
     [интерфейс](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentGroupQuery.java),
-    [тесты](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentGroupQueryTest.java)
+    [тесты](modules/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/FullStudentGroupQueryTest.java)
 
 
 ## Домашнее задание 2. ArraySortedSet
