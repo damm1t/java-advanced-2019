@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
 
     private final List<T> data;
-    private Comparator<? super T> comparator;
+    private final Comparator<? super T> comparator;
 
     public ArraySet() {
         this(Collections.emptyList(), null);
