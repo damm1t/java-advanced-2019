@@ -18,6 +18,13 @@ public class RecursiveWalk {
         } catch (InvalidPathException e) {
             throw new PathException("Invalid paths arguments (" + e.getMessage() + ")");
         }
+        if (outputPath.getParent() != null && Files.notExists(outputPath.getParent())) {
+            try {
+                Files.createDirectories(outputPath.getParent());
+            } catch (IOException e) {
+                throw new PathException("Can't create output file (" + e.getMessage() + ")");
+            }
+        }
     }
 
     private static void walker(String path, BufferedWriter writer) throws IOException {
