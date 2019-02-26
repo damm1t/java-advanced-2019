@@ -11,14 +11,14 @@ public class RecursiveWalk {
     private final String inputPath;
     private final String outputPath;
 
-    public RecursiveWalk(String input, String output) throws WalkException {
+    public RecursiveWalk(String input, String output) throws PathException {
         try {
             inputPath = input;
             outputPath = output;
             Paths.get(input);
             Paths.get(output);
         } catch (InvalidPathException e) {
-            throw new WalkException("Invalid paths arguments (" + e.getMessage() + ")");
+            throw new PathException("Invalid paths arguments (" + e.getMessage() + ")");
         }
     }
 
@@ -69,7 +69,7 @@ public class RecursiveWalk {
                 throw new WalkException("Invalid arguments\nWrong arguments: <input file> <output file>");
             }
             new RecursiveWalk(args[0], args[1]).walk();
-        } catch (WalkException e) {
+        } catch (WalkException | PathException e) {
             System.out.println(e.getMessage());
         }
     }
