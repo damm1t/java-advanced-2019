@@ -11,11 +11,11 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     private final Comparator<? super T> comparator;
 
     public ArraySet() {
-        this(Collections.emptyList(), null);
+        this(Collections.emptyList(), null, false);
     }
 
     public ArraySet(Comparator<? super T> cmp) {
-        this(Collections.emptyList(), cmp);
+        this(Collections.emptyList(), cmp, false);
     }
 
     public ArraySet(Collection<? extends T> data) {
@@ -26,10 +26,10 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         this(data, cmp, true);
     }
 
-    private ArraySet(List<T> data, Comparator<? super T> cmp) {
+    /*private ArraySet(List<T> data, Comparator<? super T> cmp) {
         this.data = data;
         this.comparator = cmp;
-    }
+    }*/
 
     private ArraySet(Collection<? extends T> data, Comparator<? super T> cmp, boolean doSort) {
         List<T> sortedData;
@@ -37,7 +37,9 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
             var s = new TreeSet<T>(cmp);
             s.addAll(data);
             sortedData = new ArrayList<>(s);
-        } else {
+        } else if (data instanceof List) { // data never used in future
+            sortedData = (List<T>) data;
+        } else { // actually never used
             sortedData = new ArrayList<>(data);
         }
         this.data = Collections.unmodifiableList(sortedData);
@@ -119,7 +121,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
 
     @Override
     public NavigableSet<T> descendingSet() {
-        return new ArraySet<>(new ReversedList<>(data), Collections.reverseOrder(comparator));
+        return new ArraySet<>(new ReversedList<>(data), Collections.reverseOrder(comparator), false);
     }
 
     @Override
@@ -131,7 +133,8 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
         int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
-        return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right)), comparator);
+        return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right)),
+                comparator, false);
     }
 
     @Override
