@@ -200,10 +200,10 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public String getMostPopularName(Collection<Student> students) {
-        return students
+        return null;/*students
                 .stream()
                 .collect(Collectors.toMap());
-        /*return students
+        return students
                 .stream()
                 .collect(Collectors.toMap(
                         Student::getLastName,

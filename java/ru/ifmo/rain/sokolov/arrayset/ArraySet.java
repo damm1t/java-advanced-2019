@@ -129,10 +129,25 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         return descendingSet().iterator();
     }
 
-    @Override
-    public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
+    @SuppressWarnings("unchecked")
+    private int compare(T fromElement, T toElement) throws IllegalArgumentException {
+        if (comparator != null) {
+            if (comparator.compare(fromElement, toElement) > 0) {
+                throw new IllegalArgumentException();
+            }
+        } else if (fromElement instanceof Comparable) {
+            if (((Comparable) fromElement).compareTo(toElement) > 0)
+                throw new IllegalArgumentException();
+        }
+        return 0;
+    }
+
+    private NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive, boolean unchecked) {
+        if (!unchecked)
+            compare(fromElement, toElement);
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
         int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
+
         /*if(right <= left){
             throw new IllegalArgumentException("Error: wrong arguments in subSet");
         }*/
@@ -141,15 +156,20 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     @Override
+    public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
+        return subSet(fromElement, fromInclusive, toElement, toInclusive, false);
+    }
+
+    @Override
     public NavigableSet<T> headSet(T toElement, boolean inclusive) {
         if (isEmpty()) return this;
-        return subSet(first(), true, toElement, inclusive);
+        return subSet(first(), true, toElement, inclusive, true);
     }
 
     @Override
     public NavigableSet<T> tailSet(T fromElement, boolean inclusive) {
         if (isEmpty()) return this;
-        return subSet(fromElement, inclusive, last(), true);
+        return subSet(fromElement, inclusive, last(), true, true);
     }
 
     @Override
