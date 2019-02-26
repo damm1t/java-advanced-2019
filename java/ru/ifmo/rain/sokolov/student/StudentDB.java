@@ -20,7 +20,7 @@ public class StudentDB implements StudentGroupQuery {
             .thenComparing(Student::getFirstName, String::compareTo)
             .thenComparingInt(Student::getId);
 
-    private <T extends Comparable<T>> Stream<Group> groupsStreamByComparator(
+    private Stream<Group> groupsStreamByComparator(
             Collection<Student> students,
             Comparator<Student> studentComparator
     ) {
@@ -41,31 +41,24 @@ public class StudentDB implements StudentGroupQuery {
                 );
     }
 
-    private <T extends Comparable<T>> List<Group> getGroupsWithComparator(
-            Collection<Student> students,
-            Comparator<Student> studentComparator
-    ) {
+    private List<Group> getGroupsWithComparator(Collection<Student> students,
+                                                Comparator<Student> studentComparator) {
         return groupsStreamByComparator(students, studentComparator)
                 .sorted(Comparator.comparing(Group::getName))
                 .collect(Collectors.toList());
     }
 
-    private <T extends Comparable<T>> Optional<Group> getLargestGroupComparingByStudentsList(
-            Collection<Student> students,
-            Function<List<Student>, Integer> studentsCmp
-    ) {
-        return groupsStreamByComparator(
-                students,
-                comparatorByName
-        ).min(Comparator
-                .comparing((Group g) -> studentsCmp.apply(g.getStudents()))
-                .reversed()
-                .thenComparing(Group::getName)
+    private Optional<Group> getLargestGroupComparingByStudentsList(Collection<Student> students,
+                                                                   Function<List<Student>, Integer> studentsCmp) {
+        return groupsStreamByComparator(students, comparatorByName).min(
+                Comparator
+                        .comparing((Group g) -> studentsCmp.apply(g.getStudents()))
+                        .reversed()
+                        .thenComparing(Group::getName)
         );
     }
 
     private static final String EMPTY_STRING = "";
-
 
     @Override
     public List<Group> getGroupsByName(Collection<Student> students) {
@@ -78,11 +71,13 @@ public class StudentDB implements StudentGroupQuery {
     }
 
 
-    private String getFilteredLargestGroup(Stream<Entry<String, List<Student>>> groupsStream, ToIntFunction<List<Student>> filter) {
+    private String getFilteredLargestGroup(Stream<Entry<String, List<Student>>> groupsStream,
+                                           ToIntFunction<List<Student>> filter) {
         return groupsStream
                 .max(Comparator.comparingInt((Entry<String, List<Student>> group) -> filter.applyAsInt(group.getValue()))
                         .thenComparing(Entry::getKey, Collections.reverseOrder(String::compareTo)))
-                .map(Entry::getKey).orElse(EMPTY_STRING);
+                .map(Entry::getKey)
+                .orElse(EMPTY_STRING);
     }
 
     private Stream<Entry<String, List<Student>>> getAnyGroupsStream(Collection<Student> students,
@@ -104,7 +99,8 @@ public class StudentDB implements StudentGroupQuery {
 
     @Override
     public String getLargestGroupFirstName(Collection<Student> students) {
-        return getFilteredLargestGroup(getGroupsStream(students), studentsList -> getDistinctFirstNames(studentsList).size());
+        return getFilteredLargestGroup(getGroupsStream(students),
+                studentsList -> getDistinctFirstNames(studentsList).size());
     }
 
     private <C extends Collection<String>> C mapCollection(
