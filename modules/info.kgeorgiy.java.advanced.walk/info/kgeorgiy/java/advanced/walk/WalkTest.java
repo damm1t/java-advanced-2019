@@ -38,17 +38,20 @@ public class WalkTest extends BaseTest {
 
     @Test
     public void test01_oneEmptyFile() throws IOException {
-        test(randomFiles(1, 0));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(1, 0, dir));
     }
 
     @Test
     public void test02_tenEmptyFiles() throws IOException {
-        test(randomFiles(10, 0));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(10, 0, dir));
     }
 
     @Test
     public void test03_missingFiles() throws IOException {
-        final Map<String, Integer> files = randomFiles(3, 0);
+        final Path dir = DIR.resolve(name.getMethodName());
+        final Map<String, Integer> files = randomFiles(3, 0, dir);
         files.put(randomFileName(), 0);
         files.put(randomFileName(), 0);
         files.put(randomFileName(), 0);
@@ -57,7 +60,8 @@ public class WalkTest extends BaseTest {
 
     @Test
     public void test04_errorReading() throws IOException {
-        final Map<String, Integer> files = randomFiles(3, 0);
+        final Path dir = DIR.resolve(name.getMethodName());
+        final Map<String, Integer> files = randomFiles(3, 0, dir);
         files.put(DIR.toString() + "..", 0);
         files.put(DIR.toString() + "@", 0);
         test(files);
@@ -65,24 +69,28 @@ public class WalkTest extends BaseTest {
 
     @Test
     public void test05_smallRandomFiles() throws IOException {
-        test(randomFiles(10, 100));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(10, 100, dir));
     }
 
     @Test
     public void test06_mediumRandomFiles() throws IOException {
-        test(randomFiles(10, 100));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(10, 100, dir));
     }
 
     @Test
     public void test07_largeRandomFiles() throws IOException {
-        test(randomFiles(10, 1_000_000));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(10, 1_000_000, dir));
     }
 
     @Test
     public void test08_chineseSupport() throws IOException {
         final String alphabet = ALPHABET;
         ALPHABET = "\u8acb\u554f\u4f60\u7684\u7a0b\u5e8f\u652f\u6301\u4e2d\u570b";
-        test(randomFiles(10, 100));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(10, 100, dir));
         ALPHABET = alphabet;
     }
 
@@ -113,15 +121,29 @@ public class WalkTest extends BaseTest {
 
     @Test
     public void test13_veryLargeFile() throws IOException {
-        test(randomFiles(1, 100_000_00));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(1, 10_000_000, dir));
     }
 
     @Test
     public void test14_invalidFiles() throws IOException {
         final String alphabet = ALPHABET;
         ALPHABET = "\0\\*";
-        test(randomFiles(1, 10));
+        final Path dir = DIR.resolve(name.getMethodName());
+        test(randomFiles(1, 10, dir));
         ALPHABET = alphabet;
+    }
+
+    @Test
+    public void test15_partiallyMissingFiles() throws IOException {
+        final Path dir = DIR.resolve(name.getMethodName());
+        final Map<String, Integer> files = new LinkedHashMap<>();
+        files.put("no-such-file-1", 0);
+        files.putAll(randomFiles(10, 100, dir));
+        files.put("no-such-file-2", 0);
+        files.putAll(randomFiles(10, 100, dir));
+        files.put("no-such-file-3", 0);
+        test(files);
     }
 
     private String createEmptyFile(final String name) throws IOException {
@@ -194,11 +216,6 @@ public class WalkTest extends BaseTest {
         files.forEach(writer::println);
         writer.close();
         return stringWriter.toString();
-    }
-
-    private Map<String, Integer> randomFiles(final int n, final int maxL) throws IOException {
-        final Path dir = DIR.resolve(name.getMethodName());
-        return randomFiles(n, maxL, dir);
     }
 
     protected Map<String, Integer> randomFiles(final int n, final int maxL, final Path dir) throws IOException {

@@ -26,8 +26,8 @@ import static net.java.quickcheck.generator.PrimitiveGenerators.integers;
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SortedSetTest extends BaseTest {
-
-    public static final int PERFORMANCE_SIZE = 100_000;
+    public static final int PERFORMANCE_SIZE = 1_000_000;
+    public static final int PERFORMANCE_TIME = 10_000;
 
     @Test
     public void test01_constructors() {
@@ -166,7 +166,7 @@ public class SortedSetTest extends BaseTest {
         runnable.run();
         final long time = System.currentTimeMillis() - start;
         System.out.println("    " + description + " done in " + time + "ms");
-        Assert.assertTrue(description + " works too slow", time < 200);
+        Assert.assertTrue(description + " works too slow", time < PERFORMANCE_TIME);
     }
 
     private SortedSet<Integer> performanceSet(final int size) {
@@ -325,6 +325,13 @@ public class SortedSetTest extends BaseTest {
                             treeSet.subSet(from, to),
                             "in subSet(" + from + ", " + to + ") (comparator = " + comparator + ", elements = " + elements + ")"
                     );
+                } else {
+                    try {
+                        set.subSet(from, to);
+                        Assert.fail("IllegalArgumentException expected");
+                    } catch (final IllegalArgumentException ignored) {
+                        // Passed
+                    }
                 }
             }
         }
@@ -382,5 +389,20 @@ public class SortedSetTest extends BaseTest {
                 Assert.assertEquals("last() " + "(comparator = " + comparator + ", elements = " + elements + ")", set(elements, comparator).last(), set.last());
             }
         }
+    }
+
+    @Test
+    public void test18_copySource() {
+        final List<Integer> list = new ArrayList<>(List.of(1, 10, 100));
+        final SortedSet<Integer> integers = create(new Object[]{list}, Collection.class);
+        assertEq(new TreeSet<>(List.of(1, 10, 100)), integers, "initial");
+        list.set(1, 20);
+        assertEq(new TreeSet<>(List.of(1, 10, 100)), integers, "mutated");
+    }
+
+    @Test
+    public void test19_immutableSource() {
+        final SortedSet<Integer> integers = create(new Object[]{List.of(1, 100, 10)}, Collection.class);
+        assertEq(new TreeSet<>(List.of(1, 10, 100)), integers, "initial");
     }
 }

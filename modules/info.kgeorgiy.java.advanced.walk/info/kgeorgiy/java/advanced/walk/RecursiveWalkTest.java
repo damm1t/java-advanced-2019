@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RecursiveWalkTest extends WalkTest {
     @Test
-    public void test15_singleRecursion() throws IOException {
+    public void test31_singleRecursion() throws IOException {
         final Path root = DIR.resolve(name.getMethodName());
         test(Collections.singletonList(root.toString()), randomDirs(3, 4, 100, root));
     }
 
     @Test
-    public void test16_doubleRecursion() throws IOException {
+    public void test32_doubleRecursion() throws IOException {
         final Path root = DIR.resolve(name.getMethodName());
         final Path dir1 = root.resolve(randomFileName());
         final Path dir2 = root.resolve(randomFileName());
