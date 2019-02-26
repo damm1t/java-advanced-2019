@@ -1,51 +1,41 @@
 package ru.ifmo.rain.sokolov.walk;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class RecursiveWalk {
-    private final String inputPath;
-    private final String outputPath;
+    private final Path inputPath;
+    private final Path outputPath;
 
     public RecursiveWalk(String input, String output) throws PathException {
         try {
-            inputPath = input;
-            outputPath = output;
-            Paths.get(input);
-            Paths.get(output);
+            inputPath = Paths.get(input);
+            outputPath = Paths.get(output);
         } catch (InvalidPathException e) {
             throw new PathException("Invalid paths arguments (" + e.getMessage() + ")");
         }
     }
 
-    private static void walker(String path, PrintWriter writer) throws IOException {
+    private static void walker(String path, BufferedWriter writer) throws IOException {
+        var visitor = new Visitor(writer);
         try {
-            Path filePath = Paths.get(path);
-            try {
-                Files.walkFileTree(filePath, new Visitor(writer));
-            } catch (IOException e) {
-                writer.printf(Visitor.format, 0, filePath);
-            }
+            Files.walkFileTree(Paths.get(path), visitor);
         } catch (InvalidPathException e) {
-            writer.printf(Visitor.format, 0, path);
+            visitor.write(0, path);
         }
     }
 
     private void walk() throws WalkException {
 
-        try (var bufferedReader = new BufferedReader(new InputStreamReader(
-                new FileInputStream(inputPath), StandardCharsets.UTF_8))
-        ) {
-            try (var writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(outputPath), StandardCharsets.UTF_8)))
-            ) {
+        try (var reader = Files.newBufferedReader(inputPath)) {
+            try (var writer = Files.newBufferedWriter(outputPath)) {
                 try {
                     String line;
-                    while ((line = bufferedReader.readLine()) != null) {
+                    while ((line = reader.readLine()) != null) {
                         try {
                             walker(line, writer);
                         } catch (IOException e) {

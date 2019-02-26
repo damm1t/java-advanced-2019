@@ -133,6 +133,9 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
         int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
+        /*if(right <= left){
+            throw new IllegalArgumentException("Error: wrong arguments in subSet");
+        }*/
         return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right)),
                 comparator, false);
     }

@@ -16,9 +16,7 @@ public interface StudentGroupQuery extends StudentQuery {
      */
     List<Group> getGroupsByName(Collection<Student> students);
 
-    /**
-     * Returns student groups, where groups are ordered by name, and students within a group are ordered by id.
-     */
+    /** Returns student groups, where groups are ordered by name, and students within a group are ordered by id. */
     List<Group> getGroupsById(Collection<Student> students);
 
     /**

@@ -1,7 +1,7 @@
 package ru.ifmo.rain.sokolov.walk;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 class HashCounter {
@@ -13,7 +13,7 @@ class HashCounter {
 
     static int getFNV1Hash(Path path) {
         int hash = FNV_START;
-        try (var inputStream = new FileInputStream(path.toString())) {
+        try (var inputStream = Files.newInputStream(path)) {
             int sz;
             while ((sz = inputStream.read(buf, 0, BUF_SIZE)) != -1) {
                 for (int i = 0; i < sz; ++i) {
