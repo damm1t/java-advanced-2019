@@ -8,8 +8,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="WalkTest (2)" level="project" />
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.base" level="project" />
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.walk" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.arrayset" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.implementor" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.student" level="project" />
   </component>
 </module>

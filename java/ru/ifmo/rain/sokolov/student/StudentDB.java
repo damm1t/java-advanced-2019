@@ -91,7 +91,7 @@ public class StudentDB implements AdvancedStudentGroupQuery {
                 .max(Entry.<String, List<Student>>comparingByValue(comparator)
                         .thenComparing(Entry.comparingByKey(Collections.reverseOrder(String::compareTo))))
                 .map(Entry::getKey)
-                .orElse("");
+                .orElse(EMPTY_STRING);
     }
 
     /// COMPLICATED MODIFICATION
