@@ -130,7 +130,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     @SuppressWarnings("unchecked")
-    private int compare(T fromElement, T toElement) throws IllegalArgumentException {
+    private void checkOnException(T fromElement, T toElement) throws IllegalArgumentException {
         if (comparator != null) {
             if (comparator.compare(fromElement, toElement) > 0) {
                 throw new IllegalArgumentException();
@@ -139,37 +139,32 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
             if (((Comparable) fromElement).compareTo(toElement) > 0)
                 throw new IllegalArgumentException();
         }
-        return 0;
     }
 
-    private NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive, boolean unchecked) {
-        if (!unchecked)
-            compare(fromElement, toElement);
+    private NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive, boolean enableExceptions) {
+        if (enableExceptions)
+            checkOnException(fromElement, toElement);
         int left = abstractFind(fromElement, fromInclusive ? 0 : 1, 0);
         int right = abstractFind(toElement, toInclusive ? 0 : -1, -1) + 1;
-
-        /*if(right <= left){
-            throw new IllegalArgumentException("Error: wrong arguments in subSet");
-        }*/
         return new ArraySet<>((right <= left ? Collections.emptyList() : data.subList(left, right)),
                 comparator, false);
     }
 
     @Override
     public NavigableSet<T> subSet(T fromElement, boolean fromInclusive, T toElement, boolean toInclusive) {
-        return subSet(fromElement, fromInclusive, toElement, toInclusive, false);
+        return subSet(fromElement, fromInclusive, toElement, toInclusive, true);
     }
 
     @Override
     public NavigableSet<T> headSet(T toElement, boolean inclusive) {
         if (isEmpty()) return this;
-        return subSet(first(), true, toElement, inclusive, true);
+        return subSet(first(), true, toElement, inclusive, false);
     }
 
     @Override
     public NavigableSet<T> tailSet(T fromElement, boolean inclusive) {
         if (isEmpty()) return this;
-        return subSet(fromElement, inclusive, last(), true, true);
+        return subSet(fromElement, inclusive, last(), true, false);
     }
 
     @Override
@@ -193,8 +188,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     private void emptyCheck() {
-        if (isEmpty())
-            throw new NoSuchElementException();
+        if (isEmpty()) throw new NoSuchElementException();
     }
 
     @Override
