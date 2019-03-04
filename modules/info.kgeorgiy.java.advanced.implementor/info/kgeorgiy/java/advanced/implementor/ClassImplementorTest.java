@@ -33,6 +33,15 @@ public class ClassImplementorTest extends InterfaceImplementorTest {
     }
 
     @Test
+    @Test
+    public void test12_standardNonClasses() throws IOException {
+        test(true, void.class, String[].class, int[].class, String.class, boolean.class);
+    }
+    @Test
+    public void test13_constructorThrows() throws IOException {
+        test(false, FileCacheImageInputStream.class);
+    }
+    @Test
     public void test14_nonPublicAbstractMethod() throws IOException {
         test(false, RMIServerImpl.class);
     }

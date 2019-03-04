@@ -21,5 +21,7 @@ module info.kgeorgiy.java.advanced.implementor {
     opens info.kgeorgiy.java.advanced.implementor.basic.classes;
     opens info.kgeorgiy.java.advanced.implementor.basic.classes.standard;
 
+    opens info.kgeorgiy.java.advanced.implementor.full.interfaces.standard;
+
     opens info.kgeorgiy.java.advanced.implementor to junit;
 }
