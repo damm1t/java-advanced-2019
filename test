@@ -10,3 +10,6 @@ java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m 
 
 
 java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m info.kgeorgiy.java.advanced.student StudentGroupQuery ru.ifmo.rain.sokolov.student.StudentDB
+
+
+java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m info.kgeorgiy.java.advanced.implementor class ru.ifmo.rain.sokolov.implementor.Implementor
