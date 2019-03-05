@@ -154,7 +154,7 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public List<String> getFullNames(List<Student> students) {
-        return mapToFieldsList(students, student -> student.getFirstName() + " " + student.getLastName());
+        return mapToFieldsList(students, this::getFullName);
     }
 
     @Override

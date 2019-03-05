@@ -9,7 +9,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class Visitor extends SimpleFileVisitor<Path> {
     private BufferedWriter writer;
-    static final String format = "%08x %s" + System.lineSeparator();
+    private static final String format = "%08x %s" + System.lineSeparator();
 
     public Visitor(BufferedWriter writer) {
         this.writer = writer;
