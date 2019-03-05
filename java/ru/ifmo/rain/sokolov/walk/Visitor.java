@@ -28,7 +28,7 @@ public class Visitor extends SimpleFileVisitor<Path> {
     @Override
     public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
         write(0, file.toString());
-        return FileVisitResult.SKIP_SUBTREE;
+        return FileVisitResult.CONTINUE;
     }
 
 }

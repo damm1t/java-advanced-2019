@@ -4,7 +4,6 @@ import info.kgeorgiy.java.advanced.student.AdvancedStudentGroupQuery;
 import info.kgeorgiy.java.advanced.student.Group;
 import info.kgeorgiy.java.advanced.student.Student;
 
-import java.security.KeyStore;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.BinaryOperator;
@@ -45,27 +44,14 @@ public class StudentDB implements AdvancedStudentGroupQuery {
                 .collect(Collectors.toList());
     }
 
-    private Stream<Student> filterToStream(Stream<Student> students, Predicate<Student> predicate) {
-        return students.filter(predicate);
-    }
-
     private List<Student> filterAndSortToList(Collection<Student> students, Predicate<Student> predicate) {
-        return sortedToStream(filterToStream(students.stream(), predicate), defaultStudentComparator)
+        return sortedToStream(students.stream().filter(predicate), defaultStudentComparator)
                 .collect(Collectors.toList());
-    }
-
-    private Predicate<Student> firstNamePredicate(String name) {
-        return student -> Objects.equals(student.getFirstName(), name);
-    }
-
-    private Predicate<Student> lastNamePredicate(String name) {
-        return student -> Objects.equals(student.getLastName(), name);
     }
 
     private Predicate<Student> groupPredicate(String group) {
         return student -> Objects.equals(student.getGroup(), group);
     }
-
 
     private Stream<Entry<String, List<Student>>> groupToSortedEntriesStream(Stream<Student> students,
                                                                             Comparator<Student> comparator) {
@@ -121,7 +107,7 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public List<Group> getGroupsById(Collection<Student> students) {
-        return sortToGroupList(students, Student::compareTo); // probably Comparator.comparingInt(Student::getId)
+        return sortToGroupList(students, Student::compareTo);
     }
 
     @Override
@@ -165,14 +151,14 @@ public class StudentDB implements AdvancedStudentGroupQuery {
     @Override
     public String getMinStudentFirstName(List<Student> students) {
         return students.stream()
-                .min(Student::compareTo) // same as Comparator.comparing(Student::getId)
+                .min(Student::compareTo)
                 .map(Student::getFirstName)
                 .orElse(EMPTY_STRING);
     }
 
     @Override
     public List<Student> sortStudentsById(Collection<Student> students) {
-        return sortedToList(students, Student::compareTo); // probably  Comparator.comparingInt(Student::getId)
+        return sortedToList(students, Student::compareTo);
     }
 
     @Override
@@ -182,12 +168,12 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public List<Student> findStudentsByFirstName(Collection<Student> students, String name) {
-        return filterAndSortToList(students, firstNamePredicate(name));
+        return filterAndSortToList(students, student -> Objects.equals(student.getFirstName(), name));
     }
 
     @Override
     public List<Student> findStudentsByLastName(Collection<Student> students, String name) {
-        return filterAndSortToList(students, lastNamePredicate(name));
+        return filterAndSortToList(students, student -> Objects.equals(student.getLastName(), name));
     }
 
     @Override
@@ -197,7 +183,7 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public Map<String, String> findStudentNamesByGroup(Collection<Student> students, String group) {
-        return filterToStream(students.stream(), groupPredicate(group))
+        return students.stream().filter(groupPredicate(group))
                 .collect(Collectors.toMap(
                         Student::getLastName,
                         Student::getFirstName,

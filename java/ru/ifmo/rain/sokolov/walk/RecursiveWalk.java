@@ -12,22 +12,27 @@ public class RecursiveWalk {
     private final Path outputPath;
 
     public RecursiveWalk(String input, String output) throws PathException {
-        try {
-            inputPath = Paths.get(input);
-            outputPath = Paths.get(output);
-        } catch (InvalidPathException e) {
-            throw new PathException("Invalid paths arguments (" + e.getMessage() + ")");
-        }
-        if (outputPath.getParent() != null && Files.notExists(outputPath.getParent())) {
+        inputPath = getPath(input, "Invalid input path: ");
+        outputPath = getPath(output, "Invalid output path: ");
+        Path parent = outputPath.getParent();
+        if (parent != null && Files.notExists(parent)) {
             try {
-                Files.createDirectories(outputPath.getParent());
+                Files.createDirectories(parent);
             } catch (IOException e) {
                 throw new PathException("Can't create output file (" + e.getMessage() + ")");
             }
         }
     }
 
-    private static void walker(String path, BufferedWriter writer) throws IOException {
+    private static Path getPath(String path, String message) throws PathException {
+        try {
+            return Paths.get(path);
+        } catch (InvalidPathException e) {
+            throw new PathException(message + e.getMessage());
+        }
+    }
+
+    private void walker(String path, BufferedWriter writer) throws IOException {
         var visitor = new Visitor(writer);
         try {
             Files.walkFileTree(Paths.get(path), visitor);
@@ -61,10 +66,12 @@ public class RecursiveWalk {
     }
 
     public static void main(String[] args) {
+        if (args == null || args.length != 2 || args[0] == null || args[1] == null) {
+            System.err.println("Invalid arguments\nWrong arguments: <input file> <output file>");
+            return;
+        }
         try {
-            if (args == null || args.length != 2 || args[0] == null || args[1] == null) {
-                throw new WalkException("Invalid arguments\nWrong arguments: <input file> <output file>");
-            }
+
             new RecursiveWalk(args[0], args[1]).walk();
         } catch (WalkException | PathException e) {
             System.out.println(e.getMessage());
