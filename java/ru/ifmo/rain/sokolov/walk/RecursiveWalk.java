@@ -71,10 +71,9 @@ public class RecursiveWalk {
             return;
         }
         try {
-
             new RecursiveWalk(args[0], args[1]).walk();
         } catch (WalkException | PathException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 }

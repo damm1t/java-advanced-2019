@@ -20,9 +20,9 @@ class HashCounter {
                     hash = (hash * FNV_FACTOR) ^ (buf[i] & FNV_AND);
                 }
             }
+            return hash;
         } catch (IOException e) {
-            hash = 0;
+            return 0;
         }
-        return hash;
     }
 }

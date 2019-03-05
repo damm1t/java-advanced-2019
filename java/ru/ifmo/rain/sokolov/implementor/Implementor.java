@@ -230,7 +230,7 @@ public class Implementor implements Impler {
 
     public static void main(String[] args) {
         if (args == null || args.length != 2) {
-            System.out.println("Invalid arguments\nWrong arguments: <class name> <output file>");
+            System.err.println("Invalid arguments\nWrong arguments: <class name> <output file>");
             return;
         }
 
