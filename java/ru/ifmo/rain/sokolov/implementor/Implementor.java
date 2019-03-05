@@ -217,10 +217,10 @@ public class Implementor implements Impler {
             var result = resultBuffer.toString();
             try {
                 writer.write(result);
-            } catch (IOException e) {
+            } catch (IOException | SecurityException e) {
                 throw new ImplerException("Failed to write to output file", e);
             }
-        } catch (IOException e) {
+        } catch (IOException | SecurityException e) {
             throw new ImplerException("Failed to create output file", e);
         }
     }

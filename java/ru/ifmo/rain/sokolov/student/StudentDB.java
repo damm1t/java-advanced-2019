@@ -4,6 +4,7 @@ import info.kgeorgiy.java.advanced.student.AdvancedStudentGroupQuery;
 import info.kgeorgiy.java.advanced.student.Group;
 import info.kgeorgiy.java.advanced.student.Student;
 
+import java.security.KeyStore;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.BinaryOperator;
@@ -85,6 +86,10 @@ public class StudentDB implements AdvancedStudentGroupQuery {
                 .stream();
     }
 
+    private String getFullName(Student student) {
+        return student.getFirstName() + " " + student.getLastName();
+    }
+
     private String getLargestGroupBy(Stream<Entry<String, List<Student>>> groups,
                                      Comparator<List<Student>> comparator) {
         return groups
@@ -94,10 +99,18 @@ public class StudentDB implements AdvancedStudentGroupQuery {
                 .orElse(EMPTY_STRING);
     }
 
-    /// COMPLICATED MODIFICATION
+    /// LAST MODIFICATION
     @Override
     public String getMostPopularName(Collection<Student> students) {
-        return null;
+        return students.stream()
+                .collect(Collectors.groupingBy(
+                        this::getFullName,
+                        Collectors.mapping(Student::getGroup, Collectors.toSet()))
+                ).entrySet().stream()
+                .max(Entry.<String, Set<String>>comparingByValue(Comparator.comparingInt(Set::size)).thenComparing(
+                        Entry.comparingByKey(String::compareTo)))
+                .map(Entry::getKey)
+                .orElse(EMPTY_STRING);
     }
 
     /// HARD MODIFICATION
