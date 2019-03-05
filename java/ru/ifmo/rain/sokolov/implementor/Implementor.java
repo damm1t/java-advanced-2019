@@ -21,7 +21,6 @@ public class Implementor implements Impler {
 
     private final static String EMPTY_STRING = "";
     private final static String EOLN = System.lineSeparator();
-    private final static String TAB = "    ";
     private final static String SPACE = " ";
     private final static String COMMA = ",";
 
@@ -38,7 +37,7 @@ public class Implementor implements Impler {
     }
 
     private static String getException(Executable method) {
-        List<Class<?>> exceptions = Arrays.asList(method.getExceptionTypes());
+        var exceptions = Arrays.asList(method.getExceptionTypes());
         return exceptions.isEmpty() ? EMPTY_STRING : "throws" + SPACE + joinToString(exceptions, Class::getCanonicalName);
     }
 
@@ -53,26 +52,25 @@ public class Implementor implements Impler {
 
     private static String getMethodImpl(Executable method, String newClassName) {
         String returnTypeName;
-        Class<?> returnType;
+        Class<?> returnType = null;
 
         if (method instanceof Method) {
             Method newMethod = (Method) method;
             returnType = newMethod.getReturnType();
             returnTypeName = returnType.getCanonicalName() + " " + newMethod.getName();
         } else {
-            returnType = null;
             returnTypeName = newClassName;
         }
         String returnTypeVal = EMPTY_STRING;
         if (returnType != null) {
             returnTypeVal = returnType.isPrimitive() ?
-                    (returnType.equals(boolean.class) ?
-                            DEF_BOOLEAN : returnType.equals(void.class) ? DEF_VOID : DEF_PRIMITIVE)
+                    (returnType.equals(boolean.class) ? DEF_BOOLEAN
+                            : returnType.equals(void.class) ? DEF_VOID : DEF_PRIMITIVE)
                     : DEF_OBJECT;
         }
         final int mods = method.getModifiers() & ~Modifier.ABSTRACT & ~Modifier.TRANSIENT & ~Modifier.NATIVE;
         //Arrays %s  mods %s  returnName %s(args %s) throws %s {%n         method %s;%n   }%n"
-        final String format = "%n   %s %s %s(%s) %s {%n        %s;%n   }%n";
+        final String format = "%n    %s %s %s(%s) %s {%n        %s;%n   }%n";
 
         return String.format(format,
                 Arrays
@@ -138,7 +136,7 @@ public class Implementor implements Impler {
     }
 
     private StringBuffer getHead(Class<?> token, String packageName, String className) {
-        StringBuffer resultBuffer = new StringBuffer();
+        var resultBuffer = new StringBuffer();
         if (!packageName.isEmpty()) {
             resultBuffer
                     .append("package" + SPACE)
@@ -216,7 +214,7 @@ public class Implementor implements Impler {
             }
 
             resultBuffer.append("}").append(EOLN);
-            String result = resultBuffer.toString();
+            var result = resultBuffer.toString();
             try {
                 writer.write(result);
             } catch (IOException e) {
