@@ -2,6 +2,7 @@ package ru.ifmo.rain.sokolov.implementor;
 
 import info.kgeorgiy.java.advanced.implementor.Impler;
 import info.kgeorgiy.java.advanced.implementor.ImplerException;
+import ru.ifmo.rain.sokolov.walk.PathException;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +13,9 @@ import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -222,6 +225,23 @@ public class Implementor implements Impler {
             }
         } catch (IOException | SecurityException e) {
             throw new ImplerException("Failed to create output file", e);
+        }
+    }
+
+    public static void main(String[] args) {
+        if (args == null || args.length != 2) {
+            System.out.println("Invalid arguments\nWrong arguments: <class name> <output file>");
+            return;
+        }
+
+        try {
+            new Implementor().implement(Class.forName(args[0]), Paths.get(args[1]));
+        } catch (ClassNotFoundException e) {
+            System.err.println("the class cannot be located " + e.getMessage());
+        } catch (InvalidPathException e) {
+            System.err.println("Invalid path " + args[1] + e.getMessage());
+        } catch (ImplerException e) {
+            System.err.println(e.getMessage());
         }
     }
 
