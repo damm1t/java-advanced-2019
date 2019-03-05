@@ -89,7 +89,7 @@ public class Implementor implements Impler {
 
     class MethodSignature {
 
-        private final static int BASE = 31;
+        private final static int BASE = 127;
         private final static int MOD = 793877113;
 
         private final Method method;
