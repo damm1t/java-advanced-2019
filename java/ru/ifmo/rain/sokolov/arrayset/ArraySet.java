@@ -129,13 +129,14 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
 
     @SuppressWarnings("unchecked")
     private void checkOnException(T fromElement, T toElement) throws IllegalArgumentException {
+        final var message = "Left bound should not be greater than right";
         if (comparator != null) {
             if (comparator.compare(fromElement, toElement) > 0) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(message);
             }
         } else if (fromElement instanceof Comparable) {
             if (((Comparable) fromElement).compareTo(toElement) > 0)
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(message);
         }
     }
 
@@ -186,7 +187,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     private void emptyCheck() {
-        if (isEmpty()) throw new NoSuchElementException("Try to access a non-existent element");
+        if (isEmpty()) throw new NoSuchElementException("Try to access not exist element");
     }
 
     @Override

@@ -85,20 +85,6 @@ public class StudentDB implements AdvancedStudentGroupQuery {
                 .orElse(EMPTY_STRING);
     }
 
-    /// LAST MODIFICATION
-    @Override
-    public String getMostPopularName(Collection<Student> students) {
-        return students.stream()
-                .collect(Collectors.groupingBy(
-                        this::getFullName,
-                        Collectors.mapping(Student::getGroup, Collectors.toSet()))
-                ).entrySet().stream()
-                .max(Entry.<String, Set<String>>comparingByValue(Comparator.comparingInt(Set::size)).thenComparing(
-                        Entry.comparingByKey(String::compareTo)))
-                .map(Entry::getKey)
-                .orElse(EMPTY_STRING);
-    }
-
     /// HARD MODIFICATION
     @Override
     public List<Group> getGroupsByName(Collection<Student> students) {
@@ -189,5 +175,19 @@ public class StudentDB implements AdvancedStudentGroupQuery {
                         Student::getFirstName,
                         BinaryOperator.minBy(String::compareTo)
                 ));
+    }
+
+    /// LAST MODIFICATION
+    @Override
+    public String getMostPopularName(Collection<Student> students) {
+        return students.stream()
+                .collect(Collectors.groupingBy(
+                        this::getFullName,
+                        Collectors.mapping(Student::getGroup, Collectors.toSet()))
+                ).entrySet().stream()
+                .max(Entry.<String, Set<String>>comparingByValue(Comparator.comparingInt(Set::size)).thenComparing(
+                        Entry.comparingByKey(String::compareTo)))
+                .map(Entry::getKey)
+                .orElse(EMPTY_STRING);
     }
 }
