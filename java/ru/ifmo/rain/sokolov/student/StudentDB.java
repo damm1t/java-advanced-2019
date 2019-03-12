@@ -17,10 +17,15 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     private final String EMPTY_STRING = "";
 
-    private Comparator<Student> defaultStudentComparator = Comparator
+    private final static Comparator<Student> DEFAULT_STUDENT_COMPARATOR = Comparator
             .comparing(Student::getLastName)
             .thenComparing(Student::getFirstName)
-            .thenComparing(Student::getId);
+            .thenComparing(Student::compareTo);
+
+    private final static Comparator<Map.Entry<String, Set<String>>> ENTRY_COMPARATOR = Comparator
+            .comparingInt((Map.Entry<String, Set<String>> entry) -> entry.getValue().size())
+            .thenComparing(Comparator.comparing((Function<Entry<String, Set<String>>, String>) Entry::getKey)
+                    .reversed());
 
     private <T, C extends Collection<T>> C mapToCollection(Collection<Student> students,
                                                            Function<Student, T> mapper,
@@ -45,7 +50,7 @@ public class StudentDB implements AdvancedStudentGroupQuery {
     }
 
     private List<Student> filterAndSortToList(Collection<Student> students, Predicate<Student> predicate) {
-        return sortedToStream(students.stream().filter(predicate), defaultStudentComparator)
+        return sortedToStream(students.stream().filter(predicate), DEFAULT_STUDENT_COMPARATOR)
                 .collect(Collectors.toList());
     }
 
@@ -88,7 +93,7 @@ public class StudentDB implements AdvancedStudentGroupQuery {
     /// HARD MODIFICATION
     @Override
     public List<Group> getGroupsByName(Collection<Student> students) {
-        return sortToGroupList(students, defaultStudentComparator);
+        return sortToGroupList(students, DEFAULT_STUDENT_COMPARATOR);
     }
 
     @Override
@@ -104,8 +109,8 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public String getLargestGroupFirstName(Collection<Student> students) {
-        return getLargestGroupBy(groupToEntriesStream(students.stream()),
-                Comparator.comparingInt(list -> getDistinctFirstNames(list).size()));
+        return  students.stream().collect(Collectors.groupingBy(Student::getGroup, Collectors.collectingAndThen(Collectors.toList(), this::getDistinctFirstNames))).entrySet().stream()
+                .max(ENTRY_COMPARATOR).map(Map.Entry::getKey).orElse("");
     }
 
     /// EASY MODIFICATION
@@ -149,17 +154,22 @@ public class StudentDB implements AdvancedStudentGroupQuery {
 
     @Override
     public List<Student> sortStudentsByName(Collection<Student> students) {
-        return sortedToList(students, defaultStudentComparator);
+        return sortedToList(students, DEFAULT_STUDENT_COMPARATOR);
+    }
+
+    private List<Student> abstractFind(Collection<Student> students, String name, boolean isFirst) {
+        return filterAndSortToList(students,
+                (student -> Objects.equals(isFirst ? student.getFirstName() : student.getLastName(), name)));
     }
 
     @Override
     public List<Student> findStudentsByFirstName(Collection<Student> students, String name) {
-        return filterAndSortToList(students, student -> Objects.equals(student.getFirstName(), name));
+        return abstractFind(students, name, true);
     }
 
     @Override
     public List<Student> findStudentsByLastName(Collection<Student> students, String name) {
-        return filterAndSortToList(students, student -> Objects.equals(student.getLastName(), name));
+        return abstractFind(students, name, false);
     }
 
     @Override
