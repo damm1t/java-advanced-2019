@@ -144,15 +144,15 @@ public class NavigableSetTest extends SortedSetTest {
     public void test37_navigableSubSet() {
         for (final Pair<NamedComparator, List<Integer>> pair : withComparator()) {
             final List<Integer> elements = pair.getSecond();
-            final Comparator<Integer> comparator = pair.getFirst() != null ? pair.getFirst() : Comparator.naturalOrder();
+            final Comparator<Integer> comparator = pair.getFirst();
             final NavigableSet<Integer> set = set(elements, comparator);
-            final NavigableSet<Integer> treeSet = treeSet(elements, pair.getFirst());
+            final NavigableSet<Integer> treeSet = treeSet(elements, comparator);
 
             final Collection<Integer> all = values(elements);
             for (final Pair<Integer, Integer> p : somePairs(fixedValues(all), fixedValues(all))) {
                 final Integer from = p.getFirst();
                 final Integer to = p.getSecond();
-                if (comparator.compare(from, to) <= 0) {
+                if (comparator != null && comparator.compare(from, to) <= 0 || comparator == null && from <= to) {
                     for (int i = 0; i < 4; i++) {
                         assertEq(
                                 set.subSet(from, i % 2 == 1, to, i / 2 == 1),
