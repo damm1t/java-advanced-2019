@@ -186,7 +186,7 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
     }
 
     private void emptyCheck() {
-        if (isEmpty()) throw new NoSuchElementException();
+        if (isEmpty()) throw new NoSuchElementException("Try to access a non-existent element");
     }
 
     @Override

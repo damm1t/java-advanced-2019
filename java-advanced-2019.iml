@@ -13,5 +13,6 @@
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.arrayset" level="project" />
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.implementor" level="project" />
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.student" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.concurrent" level="project" />
   </component>
 </module>
