@@ -14,33 +14,23 @@ public class ArraySet<T> extends AbstractSet<T> implements NavigableSet<T> {
         this(Collections.emptyList(), null);
     }
 
+    public ArraySet(Collection<? extends T> data) {
+        this(data, null);
+    }
+
     public ArraySet(Comparator<? super T> cmp) {
         this(Collections.emptyList(), cmp);
     }
 
-    public ArraySet(Collection<? extends T> data) {
-        this(data, null, true);
-    }
-
     public ArraySet(Collection<? extends T> data, Comparator<? super T> cmp) {
-        this(data, cmp, true);
+        var s = new TreeSet<T>(cmp);
+        s.addAll(data);
+        this.data = List.copyOf(s);
+        this.comparator = cmp;
     }
 
     private ArraySet(List<T> data, Comparator<? super T> cmp) {
         this.data = data;
-        this.comparator = cmp;
-    }
-
-    private ArraySet(Collection<? extends T> data, Comparator<? super T> cmp, boolean doSort) {
-        List<T> sortedData;
-        if (doSort) {
-            var s = new TreeSet<T>(cmp);
-            s.addAll(data);
-            sortedData = new ArrayList<>(s);
-        } else {
-            sortedData = new ArrayList<>(data);
-        }
-        this.data = Collections.unmodifiableList(sortedData);
         this.comparator = cmp;
     }
 
