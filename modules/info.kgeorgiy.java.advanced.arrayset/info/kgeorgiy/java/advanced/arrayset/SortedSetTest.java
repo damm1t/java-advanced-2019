@@ -195,8 +195,8 @@ public class SortedSetTest extends BaseTest {
 
     protected static void assertEq(final SortedSet<Integer> set, final SortedSet<Integer> treeSet, final String context) {
         Assert.assertEquals("invalid element order " + context, toList(treeSet), toList(set));
-        Assert.assertEquals("invalid toArray " + context, toArray(set), toArray(set));
-        Assert.assertEquals("invalid set size " + context, treeSet.size(), (Object) set.size());
+        Assert.assertEquals("invalid toArray " + context, toArray(treeSet), toArray(set));
+        Assert.assertEquals("invalid set size " + context, treeSet.size(), set.size());
         Assert.assertEquals("invalid isEmpty " + context, treeSet.isEmpty(), set.isEmpty());
         Assert.assertSame("invalid comparator " + context, treeSet.comparator(), set.comparator());
     }
