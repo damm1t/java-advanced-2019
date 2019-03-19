@@ -23,9 +23,8 @@ public class StudentDB implements AdvancedStudentGroupQuery {
             .thenComparing(Student::compareTo);
 
     private final static Comparator<Map.Entry<String, Set<String>>> ENTRY_COMPARATOR = Comparator
-            .comparingInt((Map.Entry<String, Set<String>> entry) -> entry.getValue().size())
-            .thenComparing(Comparator.comparing((Function<Entry<String, Set<String>>, String>) Entry::getKey)
-                    .reversed());
+            .<Map.Entry<String, Set<String>>>comparingInt(entry -> entry.getValue().size())
+            .thenComparing(Comparator.<Map.Entry<String, Set<String>>, String>comparing(Entry::getKey).reversed());
 
     private <T, C extends Collection<T>> C mapToCollection(Collection<Student> students,
                                                            Function<Student, T> mapper,
@@ -163,24 +162,24 @@ public class StudentDB implements AdvancedStudentGroupQuery {
         return sortedToList(students, DEFAULT_STUDENT_COMPARATOR);
     }
 
-    private List<Student> abstractFind(Collection<Student> students, String name, boolean isFirst) {
+    private List<Student> abstractFind(Collection<Student> students, String name, Function<Student, String> getter) {
         return filterAndSortToList(students,
-                (student -> Objects.equals(isFirst ? student.getFirstName() : student.getLastName(), name)));
+                (student -> Objects.equals(getter.apply(student), name)));
     }
 
     @Override
     public List<Student> findStudentsByFirstName(Collection<Student> students, String name) {
-        return abstractFind(students, name, true);
+        return abstractFind(students, name, Student::getFirstName);
     }
 
     @Override
     public List<Student> findStudentsByLastName(Collection<Student> students, String name) {
-        return abstractFind(students, name, false);
+        return abstractFind(students, name, Student::getLastName);
     }
 
     @Override
     public List<Student> findStudentsByGroup(Collection<Student> students, String group) {
-        return filterAndSortToList(students, groupPredicate(group));
+        return abstractFind(students, group, Student::getGroup);
     }
 
     @Override
