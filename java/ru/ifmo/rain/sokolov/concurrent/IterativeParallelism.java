@@ -40,9 +40,9 @@ public class IterativeParallelism implements ListIP {
         return intermediateValues.stream();
     }
 
-    private <T, M, R> R runInParallel(int threads, List<? extends T> values,
-                                      Function<Stream<? extends T>, M> mapper,
-                                      Function<? super Stream<M>, R> reducer) throws InterruptedException {
+    private <T, M, R> R parallelRun(int threads, List<? extends T> values,
+                                    Function<Stream<? extends T>, M> mapper,
+                                    Function<? super Stream<M>, R> reducer) throws InterruptedException {
         return reducer.apply(mapStream(partition(threads, values), mapper));
     }
 
@@ -58,7 +58,7 @@ public class IterativeParallelism implements ListIP {
      */
     @Override
     public String join(int threads, List<?> values) throws InterruptedException {
-        return runInParallel(threads, values,
+        return parallelRun(threads, values,
                 list -> list.map(Object::toString).collect(Collectors.joining()),
                 list -> list.collect(Collectors.joining()));
     }
@@ -76,7 +76,7 @@ public class IterativeParallelism implements ListIP {
     public <T> List<T> filter(int threads,
                               List<? extends T> values,
                               Predicate<? super T> predicate) throws InterruptedException {
-        return runInParallel(threads, values, list -> list.filter(predicate), this::merge);
+        return parallelRun(threads, values, list -> list.filter(predicate), this::merge);
     }
 
     /**
@@ -92,7 +92,7 @@ public class IterativeParallelism implements ListIP {
     public <T, U> List<U> map(int threads,
                               List<? extends T> values,
                               Function<? super T, ? extends U> f) throws InterruptedException {
-        return runInParallel(threads, values, list -> list.map(f), this::merge);
+        return parallelRun(threads, values, list -> list.map(f), this::merge);
     }
 
     //ScalarIP
@@ -116,7 +116,7 @@ public class IterativeParallelism implements ListIP {
             throw new NoSuchElementException("Values are not given");
         }
         Function<Stream<? extends T>, T> getMin = stream -> stream.min(comparator).get();
-        return runInParallel(threads, values, getMin, getMin);
+        return parallelRun(threads, values, getMin, getMin);
     }
 
     /**
@@ -151,7 +151,7 @@ public class IterativeParallelism implements ListIP {
     public <T> boolean all(int threads,
                            List<? extends T> values,
                            Predicate<? super T> predicate) throws InterruptedException {
-        return runInParallel(threads, values,
+        return parallelRun(threads, values,
                 list -> list.allMatch(predicate),
                 list -> list.allMatch(Boolean::booleanValue));
     }
@@ -171,7 +171,7 @@ public class IterativeParallelism implements ListIP {
                            List<? extends T> values,
                            Predicate<? super T> predicate) throws InterruptedException {
         return !all(threads, values, predicate.negate());
-        /*return runInParallel(threads, values,
+        /*return parallelRun(threads, values,
                 list -> list.anyMatch(predicate),
                 list -> list.anyMatch(Boolean::booleanValue));*/
     }

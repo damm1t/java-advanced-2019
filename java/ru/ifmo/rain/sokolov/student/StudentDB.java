@@ -111,8 +111,8 @@ public class StudentDB implements AdvancedStudentGroupQuery {
     public String getLargestGroupFirstName(Collection<Student> students) {
         return students
                 .stream()
-                .collect(Collectors.groupingBy(Student::getGroup, Collectors.collectingAndThen(Collectors.toList()
-                        , this::getDistinctFirstNames)))
+                .collect(Collectors.groupingBy(Student::getGroup,
+                        Collectors.collectingAndThen(Collectors.toList(), this::getDistinctFirstNames)))
                 .entrySet().stream()
                 .max(ENTRY_COMPARATOR)
                 .map(Map.Entry::getKey)
