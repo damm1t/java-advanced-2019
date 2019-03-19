@@ -16,10 +16,14 @@ public class IterativeParallelism implements ListIP {
 
     private <T> List<Stream<? extends T>> partition(int threads, List<? extends T> values) {
         var partitionList = new ArrayList<Stream<? extends T>>();
-        var blockSize = (values.size() + threads - 1) / threads;
-        for (int left = 0; left < values.size(); left += blockSize) {
-            var right = Math.min(left + blockSize, values.size());
+        var add = values.size() / threads;
+        var numberAddSize = values.size() % threads;
+        var left = 0;
+        while (left < values.size()) {
+            var d = add + (numberAddSize-- > 0 ? 1 : 0);
+            var right = left + d;
             partitionList.add(values.subList(left, right).stream());
+            left += d;
         }
         return partitionList;
     }
@@ -28,15 +32,23 @@ public class IterativeParallelism implements ListIP {
                                        Function<Stream<? extends T>, M> mapper) throws InterruptedException {
         var intermediateValues = new ArrayList<M>(Collections.nCopies(valuesStream.size(), null));
         var worker = new ArrayList<Thread>();
-        for (int i = 0; i < valuesStream.size(); ++i) {
+        for (int i = 0; i < valuesStream.size(); i++) {
             final int index = i;
             var thread = new Thread(() -> intermediateValues.set(index, mapper.apply(valuesStream.get(index))));
             worker.add(thread);
             thread.start();
         }
-        for (var thread : worker)
-            thread.join();
-
+        InterruptedException exeption = null;
+        for (var thread : worker) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                if (exeption == null) exeption = new InterruptedException("Interrupted while joining");
+                else exeption.addSuppressed(e);
+            }
+        }
+        if (exeption != null)
+            throw exeption;
         return intermediateValues.stream();
     }
 
@@ -171,8 +183,5 @@ public class IterativeParallelism implements ListIP {
                            List<? extends T> values,
                            Predicate<? super T> predicate) throws InterruptedException {
         return !all(threads, values, predicate.negate());
-        /*return parallelRun(threads, values,
-                list -> list.anyMatch(predicate),
-                list -> list.anyMatch(Boolean::booleanValue));*/
     }
 }
