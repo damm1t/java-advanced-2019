@@ -47,6 +47,15 @@ public class IterativeParallelism implements ListIP {
     }
 
     //ListIP
+
+    /**
+     * Join values to string.
+     *
+     * @param threads number or concurrent threads.
+     * @param values  values to join.
+     * @return list of joined result of {@link #toString()} call on each value.
+     * @throws InterruptedException if executing thread was interrupted.
+     */
     @Override
     public String join(int threads, List<?> values) throws InterruptedException {
         return runInParallel(threads, values,
@@ -54,6 +63,15 @@ public class IterativeParallelism implements ListIP {
                 list -> list.collect(Collectors.joining()));
     }
 
+    /**
+     * Filters values by predicate.
+     *
+     * @param threads   number or concurrent threads.
+     * @param values    values to filter.
+     * @param predicate filter predicate.
+     * @return list of values satisfying given predicated. Order of values is preserved.
+     * @throws InterruptedException if executing thread was interrupted.
+     */
     @Override
     public <T> List<T> filter(int threads,
                               List<? extends T> values,
@@ -61,6 +79,15 @@ public class IterativeParallelism implements ListIP {
         return runInParallel(threads, values, list -> list.filter(predicate), this::merge);
     }
 
+    /**
+     * Map values.
+     *
+     * @param threads number or concurrent threads.
+     * @param values  values to filter.
+     * @param f       mapper function.
+     * @return list of values mapped by given function.
+     * @throws InterruptedException if executing thread was interrupted.
+     */
     @Override
     public <T, U> List<U> map(int threads,
                               List<? extends T> values,
@@ -69,6 +96,18 @@ public class IterativeParallelism implements ListIP {
     }
 
     //ScalarIP
+
+    /**
+     * Returns minimum value.
+     *
+     * @param threads    number or concurrent threads.
+     * @param values     values to get minimum of.
+     * @param comparator value comparator.
+     * @param <T>        value type.
+     * @return minimum of given values
+     * @throws InterruptedException             if executing thread was interrupted.
+     * @throws java.util.NoSuchElementException if not values are given.
+     */
     @Override
     public <T> T minimum(int threads,
                          List<? extends T> values,
@@ -80,6 +119,17 @@ public class IterativeParallelism implements ListIP {
         return runInParallel(threads, values, getMin, getMin);
     }
 
+    /**
+     * Returns maximum value.
+     *
+     * @param threads    number or concurrent threads.
+     * @param values     values to get maximum of.
+     * @param comparator value comparator.
+     * @param <T>        value type.
+     * @return maximum of given values
+     * @throws InterruptedException             if executing thread was interrupted.
+     * @throws java.util.NoSuchElementException if not values are given.
+     */
     @Override
     public <T> T maximum(int threads,
                          List<? extends T> values,
@@ -87,6 +137,16 @@ public class IterativeParallelism implements ListIP {
         return minimum(threads, values, comparator.reversed());
     }
 
+    /**
+     * Returns whether all values satisfies predicate.
+     *
+     * @param threads   number or concurrent threads.
+     * @param values    values to test.
+     * @param predicate test predicate.
+     * @param <T>       value type.
+     * @return whether all values satisfies predicate or {@code true}, if no values are given.
+     * @throws InterruptedException if executing thread was interrupted.
+     */
     @Override
     public <T> boolean all(int threads,
                            List<? extends T> values,
@@ -96,12 +156,23 @@ public class IterativeParallelism implements ListIP {
                 list -> list.allMatch(Boolean::booleanValue));
     }
 
+    /**
+     * Returns whether any of values satisfies predicate.
+     *
+     * @param threads   number or concurrent threads.
+     * @param values    values to test.
+     * @param predicate test predicate.
+     * @param <T>       value type.
+     * @return whether any value satisfies predicate or {@code false}, if no values are given.
+     * @throws InterruptedException if executing thread was interrupted.
+     */
     @Override
     public <T> boolean any(int threads,
                            List<? extends T> values,
                            Predicate<? super T> predicate) throws InterruptedException {
-        return runInParallel(threads, values,
+        return !all(threads, values, predicate.negate());
+        /*return runInParallel(threads, values,
                 list -> list.anyMatch(predicate),
-                list -> list.anyMatch(Boolean::booleanValue));
+                list -> list.anyMatch(Boolean::booleanValue));*/
     }
 }
