@@ -2,6 +2,7 @@ package ru.ifmo.rain.sokolov.implementor;
 
 import info.kgeorgiy.java.advanced.implementor.Impler;
 import info.kgeorgiy.java.advanced.implementor.ImplerException;
+import info.kgeorgiy.java.advanced.implementor.JarImpler;
 import ru.ifmo.rain.sokolov.walk.PathException;
 
 import java.io.BufferedWriter;
@@ -20,7 +21,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Implementor implements Impler {
+public class Implementor implements Impler, JarImpler {
 
     private final static String EMPTY_STRING = "";
     private final static String EOLN = System.lineSeparator();
@@ -88,6 +89,11 @@ public class Implementor implements Impler {
                         ? "return" + returnTypeVal
                         : "super(" + getArguments(method, false) + ")"
         );
+    }
+
+    @Override
+    public void implementJar(Class<?> token, Path jarFile) throws ImplerException {
+
     }
 
     class MethodSignature {
@@ -229,7 +235,33 @@ public class Implementor implements Impler {
     }
 
     public static void main(String[] args) {
-        if (args == null || args.length != 2) {
+        if (args == null || args.length < 2 || args.length > 3) {
+            System.err.println("Invalid arguments number");
+        } else {
+            for (String arg : args) {
+                if (arg == null) {
+                    System.err.println("All arguments should be not null");
+                    return;
+                }
+            }
+            try {
+                if (args.length == 2) {
+                    new Implementor().implement(Class.forName(args[0]), Path.of(args[1]));
+                } else if (!"-jar".equals(args[0])) {
+                    System.err.println("Invalid argument usage: only option available is '-jar'");
+                } else {
+                    new Implementor().implementJar(Class.forName(args[1]), Path.of(args[2]));
+                }
+            } catch (ClassNotFoundException e) {
+                System.err.printf("Invalid class name given: %s\n", e.getMessage());
+            } catch (InvalidPathException e) {
+                System.err.printf("Invalid path given: %s\n", e.getMessage());
+            } catch (ImplerException e) {
+                System.err.printf("Error while creating %s file: %s\n", args.length == 2 ? "java" : "jar",
+                        e.getMessage());
+            }
+        }
+        /*if (args == null || args.length != 2) {
             System.err.println("Invalid arguments\nWrong arguments: <class name> <output file>");
             return;
         }
@@ -242,7 +274,7 @@ public class Implementor implements Impler {
             System.err.println("Invalid path " + args[1] + e.getMessage());
         } catch (ImplerException e) {
             System.err.println(e.getMessage());
-        }
+        }*/
     }
 
 }
