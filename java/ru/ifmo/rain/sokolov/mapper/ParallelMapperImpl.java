@@ -10,9 +10,26 @@ public class ParallelMapperImpl implements ParallelMapper {
     private List<Thread> workers = new ArrayList<>();
     private final Queue<Runnable> tasks = new ArrayDeque<>();
 
+    public static class ReverseCounter {
+        private int value;
+
+        ReverseCounter(int value) {
+            this.value = value;
+        }
+
+        boolean isZero() {
+            return value == 0;
+        }
+
+        boolean dec() {
+            value--;
+            return isZero();
+        }
+    }
+
     static void startThreads(int size, List<Thread> threads, Function<Integer, Runnable> runnableFunction) {
         for (int i = 0; i < size; ++i) {
-            Thread thread = new Thread(runnableFunction.apply(i));
+            var thread = new Thread(runnableFunction.apply(i));
             threads.add(thread);
             thread.start();
         }
@@ -30,27 +47,6 @@ public class ParallelMapperImpl implements ParallelMapper {
         }
         if (exeption != null)
             throw exeption;
-    }
-
-    public static class ReverseCounter {
-        private int value;
-
-        ReverseCounter(int value) {
-            this.value = value;
-        }
-
-        void dec() {
-            value--;
-        }
-
-        boolean isZero() {
-            return value == 0;
-        }
-
-        boolean decIsZero() {
-            dec();
-            return isZero();
-        }
     }
 
     public ParallelMapperImpl(int threads) {
@@ -80,15 +76,15 @@ public class ParallelMapperImpl implements ParallelMapper {
     @Override
     public <T, R> List<R> map(Function<? super T, ? extends R> f, List<? extends T> args) throws InterruptedException {
         final List<R> mapValues = new ArrayList<>(Collections.nCopies(args.size(), null));
-        final var cnt = new ReverseCounter(args.size());
+        final var counter = new ReverseCounter(args.size());
         synchronized (tasks) {
             for (int i = 0; i < args.size(); ++i) {
                 final var index = i;
                 tasks.add(() -> {
                             mapValues.set(index, f.apply(args.get(index)));
-                            synchronized (cnt) {
-                                if (cnt.decIsZero()) {
-                                    cnt.notify();
+                            synchronized (counter) {
+                                if (counter.dec()) {
+                                    counter.notify();
                                 }
                             }
                         }
@@ -96,9 +92,9 @@ public class ParallelMapperImpl implements ParallelMapper {
                 tasks.notify();
             }
         }
-        synchronized (cnt) {
-            while (!cnt.isZero()) {
-                cnt.wait();
+        synchronized (counter) {
+            while (!counter.isZero()) {
+                counter.wait();
             }
         }
         return mapValues;
