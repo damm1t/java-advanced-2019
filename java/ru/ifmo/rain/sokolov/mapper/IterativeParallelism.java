@@ -1,7 +1,7 @@
-
-package ru.ifmo.rain.sokolov.concurrent;
+package ru.ifmo.rain.sokolov.mapper;
 
 import info.kgeorgiy.java.advanced.concurrent.ListIP;
+import info.kgeorgiy.java.advanced.mapper.ParallelMapper;
 
 import java.util.*;
 import java.util.function.Function;
@@ -10,6 +10,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class IterativeParallelism implements ListIP {
+
+    private ParallelMapper mapper;
+
+    public IterativeParallelism(ParallelMapper mapper) {
+        this.mapper = mapper;
+    }
+
+    public IterativeParallelism() {
+        this(null);
+    }
 
     private <T> List<T> merge(Stream<? extends Stream<? extends T>> list) {
         return list.flatMap(Function.identity()).collect(Collectors.toList());
@@ -29,11 +39,15 @@ public class IterativeParallelism implements ListIP {
         return partitionList;
     }
 
-    private <T, M> Stream<M> mapStream(List<Stream<? extends T>> valuesStream,
-                                       Function<Stream<? extends T>, M> mapper) throws InterruptedException {
-        var intermediateValues = new ArrayList<M>(Collections.nCopies(valuesStream.size(), null));
+    private <T, R> Stream<R> mapStream(List<Stream<? extends T>> valuesStream,
+                                       Function<Stream<? extends T>, R> mapper) throws InterruptedException {
+        var intermediateValues = new ArrayList<R>(Collections.nCopies(valuesStream.size(), null));
         var worker = new ArrayList<Thread>();
-        for (int i = 0; i < valuesStream.size(); i++) {
+        ParallelMapperImpl.startThreads(valuesStream.size(), worker,
+                index -> () -> intermediateValues.set(index, mapper.apply(valuesStream.get(index))));
+        ParallelMapperImpl.endThreads(worker);
+
+        /*for (int i = 0; i < valuesStream.size(); i++) {
             final int index = i;
             var thread = new Thread(() -> intermediateValues.set(index, mapper.apply(valuesStream.get(index))));
             worker.add(thread);
@@ -50,13 +64,17 @@ public class IterativeParallelism implements ListIP {
         }
         if (exeption != null)
             throw exeption;
+        }*/
+
         return intermediateValues.stream();
     }
 
     private <T, M, R> R parallelRun(int threads, List<? extends T> values,
-                                    Function<Stream<? extends T>, M> mapper,
+                                    Function<Stream<? extends T>, M> mapFunction,
                                     Function<? super Stream<M>, R> reducer) throws InterruptedException {
-        return reducer.apply(mapStream(partition(threads, values), mapper));
+        return reducer.apply(mapper != null
+                ? mapper.map(mapFunction, partition(threads, values)).stream()
+                : mapStream(partition(threads, values), mapFunction)); //mapStream(partition(threads, values), mapFunction));
     }
 
     //ListIP

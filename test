@@ -16,3 +16,5 @@ java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m 
 
 
 java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m info.kgeorgiy.java.advanced.concurrent list ru.ifmo.rain.sokolov.concurrent.IterativeParallelism
+
+java -p ../artifacts:../lib: -classpath ../out/production/java-advanced-2019 -m info.kgeorgiy.java.advanced.mapper list ru.ifmo.rain.sokolov.concurrent.ParallelMapperImpl,ru.ifmo.rain.sokolov.concurrent.IterativeParallelism
