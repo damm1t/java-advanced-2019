@@ -10,9 +10,9 @@ public class ParallelMapperImpl implements ParallelMapper {
     private List<Thread> workers = new ArrayList<>();
     private final Queue<Runnable> tasks = new ArrayDeque<>();
 
-    static void startThreads(int size, List<Thread> threads, Function<Integer, Runnable> taskGen) {
-        for (int i = 0; i < size; ++i) {
-            var thread = new Thread(taskGen.apply(i));
+    static void startThreads(int threadCount, List<Thread> threads, Function<Integer, Runnable> taskGen) {
+        for (int i = 0; i < threadCount; i++) {
+            Thread thread = new Thread(taskGen.apply(i));
             threads.add(thread);
             thread.start();
         }
@@ -30,6 +30,27 @@ public class ParallelMapperImpl implements ParallelMapper {
         }
         if (exeption != null)
             throw exeption;
+    }
+
+    public static class ReversedCounter {
+        private int value;
+
+        ReversedCounter(int value) {
+            this.value = value;
+        }
+
+        void dec() {
+            value--;
+        }
+
+        boolean isZero() {
+            return value == 0;
+        }
+
+        boolean decIsZero() {
+            dec();
+            return isZero();
+        }
     }
 
     public ParallelMapperImpl(int threads) {
@@ -50,28 +71,6 @@ public class ParallelMapperImpl implements ParallelMapper {
         });
     }
 
-    public static class ReverseCounter {
-        private int value;
-
-        ReverseCounter(int value) {
-            this.value = value;
-        }
-
-        void dec() {
-            value--;
-        }
-
-        boolean isZero() {
-            return value == 0;
-        }
-
-        boolean decIsZero() {
-            dec();
-            return isZero();
-        }
-    }
-
-
     /**
      * Maps function {@code f} over specified {@code args}.
      * Mapping for each element performs in parallel.
@@ -79,18 +78,17 @@ public class ParallelMapperImpl implements ParallelMapper {
      * @throws InterruptedException if calling thread was interrupted
      */
     @Override
-    public <T, R> List<R> map(Function<? super T, ? extends R> function, List<? extends T> args) throws InterruptedException {
+    public <T, R> List<R> map(Function<? super T, ? extends R> f, List<? extends T> args) throws InterruptedException {
         final List<R> mapValues = new ArrayList<>(Collections.nCopies(args.size(), null));
-        final var counter = new ReverseCounter(args.size());
+        final var cnt = new ReversedCounter(args.size());
         synchronized (tasks) {
             for (int i = 0; i < args.size(); ++i) {
                 final int index = i;
                 tasks.add(() -> {
-                            mapValues.set(index, function.apply(args.get(index)));
-                            if (counter.decIsZero()) {
-                                synchronized (counter) {
-                                    if (counter.decIsZero())
-                                        counter.notify();
+                            mapValues.set(index, f.apply(args.get(index)));
+                            synchronized (cnt) {
+                                if (cnt.decIsZero()) {
+                                    cnt.notify();
                                 }
                             }
                         }
@@ -98,9 +96,9 @@ public class ParallelMapperImpl implements ParallelMapper {
                 tasks.notify();
             }
         }
-        synchronized (counter) {
-            while (!counter.isZero()) {
-                counter.wait();
+        synchronized (cnt) {
+            while (!cnt.isZero()) {
+                cnt.wait();
             }
         }
         return mapValues;
