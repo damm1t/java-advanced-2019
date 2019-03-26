@@ -45,7 +45,7 @@ public class IterativeParallelism implements ListIP {
         var worker = new ArrayList<Thread>();
         ParallelMapperImpl.startThreads(valuesStream.size(), worker,
                 index -> () -> intermediateValues.set(index, mapper.apply(valuesStream.get(index))));
-        ParallelMapperImpl.endThreads(worker);
+        ParallelMapperImpl.stopThreads(worker);
         return intermediateValues;
     }
 

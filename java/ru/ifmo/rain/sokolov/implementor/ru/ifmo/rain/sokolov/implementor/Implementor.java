@@ -1,4 +1,4 @@
-package ru.ifmo.rain.sokolov.implementor;
+package ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor;
 
 import info.kgeorgiy.java.advanced.implementor.Impler;
 import info.kgeorgiy.java.advanced.implementor.ImplerException;
@@ -524,7 +524,7 @@ public class Implementor implements Impler, JarImpler {
     private static void clearDirs(Path root) throws IOException {
         Files.walkFileTree(
                 root,
-                new SimpleFileVisitor<Path>() {
+                new SimpleFileVisitor<>() {
                     private FileVisitResult erase(Path file) throws IOException {
                         Files.delete(file);
                         return FileVisitResult.CONTINUE;
@@ -578,7 +578,7 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Provides comand line interface for <tt>ru.ifmo.rain.sokolov.implementor.Implementor</tt> class.
+     * Provides comand line interface for <tt>ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.Implementor</tt> class.
      * Available methods: {@link Implementor#implement(Class, Path)} and {@link Implementor#implementJar(Class, Path)}
      * <p>
      *

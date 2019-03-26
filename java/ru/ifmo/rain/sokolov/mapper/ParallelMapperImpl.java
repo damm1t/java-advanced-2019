@@ -21,7 +21,7 @@ public class ParallelMapperImpl implements ParallelMapper {
             return value == 0;
         }
 
-        boolean dec() {
+        boolean decAndZeroCheck() {
             value--;
             return isZero();
         }
@@ -35,7 +35,7 @@ public class ParallelMapperImpl implements ParallelMapper {
         }
     }
 
-    static void endThreads(List<Thread> threads) throws InterruptedException {
+    static void stopThreads(List<Thread> threads) throws InterruptedException {
         InterruptedException exeption = null;
         for (var thread : threads) {
             try {
@@ -83,7 +83,7 @@ public class ParallelMapperImpl implements ParallelMapper {
                 tasks.add(() -> {
                             mapValues.set(index, f.apply(args.get(index)));
                             synchronized (counter) {
-                                if (counter.dec()) {
+                                if (counter.decAndZeroCheck()) {
                                     counter.notify();
                                 }
                             }
@@ -107,7 +107,7 @@ public class ParallelMapperImpl implements ParallelMapper {
     public void close() {
         workers.forEach(Thread::interrupt);
         try {
-            endThreads(workers);
+            stopThreads(workers);
         } catch (InterruptedException ignored) {
         }
     }
