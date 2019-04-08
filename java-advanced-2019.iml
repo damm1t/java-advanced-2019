@@ -4,7 +4,8 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/java" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/java/ru.ifmo.rain.sokolov.implementor" />
+      <sourceFolder url="file://$MODULE_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor" isTestSource="false" />
+      <excludePattern pattern="module-info.java" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

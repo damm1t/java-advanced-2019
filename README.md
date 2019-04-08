@@ -46,7 +46,7 @@
 ## Домашнее задание 5. JarImplementor
 
 Класс должен реализовывать интерфейс
-[JarImpler](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/JarImpler.java).
+[JarImpler](my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/JarImpler.java).
 
 Тестирование
 
@@ -57,14 +57,14 @@
 
 Исходный код тестов:
 
-* [простой вариант](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/InterfaceJarImplementorTest.java)
-* [сложный вариант](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/ClassJarImplementorTest.java)
+* [простой вариант](my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/InterfaceJarImplementorTest.java)
+* [сложный вариант](my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/ClassJarImplementorTest.java)
 
 
 ## Домашнее задание 4. Implementor
 
 Класс должен реализовывать интерфейс
-[Impler](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/Impler.java).
+[Impler](my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/Impler.java).
 
 Тестирование
 
@@ -75,8 +75,8 @@
 
 Исходный код тестов:
 
-* [простой вариант](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/InterfaceImplementorTest.java)
-* [сложный вариант](modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/ClassImplementorTest.java)
+* [простой вариант](my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/InterfaceImplementorTest.java)
+* [сложный вариант](my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/ClassImplementorTest.java)
 
 
 ## Домашнее задание 3. Студенты
