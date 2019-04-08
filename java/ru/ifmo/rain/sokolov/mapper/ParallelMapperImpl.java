@@ -9,6 +9,7 @@ public class ParallelMapperImpl implements ParallelMapper {
 
     private List<Thread> workers = new ArrayList<>();
     private final Queue<Runnable> tasks = new ArrayDeque<>();
+    private final static int MAX_SIZE = 1_000_000;
 
     public static class ReverseCounter {
         private int value;
@@ -17,18 +18,18 @@ public class ParallelMapperImpl implements ParallelMapper {
             this.value = value;
         }
 
-        boolean isZero() {
+        synchronized boolean isZero() {
             return value == 0;
         }
 
-        boolean decAndZeroCheck() {
+        synchronized boolean decAndZeroCheck() {
             value--;
             return isZero();
         }
     }
 
     static void startThreads(int size, List<Thread> threads, Function<Integer, Runnable> runnableFunction) {
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < size; i++) {
             var thread = new Thread(runnableFunction.apply(i));
             threads.add(thread);
             thread.start();
@@ -41,12 +42,16 @@ public class ParallelMapperImpl implements ParallelMapper {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                if (exeption == null) exeption = new InterruptedException("Interrupted while joining");
-                else exeption.addSuppressed(e);
+                if (exeption == null) {
+                    exeption = new InterruptedException("Interrupted while joining");
+                } else {
+                    exeption.addSuppressed(e);
+                }
             }
         }
-        if (exeption != null)
+        if (exeption != null) {
             throw exeption;
+        }
     }
 
     public ParallelMapperImpl(int threads) {
@@ -67,6 +72,16 @@ public class ParallelMapperImpl implements ParallelMapper {
         });
     }
 
+    private void addTask(final Runnable task) throws InterruptedException {
+        synchronized (tasks) {
+            while (tasks.size() == MAX_SIZE) {
+                tasks.wait();
+            }
+            tasks.add(task);
+            tasks.notifyAll();
+        }
+    }
+
     /**
      * Maps function {@code f} over specified {@code args}.
      * Mapping for each element performs in parallel.
@@ -80,23 +95,16 @@ public class ParallelMapperImpl implements ParallelMapper {
         synchronized (tasks) {
             for (int i = 0; i < args.size(); ++i) {
                 final var index = i;
-                tasks.add(() -> {
-                            mapValues.set(index, f.apply(args.get(index)));
-                            synchronized (counter) {
-                                if (counter.decAndZeroCheck()) {
-                                    counter.notify();
-                                }
-                            }
-                        }
-                );
+                addTask(() -> mapValues.set(index, f.apply(args.get(index))));
+                if (counter.decAndZeroCheck()) {
+                    counter.notify();
+                }
                 tasks.notify();
             }
         }
-        synchronized (counter) {
             while (!counter.isZero()) {
                 counter.wait();
             }
-        }
         return mapValues;
     }
 

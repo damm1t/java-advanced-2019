@@ -52,9 +52,10 @@ public class IterativeParallelism implements ListIP {
     private <T, M, R> R parallelRun(int threads, List<? extends T> values,
                                     Function<Stream<? extends T>, M> mapFunction,
                                     Function<? super Stream<M>, R> reducer) throws InterruptedException {
+        List<Stream<? extends T>> partitions = partition(threads, values);
         return reducer.apply((mapper != null ?
-                mapper.map(mapFunction, partition(threads, values))
-                : map(partition(threads, values), mapFunction)).stream());
+                mapper.map(mapFunction, partitions)
+                : map(partitions, mapFunction)).stream());
     }
 
     //ListIP

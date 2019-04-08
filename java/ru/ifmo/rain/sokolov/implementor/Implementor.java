@@ -1,4 +1,4 @@
-package ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor;
+package ru.ifmo.rain.sokolov.implementor;
 
 import info.kgeorgiy.java.advanced.implementor.Impler;
 import info.kgeorgiy.java.advanced.implementor.ImplerException;
@@ -81,7 +81,7 @@ public class Implementor implements Impler, JarImpler {
          * @throws IOException if <tt>output</tt> throws it
          */
         UnicodePrinter append(String text) throws IOException {
-            output.append(unicodify(text));
+            output.append(unicode(text));
             return this;
         }
 
@@ -91,7 +91,7 @@ public class Implementor implements Impler, JarImpler {
          * @param text String to be converted
          * @return Unicode-escaped representation of given <tt>text</tt>
          */
-        private String unicodify(String text) {
+        private String unicode(String text) {
             StringBuilder builder = new StringBuilder();
             for (char c : text.toCharArray()) {
                 builder.append(c >= 127
@@ -179,7 +179,7 @@ public class Implementor implements Impler, JarImpler {
     /**
      * Generates default implementation source code of the given <tt>method</tt> assuming that it is a method or a constructor
      * of a class with name = <tt>newClassName</tt>.
-     * Implementation is generated to be correct implementation of the given method and formated using Oracle's java code style
+     * Implementation is generated to be correct implementation of the given method and formatted using Oracle's java code style
      *
      * @param method       method or constructor to generate implementation of
      * @param newClassName name of class containing the given <tt>method</tt>
@@ -215,7 +215,7 @@ public class Implementor implements Impler, JarImpler {
         var body = method instanceof Method ? "return" + returnTypeVal + ";"
                 : "super(" + getArguments(method, false) + ");";
 
-        return modifiers + "   " + returnTypeName + "(" + arguments + ") " + exception
+        return modifiers +  "   " + returnTypeName + "(" + arguments + ") " + exception
                 + "{" + EOLN
                 + "        " + body + EOLN
                 + "   }" + EOLN;
@@ -430,28 +430,71 @@ public class Implementor implements Impler, JarImpler {
         }
     }
 
+    public static Path getFile(final Path root, final Class<?> clazz) {
+        final String path = clazz.getCanonicalName().replace(".", "/") + "Impl.java";
+        return root.resolve(path).toAbsolutePath();
+    }
+
+    public static void compileFiles(final Path root, final List<String> files) {
+        /*final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+        final List<String> args = new ArrayList<>();
+        args.addAll(files);
+        args.add("-cp");
+        args.add(root + File.pathSeparator + getClassPath());
+        final int exitCode = compiler.run(null, null, null, args.toArray(String[]::new));
+    */}
+
+    public static void compile(final Path root, final Class<?>... classes) {
+        final List<String> files = new ArrayList<>();
+        for (final Class<?> token : classes) {
+            files.add(getFile(root, token).toString());
+        }
+        compileFiles(root, files);
+    }
+
     /**
      * Compiles given <tt>file</tt> and produces .class file to given <tt>root</tt> path
      *
-     * @param root path to output
-     * @param file file name to be compiled
+     * @param token type token to create implementation for
+     * @param root  path to output
      * @throws ImplerException if either failed to find system {@link JavaCompiler} or compiler returned non-null exit code
      */
-    private void compileFiles(Path root, String file) throws ImplerException {
+    private void compileFiles(Class<?> token, Path root) throws ImplerException, IOException {
         final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         if (compiler == null) {
             throw new ImplerException("Compiler not found");
         }
-        final List<String> args = new ArrayList<>();
+
+        Path originPath;
+        try {
+            String uri = token.getProtectionDomain().getCodeSource().getLocation().getPath();
+            originPath = Path.of(uri);
+        } catch (InvalidPathException e) {
+            throw new ImplerException(String.format("Can not find valid class path: %s", e));
+        }
+        String[] cmdArgs = new String[]{
+                "-cp",
+                root.toString() + File.pathSeparator + originPath.toString(),
+                Path.of(root.toString(), packageNameFor(token), implNameFor(token) + ".java").toString()
+        };
+
+        var fout = Files.newBufferedWriter(Paths.get("/home/damm1t/IdeaProjects/java-advanced-2019/java/output.txt"));
+        fout.write(String.join(" ", cmdArgs));
+        fout.close();
+        if (compiler.run(null, null, null, cmdArgs) != 0) {
+            throw new ImplerException("Can not compile generated code");
+        }
+
+        /*final List<String> args = new ArrayList<>();
         args.add("-cp");
-        args.add(root + File.pathSeparator + System.getProperty("java.class.path"));
+        args.add(path + File.pathSeparator + System.getProperty("java.class.path"));
         args.add("-encoding");
         args.add("UTF-8");
         args.add(file);
         int exitCode = compiler.run(null, null, null, args.toArray(new String[args.size()]));
         if (exitCode != 0) {
             throw new ImplerException("Compilation ended with non-zero code " + exitCode);
-        }
+        }*/
     }
 
     /**
@@ -564,12 +607,15 @@ public class Implementor implements Impler, JarImpler {
      */
     @Override
     public void implementJar(Class<?> token, Path jarFile) throws ImplerException {
+        if (token == null || jarFile == null) {
+            throw new ImplerException("Invalid argument given");
+        }
         try {
             Path root = Files.createTempDirectory(jarFile.toAbsolutePath().getParent(), "temp_production");
             implement(token, root);
             Path javaFilePath = getOutputClassPath(packageNameFor(token), implNameFor(token), root);
             Path classFilePath = getOutputJarPath(packageNameFor(token), implNameFor(token), root);
-            compileFiles(root, javaFilePath.toString());
+            compileFiles(token, root);
             jarWrite(jarFile, classFilePath, root.toString());
             clearDirs(root);
         } catch (IOException e) {
@@ -578,7 +624,7 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Provides comand line interface for <tt>ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.Implementor</tt> class.
+     * Provides comand line interface for <tt>ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor.Implementor</tt> class.
      * Available methods: {@link Implementor#implement(Class, Path)} and {@link Implementor#implementJar(Class, Path)}
      * <p>
      *
