@@ -13,8 +13,10 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.CodeSource;
 import java.util.*;
 import java.util.function.Function;
@@ -178,35 +180,6 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Clears all subdirectories in ierarchy starting in given <tt>root</tt> folder
-     *
-     * @param root folder to start cleaning from
-     * @throws IOException if {@link Files#walkFileTree(Path, FileVisitor)} fails
-     */
-    private static void clearDirs(Path root) throws IOException {
-        Files.walkFileTree(
-                root,
-                new SimpleFileVisitor<>() {
-                    private FileVisitResult erase(Path file) throws IOException {
-                        Files.delete(file);
-                        return FileVisitResult.CONTINUE;
-                    }
-
-                    @Override
-                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                        return erase(file);
-                    }
-
-                    @Override
-                    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                        return erase(dir);
-
-                    }
-                }
-        );
-    }
-
-    /**
      * Provides comand line interface for <tt>ru.ifmo.rain.sokolov.implementor.Implementor</tt> class.
      * Available methods: {@link Implementor#implement(Class, Path)} and {@link Implementor#implementJar(Class, Path)}
      * <p>
@@ -290,6 +263,25 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
+     * Converts given string to unicode escaping
+     *
+     * @param text {@link String} to convert
+     * @return converted string
+     */
+    private static String toUnicode(String text) {
+        StringBuilder out = new StringBuilder();
+        for (char c : text.toCharArray()) {
+            if (c >= 128) {
+                out.append(String.format("\\u%04X", (int) c));
+            } else {
+                out.append(c);
+            }
+        }
+        return out.toString();
+    }
+
+
+    /**
      * Generates correct implementation source code of given <tt>token</tt> and produces coresponding .java file to given <tt>root</tt>
      * Produced implementation consists of single class with name <tt>token</tt>'s name + "Impl" suffix.
      * Impl-class has all default single-statement implementations of all required methods and constructors to be implemented.
@@ -337,7 +329,7 @@ public class Implementor implements Impler, JarImpler {
             resultBuffer
                     .append("class" + SPACE)
                     .append(className).append(SPACE).append(token.isInterface() ? "implements" : "extends").append(SPACE)
-                    .append(token.getSimpleName())
+                    .append(token.getCanonicalName())
                     .append(SPACE + "{")
                     .append(EOLN);
             implementMethodSignatures(token).forEach(method -> resultBuffer.append(method.toString()));
@@ -349,13 +341,23 @@ public class Implementor implements Impler, JarImpler {
             resultBuffer.append("}").append(EOLN);
             var result = resultBuffer.toString();
             try {
-                writer.write(result);
+                writer.write(toUnicode(result));
             } catch (IOException | SecurityException e) {
                 throw new ImplerException("Failed to write to output file", e);
             }
         } catch (IOException | SecurityException e) {
             throw new ImplerException("Failed to create output file", e);
         }
+    }
+
+    /**
+     * Returns package location relative path.
+     *
+     * @param token type token to create implementation for
+     * @return a {@link String} representation of package relative path
+     */
+    private String getFilePath(Class<?> token) {
+        return token.getPackageName().replace('.', File.separatorChar);
     }
 
     /**
@@ -366,9 +368,9 @@ public class Implementor implements Impler, JarImpler {
      * @throws ImplerException if either failed to find system {@link JavaCompiler} or compiler returned non-null exit code
      */
     private void compileFiles(Class<?> token, Path root) throws ImplerException {
-        final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         if (compiler == null) {
-            throw new ImplerException("Compiler not found");
+            throw new ImplerException("Can not find java compiler");
         }
 
         Path originPath;
@@ -384,8 +386,9 @@ public class Implementor implements Impler, JarImpler {
         }
         String[] cmdArgs = new String[]{
                 "-cp",
-                root.toString() + File.pathSeparator + originPath.toString(),
-                Path.of(root.toString(), packageNameFor(token), implNameFor(token) + ".java").toString()
+                root.toString() + File.pathSeparator + System.getProperty("java.class.path")
+                        + File.pathSeparator + originPath.toString(),
+                Path.of(root.toString(), getFilePath(token), implNameFor(token) + ".java").toString()
         };
         int exitCode = compiler.run(null, null, null, cmdArgs);
         if (exitCode != 0) {
@@ -394,21 +397,22 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Produces jar file from given .class file
+     * Builds a <code>.jar</code> file containing compiled by {@link #compileFiles(Class, Path)}
+     * sources of implemented class using basic {@link Manifest}.
      *
-     * @param jarFile output jar file path
-     * @param file    input .class file path
-     * @param root    root directory
-     * @throws ImplerException if fails to write in jar file
+     * @param jarFile       path where resulting <code>.jar</code> should be saved
+     * @param tempDirectory temporary directory where all <code>.class</code> files are stored
+     * @param token         type token that was implemented
+     * @throws ImplerException if {@link JarOutputStream} processing throws an {@link IOException}
      */
-    private void jarWrite(Path jarFile, Path file, String root) throws ImplerException {
+    private void buildJar(Path jarFile, Path tempDirectory, Class<?> token) throws ImplerException {
         Manifest manifest = new Manifest();
         manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
-        String fileName = file.toString();
-        String rootlessFileName = fileName.substring(root.length() + 1);
-        try (JarOutputStream out = new JarOutputStream(Files.newOutputStream(jarFile), manifest)) {
-            out.putNextEntry(new ZipEntry(rootlessFileName));
-            Files.copy(file, out);
+
+        try (JarOutputStream stream = new JarOutputStream(Files.newOutputStream(jarFile), manifest)) {
+            String pathSuffix = token.getName().replace('.', '/') + "Impl.class";
+            stream.putNextEntry(new ZipEntry(pathSuffix));
+            Files.copy(Paths.get(tempDirectory.toString(), pathSuffix), stream);
         } catch (IOException e) {
             throw new ImplerException(e.getMessage());
         }
@@ -480,25 +484,15 @@ public class Implementor implements Impler, JarImpler {
             throw new ImplerException("Invalid argument given");
         }
         ImplementorFileUtils.createDirectoriesTo(jarFile.normalize());
-        Path dir = jarFile.toAbsolutePath().getParent();
-        Path root;
+        ImplementorFileUtils utils = new ImplementorFileUtils(jarFile.toAbsolutePath().getParent());
         try {
-            root = Files.createTempDirectory(dir, "temp_production");
-        } catch (IOException e) {
-            throw new ImplerException("failed to create directory %s " + dir.toString());
-        }
-        try {
+            Path root = utils.getTempDirectory();
+
             implement(token, root);
-            Path javaFilePath = getOutputClassPath(packageNameFor(token), implNameFor(token), root);
-            Path classFilePath = getOutputJarPath(packageNameFor(token), implNameFor(token), root);
-            compileFiles(token, javaFilePath);
-            jarWrite(jarFile, classFilePath, root.toString());
+            compileFiles(token, root);
+            buildJar(jarFile, root, token);
         } finally {
-            try {
-                clearDirs(root);
-            } catch (IOException e) {
-                throw new ImplerException("failed to remove temporary files in directory " + root.toString());
-            }
+            utils.cleanTempDirectory();
         }
     }
 
@@ -585,5 +579,4 @@ public class Implementor implements Impler, JarImpler {
         }
 
     }
-
 }

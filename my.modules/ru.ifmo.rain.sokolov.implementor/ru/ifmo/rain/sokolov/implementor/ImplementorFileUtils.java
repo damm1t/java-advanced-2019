@@ -74,7 +74,7 @@ public class ImplementorFileUtils {
         try {
             Files.walkFileTree(tempDirectory, new FileDeleter());
         } catch (IOException e) {
-            throw new ImplerException("Can not delete temporary directory");
+            throw new ImplerException("failed to remove temporary files in directory");
         }
     }
 
