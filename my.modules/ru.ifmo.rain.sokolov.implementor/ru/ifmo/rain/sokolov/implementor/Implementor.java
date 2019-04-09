@@ -7,7 +7,6 @@ import info.kgeorgiy.java.advanced.implementor.JarImpler;
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 import java.io.BufferedWriter;
-import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -176,29 +175,6 @@ public class Implementor implements Impler, JarImpler {
      */
     private static String implNameFor(Class<?> token) {
         return token.getSimpleName() + "Impl";
-    }
-
-    public static Path getFile(final Path root, final Class<?> clazz) {
-        final String path = clazz.getCanonicalName().replace(".", "/") + "Impl.java";
-        return root.resolve(path).toAbsolutePath();
-    }
-
-    public static void compileFiles(final Path root, final List<String> files) {
-        /*final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-        final List<String> args = new ArrayList<>();
-        args.addAll(files);
-        args.add("-cp");
-        args.add(root + File.pathSeparator + getClassPath());
-        final int exitCode = compiler.run(null, null, null, args.toArray(String[]::new));
-    */
-    }
-
-    public static void compile(final Path root, final Class<?>... classes) {
-        final List<String> files = new ArrayList<>();
-        for (final Class<?> token : classes) {
-            files.add(getFile(root, token).toString());
-        }
-        compileFiles(root, files);
     }
 
     /**
@@ -415,13 +391,6 @@ public class Implementor implements Impler, JarImpler {
         if (exitCode != 0) {
             throw new ImplerException("Compilation ended with non-zero code " + exitCode);
         }
-        /*final List<String> args = new ArrayList<>();
-        args.add("-cp");
-        args.add(path + File.pathSeparator + System.getProperty("java.class.path"));
-        args.add("-encoding");
-        args.add("UTF-8");
-        args.add(file);
-        */
     }
 
     /**
@@ -516,7 +485,7 @@ public class Implementor implements Impler, JarImpler {
         try {
             root = Files.createTempDirectory(dir, "temp_production");
         } catch (IOException e) {
-            throw new ImplerException(String.format("failed to create directory %s jar file", dir.toString()));
+            throw new ImplerException("failed to create directory %s " + dir.toString());
         }
         try {
             implement(token, root);
@@ -528,72 +497,8 @@ public class Implementor implements Impler, JarImpler {
             try {
                 clearDirs(root);
             } catch (IOException e) {
-                throw new ImplerException("failed to remove temporary files in directory" + root.toString());
+                throw new ImplerException("failed to remove temporary files in directory " + root.toString());
             }
-        }
-    }
-
-    /**
-     * Helper class to output every given string in Unicode encoding
-     * <p>
-     * Wraps {@link BufferedWriter}
-     * <p>
-     * implements {@link Closeable}
-     */
-    static class UnicodePrinter implements Closeable {
-        /**
-         * Wrapped <tt>BufferedWriter</tt>
-         */
-        private BufferedWriter output;
-
-        /**
-         * Creates new instance of {@link UnicodePrinter} wrapping given {@link BufferedWriter}
-         *
-         * @param output BufferedWriter to be wrapped
-         */
-        UnicodePrinter(BufferedWriter output) {
-            this.output = output;
-        }
-
-        /**
-         * Appends given <tt>text</tt> to <tt>output</tt>
-         *
-         * @param text text to be appended to wrapped <tt>output</tt>
-         * @return reference to <tt>this</tt> object
-         * @throws IOException if <tt>output</tt> throws it
-         */
-        UnicodePrinter append(String text) throws IOException {
-            output.append(unicode(text));
-            return this;
-        }
-
-        /**
-         * Converts given <tt>text</tt> to Unicode
-         *
-         * @param text String to be converted
-         * @return Unicode-escaped representation of given <tt>text</tt>
-         */
-        private String unicode(String text) {
-            StringBuilder builder = new StringBuilder();
-            for (char c : text.toCharArray()) {
-                builder.append(c >= 127
-                        ? String.format("\\u%04X", (int) c)
-                        : c
-                );
-            }
-            return builder.toString();
-        }
-
-        /**
-         * Override of {@link Closeable#close()} method
-         * <p>
-         * This method delegates to <tt>output</tt>'s <tt>close</tt> method
-         *
-         * @throws IOException if wrapped <tt>output</tt> throws it
-         */
-        @Override
-        public void close() throws IOException {
-            output.close();
         }
     }
 
