@@ -18,13 +18,13 @@ public class ImplementorFileUtils {
      * Temporary directory {@link Path} object where all temporary files created by the {@link Implementor}
      * will be stored
      */
-    private Path tempDirectory;
+    private Path tempDir;
 
     /**
      * Constructor from {@link Path} object. Creates a new instance of {@link ImplementorFileUtils} with
-     * {@link #tempDirectory} created in given location
+     * {@link #tempDir} created in given location
      *
-     * @param root {@link Path} to location where to create {@link #tempDirectory}
+     * @param root {@link Path} to location where to create {@link #tempDir}
      * @throws ImplerException if an error occurs while creating temporary directory in given {@code root}
      */
     ImplementorFileUtils(Path root) throws ImplerException {
@@ -32,7 +32,7 @@ public class ImplementorFileUtils {
             throw new ImplerException("Invalid directory provided");
         }
         try {
-            tempDirectory = Files.createTempDirectory(root.toAbsolutePath(), "tempdir");
+            tempDir = Files.createTempDirectory(root.toAbsolutePath(), "tempdir");
         } catch (IOException e) {
             throw new ImplerException(String.format("Unable to create temporary directory: %s", e.getMessage()));
         }
@@ -56,23 +56,23 @@ public class ImplementorFileUtils {
     }
 
     /**
-     * Getter for {@link #tempDirectory}
+     * Getter for {@link #tempDir}
      *
      * @return temporary directory {@link Path} stored in this instance of {@link ImplementorFileUtils}
      */
-    public Path getTempDirectory() {
-        return tempDirectory;
+    public Path getTempDir() {
+        return tempDir;
     }
 
     /**
-     * Recursively deletes {@link #tempDirectory} using {@link FileDeleter}
+     * Recursively deletes {@link #tempDir} using {@link FileDeleter}
      *
      * @throws ImplerException if an error occurs during temporary directory deletion
      * @see Files#walkFileTree(Path, FileVisitor)
      */
     public void cleanTempDirectory() throws ImplerException {
         try {
-            Files.walkFileTree(tempDirectory, new FileDeleter());
+            Files.walkFileTree(tempDir, new FileDeleter());
         } catch (IOException e) {
             throw new ImplerException("failed to remove temporary files in directory");
         }
@@ -84,14 +84,7 @@ public class ImplementorFileUtils {
      */
     private static class FileDeleter extends SimpleFileVisitor<Path> {
         /**
-         * Default constructor. Created new instance of {@link FileDeleter} class using {@code super()} call
-         */
-        FileDeleter() {
-            super();
-        }
-
-        /**
-         * File visitor. Visits file and deletes it from file system
+         * File visitor, which visits file and deletes it from file system
          *
          * @param file  {@link Path} to file to be deleted
          * @param attrs {@link BasicFileAttributes} file attributes of given {@code file}
@@ -105,7 +98,7 @@ public class ImplementorFileUtils {
         }
 
         /**
-         * Directory visitor. Visits directory and deleted it from file system
+         * Directory visitor, which visits directory and deleted it from file system
          *
          * @param dir {@link Path} to directory to be deleted
          * @param exc {@link IOException} instance if any error occurs during directory visiting

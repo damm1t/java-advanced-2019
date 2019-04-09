@@ -4,7 +4,7 @@ mod_name=ru.ifmo.rain.sokolov.implementor
 mod_path=ru/ifmo/rain/sokolov/implementor
 
 wd=/home/damm1t/IdeaProjects/java-advanced-2019
-out=$wd/out/production/java-2019
+out=$wd/out/production/java-advanced-2019
 req=$wd/lib:$wd/artifacts
 
 src=$wd/my.modules/$mod_name

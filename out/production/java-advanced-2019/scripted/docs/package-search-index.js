@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"ru.ifmo.rain.sokolov.implementor","l":"ru.ifmo.rain.sokolov.implementor"}]

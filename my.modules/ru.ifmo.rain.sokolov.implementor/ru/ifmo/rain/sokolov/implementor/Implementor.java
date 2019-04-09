@@ -17,7 +17,6 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.CodeSource;
 import java.util.*;
 import java.util.function.Function;
 import java.util.jar.Attributes;
@@ -60,12 +59,12 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Creates a {@link String} consisting of given <tt>list</tt>'s elements with <tt>transform</tt> function applied
+     * Creates a {@link String} consisting of given <code>list</code>'s elements with <code>transform</code> function applied
      * joined by ", "
      *
      * @param list     list to be joined
-     * @param <T>      type of elements in <tt>list</tt>
-     * @param function function to be applied to all elements of the given <tt>list</tt>
+     * @param <T>      type of elements in <code>list</code>
+     * @param function function to be applied to all elements of the given <code>list</code>
      * @return joined sequence of transformed elements separated by ", "
      */
     private static <T> String joinToString(List<T> list, Function<T, String> function) {
@@ -79,10 +78,10 @@ public class Implementor implements Impler, JarImpler {
      * Generates a throw-statement for given method or constructor
      *
      * @param method executable that can be either {@link Method} or {@link Constructor}
-     * @return String containing text of throw-statement for the given <tt>method</tt> that consists of
+     * @return String containing text of throw-statement for the given <code>method</code> that consists of
      * <ul>
      * <li>throws keyword</li>
-     * <li> list of fully-qualified names of all the Exceptions that can be thrown by given <tt>method</tt> separated by ", " </li>
+     * <li> list of fully-qualified names of all the Exceptions that can be thrown by given <code>method</code> separated by ", " </li>
      * </ul>
      */
     private static String getException(Executable method) {
@@ -98,11 +97,11 @@ public class Implementor implements Impler, JarImpler {
      * </ul>
      *
      * @param method Executable that can be either {@link Method} or {@link Constructor} - method to generate arguments list of
-     * @param typed  indicates whether a mode should be typed or not
-     * @return String containing text of arguments list of the given <tt>method</tt> that consists of
+     * @param typed  indicates whether should be typed or not
+     * @return String containing text of arguments list of the given <code>method</code> that consists of
      * <ul>
-     * <li> list of <tt>method</tt>'s argument names separated by ", " for untyped mode </li>
-     * <li> list of <tt>method</tt>'s argument types fully-qualified names followed by <tt>method</tt>'s argument names separated by ", " for untyped mode  </li>
+     * <li> list of <code>method</code>'s argument names separated by ", " for untyped mode </li>
+     * <li> list of <code>method</code>'s argument types fully-qualified names followed by <code>method</code>'s argument names separated by ", " for untyped mode  </li>
      * </ul>
      */
     private static String getArguments(Executable method, boolean typed) {
@@ -115,18 +114,18 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Generates default implementation source code of the given <tt>method</tt> assuming that it is a method or a constructor
-     * of a class with name = <tt>newClassName</tt>.
+     * Generates default implementation source code of the given <code>method</code> assuming that it is a method or a constructor
+     * of a class with name = <code>newClassName</code>.
      * Implementation is generated to be correct implementation of the given method and formatted using Oracle's java code style
      *
      * @param method       method or constructor to generate implementation of
-     * @param newClassName name of class containing the given <tt>method</tt>
-     * @return <tt>method</tt>'s default implementation.
-     * If the given <tt>method</tt> is a method then the body of it consists of a single return-statement.
-     * Return value is the default value of <tt>method</tt>'s return type. If <tt>method</tt>'s return type is void
+     * @param newClassName name of class containing the given <code>method</code>
+     * @return <code>method</code>'s default implementation.
+     * If the given <code>method</code> is a method then the body of it consists of a single return-statement.
+     * Return value is the default value of <code>method</code>'s return type. If <code>method</code>'s return type is void
      * then return statement has no return value
-     * If the given <tt>method</tt> is a constructor then the body of it consists of a single super constructor invocation statement.
-     * Current <tt>method</tt>'s arguments are delegated to <tt>super</tt>
+     * If the given <code>method</code> is a constructor then the body of it consists of a single super constructor invocation statement.
+     * Current <code>method</code>'s arguments are delegated to <code>super</code>
      */
     private static String getMethodImpl(Executable method, String newClassName) {
         String returnTypeName;
@@ -170,17 +169,17 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Returns name of default implementer name of given class or interface <tt>token</tt>
+     * Returns name of default implementer name of given class or interface <code>token</code>
      *
      * @param token Class to get impl-name
-     * @return simple name of given <tt>tt</tt> token followed by "Impl" suffix
+     * @return simple name of given <code>tt</code> token followed by "Impl" suffix
      */
     private static String implNameFor(Class<?> token) {
         return token.getSimpleName() + "Impl";
     }
 
     /**
-     * Provides comand line interface for <tt>ru.ifmo.rain.sokolov.implementor.Implementor</tt> class.
+     * Provides command line interface for <code>ru.ifmo.rain.sokolov.implementor.Implementor</code> class.
      * Available methods: {@link Implementor#implement(Class, Path)} and {@link Implementor#implementJar(Class, Path)}
      * <p>
      *
@@ -190,8 +189,8 @@ public class Implementor implements Impler, JarImpler {
      *             <li> (2) "-jar", class name, output path </li>
      *             </ul>
      *             <p>
-     *             Whether if {@link Class} for given class name cannot be loaded or if given an incorrect <tt>args</tt> array
-     *             or if invoked method (<tt>implement</tt> or <tt>implementJar</tt>) fails
+     *             Whether if {@link Class} for given class name cannot be loaded or if given an incorrect <code>args</code> array
+     *             or if invoked method (<code>implement</code> or <code>implementJar</code>) fails
      *             then prints corresponding output messages
      *             <p>
      *             When given arguments(1) invokes {@link Implementor#implement(Class, Path)}
@@ -227,10 +226,10 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Adds signatures of given <tt>methods</tt> to specified <tt>distination</tt>
+     * Adds signatures of given <code>methods</code> to specified <code>destination</code>
      *
-     * @param methods      array of {@link Method} to be added to distination
-     * @param signatureSet {@link HashSet} of {@link MethodSignature} to add signatures of <tt>methods</tt>
+     * @param methods      array of {@link Method} to be added to destination
+     * @param signatureSet {@link HashSet} of {@link MethodSignature} to add signatures of <code>methods</code>
      */
     private void getAbstractMethods(Method[] methods, Set<MethodSignature> signatureSet) {
         Arrays
@@ -280,20 +279,19 @@ public class Implementor implements Impler, JarImpler {
         return out.toString();
     }
 
-
     /**
-     * Generates correct implementation source code of given <tt>token</tt> and produces coresponding .java file to given <tt>root</tt>
-     * Produced implementation consists of single class with name <tt>token</tt>'s name + "Impl" suffix.
+     * Generates correct implementation source code of given <code>token</code> and produces coresponding .java file to given <code>root</code>
+     * Produced implementation consists of single class with name <code>token</code>'s name + "Impl" suffix.
      * Impl-class has all default single-statement implementations of all required methods and constructors to be implemented.
      *
      * @param token {@link Class} to be implemented
      * @param root  path to directory for output
      * @throws ImplerException in the following situations:
      *                         <ul>
-     *                         <li> <tt>token</tt> is <tt>null</tt> or <tt>root</tt> is <tt>null</tt> </li>
-     *                         <li> <tt>token</tt> represents either a primitive type, final class, enum or array
-     *                         (i.e. <tt>token</tt>) cannot be implemented </li>
-     *                         <li> <tt>root</tt> is incorrect path </li>
+     *                         <li> <code>token</code> is <code>null</code> or <code>root</code> is <code>null</code> </li>
+     *                         <li> <code>token</code> represents either a primitive type, final class, enum or array
+     *                         (i.e. <code>token</code>) cannot be implemented </li>
+     *                         <li> <code>root</code> is incorrect path </li>
      *                         <li> Error occurs while either creating of output file (with corresponding directories)
      *                         or writing anything to output file </li>
      *                         </ul>
@@ -339,9 +337,9 @@ public class Implementor implements Impler, JarImpler {
             }
 
             resultBuffer.append("}").append(EOLN);
-            var result = resultBuffer.toString();
+            var result = toUnicode(resultBuffer.toString());
             try {
-                writer.write(toUnicode(result));
+                writer.write(result);
             } catch (IOException | SecurityException e) {
                 throw new ImplerException("Failed to write to output file", e);
             }
@@ -361,7 +359,7 @@ public class Implementor implements Impler, JarImpler {
     }
 
     /**
-     * Compiles given <tt>file</tt> and produces .class file to given <tt>root</tt> path
+     * Compiles given <code>file</code> and produces .class file to given <code>root</code> path
      *
      * @param token type token to create implementation for
      * @param root  path to output
@@ -370,19 +368,19 @@ public class Implementor implements Impler, JarImpler {
     private void compileFiles(Class<?> token, Path root) throws ImplerException {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         if (compiler == null) {
-            throw new ImplerException("Can not find java compiler");
+            throw new ImplerException("Not found java compiler");
         }
 
         Path originPath;
         try {
-            CodeSource codeSource = token.getProtectionDomain().getCodeSource();
-            String uri = codeSource == null ? "" : codeSource.getLocation().getPath();
+            var codeSource = token.getProtectionDomain().getCodeSource();
+            var uri = codeSource == null ? "" : codeSource.getLocation().getPath();
             if (uri.startsWith("/")) {
                 uri = uri.substring(1);
             }
             originPath = Path.of(uri);
         } catch (InvalidPathException e) {
-            throw new ImplerException(String.format("Can not find valid class path: %s", e));
+            throw new ImplerException(String.format("Not found valid class path: %s", e));
         }
         String[] cmdArgs = new String[]{
                 "-cp",
@@ -392,7 +390,7 @@ public class Implementor implements Impler, JarImpler {
         };
         int exitCode = compiler.run(null, null, null, cmdArgs);
         if (exitCode != 0) {
-            throw new ImplerException("Compilation ended with non-zero code " + exitCode);
+            throw new ImplerException("Compilation ended with not zero code " + exitCode);
         }
     }
 
@@ -410,69 +408,27 @@ public class Implementor implements Impler, JarImpler {
         manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
 
         try (JarOutputStream stream = new JarOutputStream(Files.newOutputStream(jarFile), manifest)) {
-            String pathSuffix = token.getName().replace('.', '/') + "Impl.class";
-            stream.putNextEntry(new ZipEntry(pathSuffix));
-            Files.copy(Paths.get(tempDirectory.toString(), pathSuffix), stream);
+            String rootlessPath = token.getName().replace('.', '/') + "Impl.class";
+            stream.putNextEntry(new ZipEntry(rootlessPath));
+            Files.copy(Paths.get(tempDirectory.toString(), rootlessPath), stream);
         } catch (IOException e) {
             throw new ImplerException(e.getMessage());
         }
     }
 
     /**
-     * Returns output .java/.class file path for class with name <tt>newClassName</tt>, of package <tt>packageName</tt>
-     * starting with <tt>root</tt> Path
-     *
-     * @param packageName  name of package
-     * @param newClassName desired name of class
-     * @param root         start path
-     * @return path to output .java file (including package name)
-     * @throws ImplerException if fails to create containing directory of desired class file
-     */
-    private Path getOutputClassPath(String packageName, String newClassName, Path root) throws ImplerException {
-        Path containingDirectory = root.resolve(packageName.replace('.', File.separatorChar));
-        try {
-            Files.createDirectories(containingDirectory);
-        } catch (IOException e) {
-            throw new ImplerException("failed to create parent directory for output java-file", e);
-        }
-        return containingDirectory.resolve(newClassName + ".java");
-    }
-
-    /**
-     * Returns output .jar file path for class with name <tt>newClassName</tt>, of package <tt>packageName</tt>
-     * starting with <tt>root</tt> Path
-     *
-     * @param packageName  name of package
-     * @param newClassName desired name of class
-     * @param root         start path
-     * @return path to output .java file (including package name)
-     * @throws ImplerException if {@link Implementor#getOutputClassPath(String, String, Path)} fails with arguments
-     *                         <tt>packageName</tt>, <tt>newClassName</tt>, <tt>root</tt>
-     */
-    private Path getOutputJarPath(String packageName, String newClassName, Path root) throws ImplerException {
-        String classPath = getOutputClassPath(packageName, newClassName, root).toString();
-        Path result;
-        try {
-            result = Paths.get(classPath.substring(0, classPath.length() - ".java".length()) + ".class");
-        } catch (InvalidPathException e) {
-            throw new ImplerException("Output jar path is invalid (failed to create path for .class file)");
-        }
-        return result;
-    }
-
-    /**
-     * Generates correct implementation source code of given <tt>token</tt> and produces a jar archive to given <tt>jarFile</tt> path
-     * Produced implementation consists of single class with name <tt>token</tt>'s name + "Impl" suffix.
+     * Generates correct implementation source code of given <code>token</code> and produces a jar archive to given <code>jarFile</code> path
+     * Produced implementation consists of single class with name <code>token</code>'s name + "Impl" suffix.
      * Impl-class has all default single-statement implementations of all required methods and constructors to be implemented.
      *
      * @param token   {@link Class} to be implemented
      * @param jarFile path to directory for output
      * @throws ImplerException in the following situations:
      *                         <ul>
-     *                         <li> <tt>token</tt> is <tt>null</tt> or <tt>root</tt> is <tt>null</tt> </li>
-     *                         <li> <tt>token</tt> represents either a primitive type, final class, enum or array
-     *                         (i.e. <tt>token</tt>) cannot be implemented </li>
-     *                         <li> <tt>root</tt> is incorrect path </li>
+     *                         <li> <code>token</code> is <code>null</code> or <code>root</code> is <code>null</code> </li>
+     *                         <li> <code>token</code> represents either a primitive type, final class, enum or array
+     *                         (i.e. <code>token</code>) cannot be implemented </li>
+     *                         <li> <code>root</code> is incorrect path </li>
      *                         <li> Error occurs while either creating of output file (with corresponding directories)
      *                         or writing anything to output file </li>
      *                         </ul>
@@ -486,7 +442,7 @@ public class Implementor implements Impler, JarImpler {
         ImplementorFileUtils.createDirectoriesTo(jarFile.normalize());
         ImplementorFileUtils utils = new ImplementorFileUtils(jarFile.toAbsolutePath().getParent());
         try {
-            Path root = utils.getTempDirectory();
+            Path root = utils.getTempDir();
 
             implement(token, root);
             compileFiles(token, root);
@@ -505,12 +461,12 @@ public class Implementor implements Impler, JarImpler {
         private final static int MOD = 793877113;
 
         /**
-         * method to be wrapped
+         * Method to be wrapped
          */
         private final Method method;
 
         /**
-         * instantiates new {@link MethodSignature} wrapping the given <tt>method</tt>
+         * Instantiates new {@link MethodSignature} wrapping the given <code>method</code>
          *
          * @param other method to wrap
          */
@@ -519,25 +475,25 @@ public class Implementor implements Impler, JarImpler {
         }
 
         /**
-         * get's name of wrapped <tt>method</tt>
+         * Get's name of wrapped <code>method</code>
          *
-         * @return delegated to {@link Method#getName()} of <tt>method</tt>
+         * @return delegated to {@link Method#getName()} of <code>method</code>
          */
         private String getName() {
             return method.getName();
         }
 
         /**
-         * get's arguments of wrapped <tt>method</tt>
+         * Get's arguments of wrapped <code>method</code>
          *
-         * @return delegated to {@link Method#getParameterTypes()} of <tt>method</tt>
+         * @return delegated to {@link Method#getParameterTypes()} of <code>method</code>
          */
         private Class<?>[] getArgs() {
             return method.getParameterTypes();
         }
 
         /**
-         * Generates the default implementation source code of wrapped <tt>method</tt>
+         * Generates the default implementation source code of wrapped <code>method</code>
          *
          * @return delegated to static {@link Implementor#getMethodImpl(Executable, String)}
          */
@@ -562,10 +518,10 @@ public class Implementor implements Impler, JarImpler {
          *
          * @param obj object to be compared with
          * @return <ul>
-         * <li> <tt>true</tt> if <tt>obj</tt> is an instance of {@link MethodSignature} and values returned by
+         * <li> <code>true</code> if <code>obj</code> is an instance of {@link MethodSignature} and values returned by
          * {@link MethodSignature#getName()} and {@link MethodSignature#getArgs()}
-         * of both <tt>this</tt> and <tt>obj</tt> equals. </li>
-         * <li> <tt>false</tt>, otherwise </li>
+         * of both <code>this</code> and <code>obj</code> equals. </li>
+         * <li> <code>false</code>, otherwise </li>
          * </ul>
          */
         @Override
@@ -577,6 +533,5 @@ public class Implementor implements Impler, JarImpler {
             return Objects.equals(getName(), other.getName())
                     && Arrays.equals(getArgs(), other.getArgs());
         }
-
     }
 }
