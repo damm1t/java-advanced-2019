@@ -302,9 +302,9 @@ public class Implementor implements Impler, JarImpler {
         if (root == null || token == null)
             throw new ImplerException("Invalid argument: null value");
 
-        if (token.isPrimitive() || token.isArray() || Modifier.isFinal(token.getModifiers()) || token == Enum.class)
+        if (token.isPrimitive() || token.isArray() || Modifier.isFinal(token.getModifiers()) || token == Enum.class) {
             throw new ImplerException("Incorrect token");
-
+        }
         String packageName = packageNameFor(token);
         String className = token.getSimpleName() + "Impl";
         Path containingDirectory = root.resolve(packageName.replace('.', File.separatorChar));
