@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"ru.ifmo.rain.sokolov.implementor"}]
