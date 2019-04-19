@@ -75,14 +75,23 @@ public class ParallelMapperImpl implements ParallelMapper {
             for (int i = 0; i < args.size(); ++i) {
                 final var index = i;
                 addTask(() -> {
-                            mapValues.set(index, f.apply(args.get(index)));
                             synchronized (counter) {
-                                if (counter.decAndZeroCheck()) {
-                                    counter.notify();
+                                try {
+                                    mapValues.set(index, f.apply(args.get(index)));
+                                    if (counter.decAndZeroCheck()) {
+                                        counter.notify();
+                                    }
+                                } catch (Exception e) {
+                                    if (counter.exception == null) counter.exception = e;
+                                    else counter.exception.addSuppressed(e);
                                 }
                             }
                         }
+
                 );
+                if (counter.exception != null) {
+                    throw new RuntimeException(counter.exception.getMessage());
+                }
                 tasks.notify();
             }
         }
@@ -96,6 +105,7 @@ public class ParallelMapperImpl implements ParallelMapper {
 
     public static class ReverseCounter {
         private int value;
+        Exception exception = null;
 
         ReverseCounter(int value) {
             this.value = value;
