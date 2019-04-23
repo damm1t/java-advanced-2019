@@ -9,10 +9,7 @@ import info.kgeorgiy.java.advanced.crawler.URLUtils;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Phaser;
+import java.util.concurrent.*;
 import java.util.function.Predicate;
 
 public class WebCrawler implements Crawler {
@@ -52,27 +49,29 @@ public class WebCrawler implements Crawler {
 
     private void downloadImplDfs(String url, int depth, ResultWrapper wrapper,
                                  Phaser barrier, Predicate<String> filter) {
-        if (depth > 0 && filter.test(url) && wrapper.downloaded.add(url)) {
-            submitDownloader(url, wrapper, barrier, () -> {
-                try {
-                    var document = downloader.download(url);
-                    barrier.register();
-                    extractorsPool.submit(() -> {
-                        try {
-                            document.extractLinks()
-                                    .forEach(link ->
-                                            downloadImplDfs(link, depth - 1, wrapper, barrier, filter));
-                        } catch (IOException e) {
-                            wrapper.errors.put(url, e);
-                        } finally {
-                            barrier.arrive();
-                        }
-                    });
-                } catch (IOException e) {
-                    wrapper.errors.put(url, e);
-                }
-            });
+        if (depth <= 0 || !filter.test(url) || !wrapper.downloaded.add(url)) {
+            return;
         }
+
+        submitDownloader(url, wrapper, barrier, () -> {
+            try {
+                var document = downloader.download(url);
+                barrier.register();
+                extractorsPool.submit(() -> {
+                    try {
+                        document.extractLinks()
+                                .forEach(link ->
+                                        downloadImplDfs(link, depth - 1, wrapper, barrier, filter));
+                    } catch (IOException e) {
+                        wrapper.errors.put(url, e);
+                    } finally {
+                        barrier.arrive();
+                    }
+                });
+            } catch (IOException e) {
+                wrapper.errors.put(url, e);
+            }
+        });
     }
 
     private void submitDownloader(String url, ResultWrapper wrapper,
@@ -87,16 +86,16 @@ public class WebCrawler implements Crawler {
         }
     }
 
-    private Runnable transformTask(TaskPoolPerHost taskPoolPerHost, Runnable task, Phaser barrier) {
+    private Runnable transformTask(TaskPoolPerHost taskPool, Runnable task, Phaser barrier) {
         return () -> {
             task.run();
-            synchronized (taskPoolPerHost.queueTasks) {
-                if (!taskPoolPerHost.queueTasks.isEmpty()) {
+            synchronized (taskPool.queueTasks) {
+                if (!taskPool.queueTasks.isEmpty()) {
                     downloadersPool.submit(
-                            transformTask(taskPoolPerHost, taskPoolPerHost.queueTasks.poll(), barrier)
+                            transformTask(taskPool, taskPool.queueTasks.poll(), barrier)
                     );
                 } else {
-                    taskPoolPerHost.threadCount--;
+                    taskPool.threadCount--;
                 }
             }
             barrier.arrive();
@@ -105,8 +104,14 @@ public class WebCrawler implements Crawler {
 
     @Override
     public void close() {
-        extractorsPool.shutdown();
-        downloadersPool.shutdown();
+        try {
+            extractorsPool.shutdown();
+            extractorsPool.awaitTermination(1000, TimeUnit.MILLISECONDS);
+            downloadersPool.shutdown();
+            downloadersPool.awaitTermination(1000, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            System.err.println("Method close was not completed correctly: " + e.getMessage());
+        }
     }
 
     private static class ResultWrapper {
@@ -130,11 +135,11 @@ public class WebCrawler implements Crawler {
                     crawler.downloadersPool
                             .submit(crawler
                                     .transformTask(this, task, barrier));
+
                 } else {
                     queueTasks.add(task);
                 }
             }
         }
     }
-
 }
