@@ -78,7 +78,6 @@ public class WebCrawler implements Crawler {
                                   Phaser barrier, Runnable task) {
         try {
             var host = URLUtils.getHost(url);
-            barrier.register();
             var taskPoolPerHost = getTaskPool(host);
             taskPoolPerHost.submitDownloaderImpl(barrier, task, this);
         } catch (MalformedURLException e) {
@@ -129,6 +128,7 @@ public class WebCrawler implements Crawler {
         int threadCount = 0;
 
         private void submitDownloaderImpl(Phaser barrier, Runnable task, WebCrawler crawler) {
+            barrier.register();
             synchronized (queueTasks) {
                 if (threadCount < crawler.perHost) {
                     threadCount++;
