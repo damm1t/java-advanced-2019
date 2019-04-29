@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d88bf5ec-9203-45b8-a48a-9f1b945a60e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/damm1t.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/java_advanced_2019$Tester.ic" NAME="Tester Coverage Results" MODIFIED="1549835027747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>info.kgeorgiy.java.advanced.walk.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideWarnings" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/mapper/ParallelMapperImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2294">
+              <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/info.kgeorgiy.java.advanced.hello/info/kgeorgiy/java/advanced/hello/HelloClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/run7.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/run8.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="1" column="226" selection-start-line="1" selection-start-column="226" selection-end-line="1" selection-end-column="226" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/concurrent/ExecutorService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="181" column="19" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/run9.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="1" column="171" selection-start-line="1" selection-start-column="171" selection-end-line="1" selection-end-column="171" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>BadPath</find>
+      <find>Entry</find>
+      <find>&quot; 0&quot;</find>
+      <find>&quot;&quot;</find>
+      <find>&quot; false&quot;</find>
+      <find />
+      <find>,</find>
+      <find>\n</find>
+      <find>{</find>
+      <find>desc</find>
+      <find>map(</find>
+      <find>Meto</find>
+      <find>implNameFor</find>
+      <find>packageNameFor</find>
+      <find>jarW</find>
+      <find>run</find>
+      <find>getFil</find>
+      <find>typed</find>
+      <find>getPro</find>
+      <find>exte</find>
+      <find>-d</find>
+      <find>tt</find>
+      <find>&lt;/tt&gt;</find>
+      <find>main(</find>
+      <find>javac</find>
+      <find>phaser</find>
+      <find>join</find>
+      <find>clos</find>
+      <find>transformTask</find>
+      <find>computeIfAbsent</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>code</replace>
+      <replace>&lt;/code&gt;</replace>
+      <replace>barrier</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="damm1t &lt;donatsokolov99@gmail.com&gt;" />
+        <option value="damm1t" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/arrayset/ImmutableException.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/arrayset/ReversedList.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/walk/PathException.java" />
+        <option value="$PROJECT_DIR$/java/student/Util.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/Util.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.student/Util.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.student/info/kgeorgiy/java/advanced/student/StudentQuery.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.student/StudentQuery.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/Impler.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.implementor/Impler.java" />
+        <option value="$PROJECT_DIR$/java/info.kgeorgiy.java.advanced.implementor/InterfaceImplementorTest.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/walk/Visitor.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/walk/RecursiveWalk.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/walk/HashCounter.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/arrayset/ArraySet.java" />
+        <option value="$PROJECT_DIR$/compile8.sh" />
+        <option value="$PROJECT_DIR$/run7.sh" />
+        <option value="$PROJECT_DIR$/concurrent/ParallelMapperImpl.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/concurrent/ParallelMapperImpl.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/concurrent/IterativeParallelism.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/Annotation.java" />
+        <option value="$PROJECT_DIR$/java/Implementor.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/package-info.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/module-info.java" />
+        <option value="$PROJECT_DIR$/java/ru.ifmo.rain.sokolov.implementor/Implementor.java" />
+        <option value="$PROJECT_DIR$/java/ru.ifmo.rain.sokolov.implementor/ru/ifmo/rain/sokolov/implementor/Implementor.java" />
+        <option value="$PROJECT_DIR$/java/ru.ifmo.rain.sokolov.implementor/module-info.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/ru/ifmo/rain/sokolov/implementor/module-info.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/ru/ifmo/rain/sokolov/implementor/Implementor.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/mapper/IterativeParallelism.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/Implementor.java" />
+        <option value="$PROJECT_DIR$/java/run4.sh" />
+        <option value="$PROJECT_DIR$/impl_build_jar.cmd" />
+        <option value="$PROJECT_DIR$/run/impl_build_jar.cmd" />
+        <option value="$PROJECT_DIR$/run/impl_run_jar.cmd" />
+        <option value="$PROJECT_DIR$/run/impl_run_jar.sh" />
+        <option value="$PROJECT_DIR$/run/impl.sh" />
+        <option value="$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/ru/ifmo/rain/sokolov/implementor/ImplementorFileUtils.java" />
+        <option value="$PROJECT_DIR$/run/impl_build_jar.sh" />
+        <option value="$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/ru/ifmo/rain/sokolov/implementor/Implementor.java" />
+        <option value="$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/module-info.java" />
+        <option value="$PROJECT_DIR$/run/impl_jdoc.sh" />
+        <option value="$PROJECT_DIR$/test" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/student/StudentDB.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/info/kgeorgiy/java/advanced/crawler/Result.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/TaskPoolPerHost.java" />
+        <option value="$PROJECT_DIR$/java/run8.sh" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/mapper/ParallelMapperImpl.java" />
+        <option value="$PROJECT_DIR$/java/run9.sh" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPClient.java" />
+        <option value="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="293" />
+    <option name="y" value="53" />
+    <option name="width" value="1390" />
+    <option name="height" value="1007" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sokolov" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sokolov" type="462c0819:PsiDirectoryNode" />
+              <item name="crawler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sokolov" type="462c0819:PsiDirectoryNode" />
+              <item name="helloudp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sokolov" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="info.kgeorgiy.java.advanced.hello" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="info.kgeorgiy.java.advanced.hello" type="462c0819:PsiDirectoryNode" />
+              <item name="info" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="info.kgeorgiy.java.advanced.hello" type="462c0819:PsiDirectoryNode" />
+              <item name="info" type="462c0819:PsiDirectoryNode" />
+              <item name="kgeorgiy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="info.kgeorgiy.java.advanced.hello" type="462c0819:PsiDirectoryNode" />
+              <item name="info" type="462c0819:PsiDirectoryNode" />
+              <item name="kgeorgiy" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="info.kgeorgiy.java.advanced.hello" type="462c0819:PsiDirectoryNode" />
+              <item name="info" type="462c0819:PsiDirectoryNode" />
+              <item name="kgeorgiy" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="advanced" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="my.modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="my.modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ru.ifmo.rain.sokolov.implementor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java-advanced-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java-advanced-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="my.modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ru.ifmo.rain.sokolov.implementor" type="462c0819:PsiDirectoryNode" />
+              <item name="implementor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553601479779" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/artifacts/info.kgeorgiy.java.advanced.hello.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.33898306" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/java/ru.ifmo.rain.sokolov.implementor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/my.modules" />
+      <recent name="$PROJECT_DIR$/run" />
+      <recent name="$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor" />
+      <recent name="$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/ru/ifmo/rain/sokolov/implementor" />
+      <recent name="$PROJECT_DIR$/java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ru.ifmo.rain.sokolov.implementor.ru.ifmo.rain.sokolov.implementor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov" />
+      <recent name="$PROJECT_DIR$/java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.ifmo.rain.sokolov.concurrent" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.ifmo.rain.sokolov.implementor" />
+      <recent name="ru.ifmo.rain.sokolov.arrayset" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Bash.run9.sh">
+    <configuration name="Tester" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="info.kgeorgiy.java.advanced.walk.Tester" />
+      <module name="java-advanced-2019" />
+      <option name="PROGRAM_PARAMETERS" value="RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="impl_build_jar.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="java-advanced-2019" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run/impl_build_jar.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="impl_jdoc.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="java-advanced-2019" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run/impl_jdoc.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="impl.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="java-advanced-2019" />
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run/impl.sh" />
+      <option name="PARAMETERS" value="jar-class '111'" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="run8.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="java-advanced-2019" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/java" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/java/run8.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="run9.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <module name="java-advanced-2019" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/java" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/java/run9.sh" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/artifacts/info.kgeorgiy.java.advanced.walk.jar" />
+      <option name="PROGRAM_PARAMETERS" value="info.kgeorgiy.java.advanced.walk RecursiveWalk ru.ifmo.rain.sokolov.walk.RecursiveWalk" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="11 (2)" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Tester" />
+      <item itemvalue="Bash.impl_build_jar.sh" />
+      <item itemvalue="Bash.impl.sh" />
+      <item itemvalue="Bash.impl_jdoc.sh" />
+      <item itemvalue="Bash.run9.sh" />
+      <item itemvalue="Bash.run8.sh" />
+      <item itemvalue="JAR Application.Unnamed" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Bash.run9.sh" />
+        <item itemvalue="Bash.run8.sh" />
+        <item itemvalue="Bash.impl_build_jar.sh" />
+        <item itemvalue="Bash.impl_jdoc.sh" />
+        <item itemvalue="Bash.impl.sh" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d88bf5ec-9203-45b8-a48a-9f1b945a60e0" name="Default Changelist" comment="" />
+      <created>1549630468265</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1549630468265</updated>
+      <workItem from="1549630471798" duration="4258000" />
+      <workItem from="1549747391830" duration="1481000" />
+      <workItem from="1549755760002" duration="2028000" />
+      <workItem from="1549801709172" duration="12092000" />
+      <workItem from="1549827196970" duration="173000" />
+      <workItem from="1549834169644" duration="24111000" />
+      <workItem from="1549954938875" duration="7163000" />
+      <workItem from="1550321704282" duration="483000" />
+      <workItem from="1550324731193" duration="10689000" />
+      <workItem from="1550430036628" duration="3543000" />
+      <workItem from="1550439260312" duration="2518000" />
+      <workItem from="1550445913501" duration="3658000" />
+      <workItem from="1550489332080" duration="3811000" />
+      <workItem from="1550505240831" duration="9949000" />
+      <workItem from="1550920829325" duration="599000" />
+      <workItem from="1550928740899" duration="751000" />
+      <workItem from="1550944446568" duration="2246000" />
+      <workItem from="1551005579781" duration="12978000" />
+      <workItem from="1551087137504" duration="2797000" />
+      <workItem from="1551101496853" duration="2097000" />
+      <workItem from="1551109002220" duration="599000" />
+      <workItem from="1551136345320" duration="13898000" />
+      <workItem from="1551267885616" duration="183000" />
+      <workItem from="1551271345709" duration="1211000" />
+      <workItem from="1551627212316" duration="29917000" />
+      <workItem from="1551769473374" duration="2935000" />
+      <workItem from="1551775074116" duration="8222000" />
+      <workItem from="1551963613077" duration="29000" />
+      <workItem from="1552307314193" duration="3295000" />
+      <workItem from="1552384803303" duration="2601000" />
+      <workItem from="1552387566942" duration="6789000" />
+      <workItem from="1552411557817" duration="4000" />
+      <workItem from="1552578435709" duration="14000" />
+      <workItem from="1552854907647" duration="30000" />
+      <workItem from="1552858239404" duration="260000" />
+      <workItem from="1552906721698" duration="1206000" />
+      <workItem from="1552929878279" duration="10084000" />
+      <workItem from="1552981528342" duration="8691000" />
+      <workItem from="1553015615500" duration="1255000" />
+      <workItem from="1553029866194" duration="18000" />
+      <workItem from="1553091897477" duration="95000" />
+      <workItem from="1553269479181" duration="1077000" />
+      <workItem from="1553342689895" duration="7000" />
+      <workItem from="1553437432360" duration="1482000" />
+      <workItem from="1553460954522" duration="3620000" />
+      <workItem from="1553464935610" duration="1092000" />
+      <workItem from="1553467716680" duration="2199000" />
+      <workItem from="1553473555485" duration="19085000" />
+      <workItem from="1553595720493" duration="6082000" />
+      <workItem from="1553797548325" duration="467000" />
+      <workItem from="1553798161269" duration="989000" />
+      <workItem from="1553870864948" duration="17000" />
+      <workItem from="1554664867144" duration="1229000" />
+      <workItem from="1554724135138" duration="3777000" />
+      <workItem from="1554746097844" duration="1385000" />
+      <workItem from="1554747651250" duration="892000" />
+      <workItem from="1554748586347" duration="350000" />
+      <workItem from="1554748966570" duration="72000" />
+      <workItem from="1554749074570" duration="1719000" />
+      <workItem from="1554750832225" duration="314000" />
+      <workItem from="1554751188292" duration="1991000" />
+      <workItem from="1554753202830" duration="1313000" />
+      <workItem from="1554757631866" duration="5911000" />
+      <workItem from="1554774329897" duration="3410000" />
+      <workItem from="1554800018038" duration="4252000" />
+      <workItem from="1554806270103" duration="6077000" />
+      <workItem from="1554812614410" duration="7703000" />
+      <workItem from="1554830287761" duration="47000" />
+      <workItem from="1555602594098" duration="1213000" />
+      <workItem from="1555612055034" duration="882000" />
+      <workItem from="1555613172453" duration="276000" />
+      <workItem from="1555616229982" duration="19270000" />
+      <workItem from="1555845851471" duration="602000" />
+      <workItem from="1556010164362" duration="6642000" />
+      <workItem from="1556217628287" duration="218000" />
+      <workItem from="1556218287631" duration="1198000" />
+      <workItem from="1556470423021" duration="1244000" />
+      <workItem from="1556495141004" duration="1609000" />
+      <workItem from="1556563022055" duration="6916000" />
+    </task>
+    <task id="LOCAL-00018" summary="fix code style">
+      <created>1550572192720</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1550572192720</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix constructors">
+      <created>1550580619502</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1550580619502</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add StudentDB task (HW03)">
+      <created>1551102958227</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1551102958227</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix StudentDB">
+      <created>1551173381417</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1551173381417</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix ArraySet">
+      <created>1551173397085</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1551173397085</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add PathException">
+      <created>1551173763160</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1551173763160</updated>
+    </task>
+    <task id="LOCAL-00024" summary="upd hw01-03">
+      <created>1551183665268</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1551183665268</updated>
+    </task>
+    <task id="LOCAL-00025" summary="upd ArraySet">
+      <created>1551187884696</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1551187884696</updated>
+    </task>
+    <task id="LOCAL-00026" summary="upd RecursiveWalk">
+      <created>1551187902991</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1551187902991</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix ArraySet">
+      <created>1551628394502</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1551628394502</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix StudentDB">
+      <created>1551635289964</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1551635289964</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add Implementor tests">
+      <created>1551636979141</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1551636979141</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add Implementor">
+      <created>1551734292854</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1551734292854</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix codestyle Implementor">
+      <created>1551771244873</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1551771244873</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix StudentDB">
+      <created>1551781562151</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1551781562151</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix Implementor">
+      <created>1551781756304</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1551781756304</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fix code style">
+      <created>1551782353078</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1551782353078</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix code style">
+      <created>1551786513357</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1551786513357</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add main for Implementor">
+      <created>1551786535726</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1551786535726</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix code style">
+      <created>1551812031883</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1551812031883</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix ArraySet">
+      <created>1552385386436</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1552385386437</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix code style">
+      <created>1552387778744</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1552387778744</updated>
+    </task>
+    <task id="LOCAL-00040" summary="fix code style">
+      <created>1552392962963</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1552392962963</updated>
+    </task>
+    <task id="LOCAL-00041" summary="final commit ArraySet">
+      <created>1552409167047</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1552409167048</updated>
+    </task>
+    <task id="LOCAL-00042" summary="fix StudentDB">
+      <created>1552409185871</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1552409185871</updated>
+    </task>
+    <task id="LOCAL-00043" summary="add IterativeParallelism">
+      <created>1552955440660</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1552955440661</updated>
+    </task>
+    <task id="LOCAL-00044" summary="add javadoc in IterativeParallelism">
+      <created>1552985613099</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1552985613099</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix code style">
+      <created>1552992379947</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1552992379947</updated>
+    </task>
+    <task id="LOCAL-00046" summary="final commit StudentDB">
+      <created>1552994101256</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1552994101256</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fix sizeBox">
+      <created>1553023392334</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1553023392334</updated>
+    </task>
+    <task id="LOCAL-00048" summary="add ParallelMapper">
+      <created>1553473626380</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1553473626380</updated>
+    </task>
+    <task id="LOCAL-00049" summary="upd ParallelMapper">
+      <created>1553514099676</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1553514099676</updated>
+    </task>
+    <task id="LOCAL-00050" summary="fix ParallelMapper">
+      <created>1553514489895</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1553514489896</updated>
+    </task>
+    <task id="LOCAL-00051" summary="add implementJar (tests not working)">
+      <created>1553547694248</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1553547694248</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fix Parallelism">
+      <created>1553556642313</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1553556642313</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fix Parallelism">
+      <created>1553596616164</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1553596616166</updated>
+    </task>
+    <task id="LOCAL-00054" summary="destroy Implementor">
+      <created>1554746942329</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1554746942330</updated>
+    </task>
+    <task id="LOCAL-00055" summary="upd Implementor">
+      <created>1554764063901</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1554764063904</updated>
+    </task>
+    <task id="LOCAL-00056" summary="upd Implementor">
+      <created>1554767390782</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1554767390782</updated>
+    </task>
+    <task id="LOCAL-00057" summary="upd Implementor">
+      <created>1554805769201</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1554805769202</updated>
+    </task>
+    <task id="LOCAL-00058" summary="working version Implementor">
+      <created>1554811860286</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1554811860288</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fix Implementor">
+      <created>1555612682500</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1555612682501</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fix ParallelMapper">
+      <created>1555673279453</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1555673279455</updated>
+    </task>
+    <task id="LOCAL-00061" summary="add WebCrawler">
+      <created>1555673328558</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1555673328559</updated>
+    </task>
+    <task id="LOCAL-00062" summary="passed ParallelMapper">
+      <created>1555688181707</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1555688181707</updated>
+    </task>
+    <task id="LOCAL-00063" summary="upd Crawler">
+      <created>1556019953682</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1556019953683</updated>
+    </task>
+    <task id="LOCAL-00064" summary="upd Crawler">
+      <created>1556470450300</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1556470450303</updated>
+    </task>
+    <task id="LOCAL-00065" summary="create HelloUDP">
+      <created>1556567864998</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1556567864999</updated>
+    </task>
+    <task id="LOCAL-00066" summary="create HelloUDP">
+      <created>1556567926211</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1556567926211</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="315390000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59032714" visible="true" weight="0.23741007" />
+      <window_info id="Structure" order="1" sideWeight="0.40967283" side_tool="true" weight="0.28389597" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4980631" visible="true" weight="0.27868852" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32896176" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3092896" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50470394" side_tool="true" weight="0.4306011" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4969563" weight="0.23169398" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49529606" weight="0.43620503" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.499187" weight="0.24958494" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.500813" side_tool="true" weight="0.24958494" />
+      <window_info anchor="right" id="Module Dependencies" order="10" weight="0.32982844" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5950096" visible="true" weight="0.25069174" />
+      <window_info id="Structure" order="1" sideWeight="0.4049904" side_tool="true" weight="0.22246818" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4991699" weight="0.3293348" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293348" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.31007752" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013835" side_tool="true" weight="0.4211099" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32896176" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4986165" weight="0.43184295" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.499187" weight="0.24958494" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.500813" side_tool="true" weight="0.24958494" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/java-advanced-2019" />
+    </ignored-roots>
+    <MESSAGE value="add Implementor tests" />
+    <MESSAGE value="add Implementor" />
+    <MESSAGE value="fix codestyle Implementor" />
+    <MESSAGE value="add main for Implementor" />
+    <MESSAGE value="fix ArraySet" />
+    <MESSAGE value="final commit ArraySet" />
+    <MESSAGE value="fix StudentDB" />
+    <MESSAGE value="add IterativeParallelism" />
+    <MESSAGE value="add javadoc in IterativeParallelism" />
+    <MESSAGE value="fix code style" />
+    <MESSAGE value="final commit StudentDB" />
+    <MESSAGE value="fix sizeBox" />
+    <MESSAGE value="add ParallelMapper" />
+    <MESSAGE value="upd ParallelMapper" />
+    <MESSAGE value="add implementJar (tests not working)" />
+    <MESSAGE value="fix Parallelism" />
+    <MESSAGE value="destroy Implementor" />
+    <MESSAGE value="upd Implementor" />
+    <MESSAGE value="working version Implementor" />
+    <MESSAGE value="fix Implementor" />
+    <MESSAGE value="fix ParallelMapper" />
+    <MESSAGE value="add WebCrawler" />
+    <MESSAGE value="passed ParallelMapper" />
+    <MESSAGE value="upd Crawler" />
+    <MESSAGE value="create HelloUDP" />
+    <option name="LAST_COMMIT_MESSAGE" value="create HelloUDP" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/my.modules/my.modules.iml" />
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/arrayset/ArraySet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2418">
+          <caret line="111" column="42" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/arrayset/ReversedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/implementor/Implementor.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/nio/file/Path.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20305">
+          <caret line="693" column="9" selection-start-line="693" selection-start-column="9" selection-end-line="693" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.compiler/javax/tools/ToolProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="992">
+          <caret line="59" column="31" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/info/kgeorgiy/java/advanced/implementor/InterfaceJarImplementorTest.java" />
+    <entry file="file://$PROJECT_DIR$/java-advanced-2019.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45322">
+          <caret line="1549" column="35" selection-start-line="1549" selection-start-column="35" selection-end-line="1549" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/junit-4.11.jar!/org/junit/runner/JUnitCore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1891">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+          <folding>
+            <element signature="e#2699#2700#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/artifacts/info.kgeorgiy.java.advanced.mapper.jar!/info/kgeorgiy/java/advanced/mapper/ParallelMapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/info.kgeorgiy.java.advanced.implementor/info/kgeorgiy/java/advanced/implementor/Impler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/nio/file/FileVisitResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/nio/file/Files.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="2642" column="19" selection-start-line="2642" selection-start-column="19" selection-end-line="2642" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/java-advanced-2019/scripted/docs/index.html" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/zip/ZipEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2232">
+          <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/jar/JarOutputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run/impl_build_jar.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run/impl_run_jar.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run/impl.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="40" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run/impl_jdoc.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="16" column="331" selection-start-line="16" selection-start-column="331" selection-end-line="16" selection-end-column="331" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/module-info.txt" />
+    <entry file="file://$PROJECT_DIR$/java/run4.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/ru/ifmo/rain/sokolov/implementor/ImplementorFileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2449">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/info/kgeorgiy/java/advanced/crawler/Result.java" />
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/student/StudentDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/info.kgeorgiy.java.advanced.crawler/info/kgeorgiy/java/advanced/crawler/Crawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/info.kgeorgiy.java.advanced.crawler/info/kgeorgiy/java/advanced/crawler/CheckingDownloader.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/info.kgeorgiy.java.advanced.crawler/info/kgeorgiy/java/advanced/crawler/CachingDownloader.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my.modules/ru.ifmo.rain.sokolov.implementor/ru/ifmo/rain/sokolov/implementor/Implementor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="338" column="50" selection-start-line="338" selection-start-column="50" selection-end-line="338" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/concurrent/Executors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="90" column="34" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1686">
+          <caret line="771" column="14" selection-start-line="771" selection-start-column="14" selection-end-line="771" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/concurrent/Phaser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="37" />
+          <folding>
+            <element signature="e#20368#20369#0" expanded="true" />
+            <element signature="e#20403#20404#0" expanded="true" />
+            <element signature="e#24613#24614#0" expanded="true" />
+            <element signature="e#24657#24658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/artifacts/info.kgeorgiy.java.advanced.crawler.jar!/info/kgeorgiy/java/advanced/crawler/URLUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/TaskPoolPerHost.java" />
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="326" column="22" selection-start-line="326" selection-start-column="22" selection-end-line="326" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="571" column="6" selection-start-line="571" selection-start-column="6" selection-end-line="571" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="992">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4929">
+          <caret line="192" column="6" selection-start-line="192" selection-start-column="6" selection-end-line="192" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/mapper/IterativeParallelism.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="63" column="11" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/mapper/ParallelMapperImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2294">
+          <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/run7.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/run8.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="226" selection-start-line="1" selection-start-column="226" selection-end-line="1" selection-end-column="226" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/run9.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="171" selection-start-line="1" selection-start-column="171" selection-end-line="1" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/info.kgeorgiy.java.advanced.hello/info/kgeorgiy/java/advanced/hello/HelloClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_hello.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/util/concurrent/ExecutorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="181" column="19" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>java-advanced-2019</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>info.kgeorgiy.java.advanced.hello</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.33898306" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
