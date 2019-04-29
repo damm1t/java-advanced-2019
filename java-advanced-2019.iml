@@ -18,5 +18,6 @@
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.concurrent" level="project" />
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.mapper" level="project" />
     <orderEntry type="library" name="info.kgeorgiy.java.advanced.crawler" level="project" />
+    <orderEntry type="library" name="info.kgeorgiy.java.advanced.hello" level="project" />
   </component>
 </module>
