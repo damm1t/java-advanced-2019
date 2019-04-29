@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="info.kgeorgiy.java.advanced.hello">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/artifacts/info.kgeorgiy.java.advanced.hello.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
