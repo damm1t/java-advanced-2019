@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.function.Predicate;
 
 public class WebCrawler implements Crawler {
 
@@ -18,14 +17,14 @@ public class WebCrawler implements Crawler {
     private final ExecutorService downloadersPool;
     private final ExecutorService extractorsPool;
     private final int perHost;
-    private final Map<String, TaskPoolPerHost> mapPerHost = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, TaskPoolPerHost> mapPerHost = new ConcurrentHashMap<>();
 
     @Override
     public Result download(String url, int depth) {
         final Set<String> downloaded = ConcurrentHashMap.newKeySet();
-        final Map<String, IOException> errors = new ConcurrentHashMap<>();
+        final ConcurrentMap<String, IOException> errors = new ConcurrentHashMap<>();
         var phaser = new Phaser(1);
-        downloadImplDfs(url, depth, downloaded, errors, phaser, site -> true);
+        downloadImplDfs(url, depth, downloaded, errors, phaser);
         phaser.arriveAndAwaitAdvance();
         downloaded.removeAll(errors.keySet());
         return new Result(new ArrayList<>(downloaded), new HashMap<>(errors));
@@ -38,10 +37,10 @@ public class WebCrawler implements Crawler {
         this.perHost = perHost;
     }
 
-    private void downloadImplDfs(String url, int depth, final Set<String> downloaded, final Map<String, IOException> errors,
-                                 Phaser phaser, Predicate<String> filter) {
+    private void downloadImplDfs(String url, int depth, final Set<String> downloaded,
+                                 final ConcurrentMap<String, IOException> errors, Phaser phaser) {
 
-        if (depth <= 0 || !filter.test(url) || !downloaded.add(url)) {
+        if (depth <= 0 || !downloaded.add(url)) {
             return;
         }
 
@@ -60,19 +59,17 @@ public class WebCrawler implements Crawler {
                         try {
                             document.extractLinks()
                                     .forEach(link ->
-                                            downloadImplDfs(link, depth - 1, downloaded, errors, phaser, filter));
+                                            downloadImplDfs(link, depth - 1, downloaded, errors, phaser));
                         } catch (IOException e) {
                             errors.put(url, e);
                         } finally {
                             phaser.arrive();
                         }
                     });
-
                 } catch (IOException e) {
                     errors.put(url, e);
                 } finally {
                     phaser.arrive();
-                    data.nextTask();
                 }
             });
         } catch (MalformedURLException e) {
@@ -101,21 +98,22 @@ public class WebCrawler implements Crawler {
 
         private synchronized void addTask(Runnable task) {
             if (threadCount < perHost) {
-                ++threadCount;
-                downloadersPool.submit(task);
+                threadCount++;
+                downloadersPool.submit(nextTask(task));
             } else {
                 queueTasks.add(task);
             }
         }
 
-        private synchronized void nextTask() {
-            var task = queueTasks.poll();
-            if (task != null) {
-                downloadersPool.submit(task);
-            } else {
-                --threadCount;
-            }
+        private synchronized Runnable nextTask(Runnable task) {
+            return () -> {
+                task.run();
+                if (!queueTasks.isEmpty()) {
+                    downloadersPool.submit(nextTask(queueTasks.poll()));
+                } else {
+                    threadCount--;
+                }
+            };
         }
     }
-
 }

@@ -2,237 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88bf5ec-9203-45b8-a48a-9f1b945a60e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/damm1t.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/java-advanced-2019.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_arrayset.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_base.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_concurrent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_crawler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_hello.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_implementor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_mapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_student.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/info_kgeorgiy_java_advanced_walk.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/damm1t.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/damm1t.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test01_oneEmptyFile.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test01_oneEmptyFile.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test01_oneEmptyFile/DtuwETjKgGcNSf3TmzLn9eiwU98R47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/10La7bw87niMu7SRrWZ3GguquE4k98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/BT5rEalYtor0UXNTBPaSlffHEueR9Y" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/IaeVxtOBt49XPD4OA7KyKXvcbQUJAf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/LU4kXtbL4J2vucSXzRfwZQKh2Pm2kL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/NHGDya5UaqoMwVPWD0O226tIgo7rte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/NYREcymzLSrV1xSOV8qWuZDgJNFIeC" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/UTbISGX11wqT62Qcbc67u0bBBXM4SO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/dMC23y0Mjut3VsjLw2e6IUS7UaYcew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/jHZ980bW9IIs9bs8aQVU74R3meWRGk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test02_tenEmptyFiles/jhpfYNlImkQsxguMpeFVHdWhSjFF5F" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test03_missingFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test03_missingFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test03_missingFiles/9S3t8HBgetIwkg87YGLepvIvqIPCd3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test03_missingFiles/Ad2Pol949Cs7kDmJETGClu8WuHMqtc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test03_missingFiles/Fv2eflzmRWXJaD9CMPBDYerZyNj5k0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test04_errorReading.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test04_errorReading.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test04_errorReading/IGrxsJMMRdr00MhtOc04XAtIX158s6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test04_errorReading/VT2T2sCnZWHfyNOlZ5PInm5qv4Mg3z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test04_errorReading/f0mtiLGeIpDVqSdhqzaGXgi4eP2GBY" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/6bgevT5CK6Qg13tbOB9aVpS7azTvxv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/CfXYejTpH3e6VnyBM0yWmNs5p3erfB" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/EDpHqdyid3ko0sUMPqtpaxHafqpZXa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/FtOE7uiIZQhTx3hfxyUSPPew1smOac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/HFRSiHuPecmpTy1Jrb9TdMZQ4oNOPP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/K6omc0vJ35u1VAxNxpU1QLZjep7YpP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/ZQzUrHauB3rccUwo0Uc3mNhCzw59ur" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/eWev0vxMKHP6zmIXVo2u5rfnZGkiIU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/liQCBFXXGwGzC9P3F8emK80RovpY8i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test05_smallRandomFiles/yd4Iqok5m1b4wZXqQLCcX78OtXtLMW" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/3jP4Ejhvy0KPnapm0ZN9w4acyt2kpL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/Ao7SK6eYQ40eiqJvOboqxCmeGShMnx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/HBQ8SfFhFfhnmbso46H37PDpqn92Xo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/JMWnWNjSqhHYTDE7VkCNEm020XCx3N" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/LIeRmjebqaQ5aSF3lxaHkMg7g7EEd0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/PZVGqB9zxjVfXkSlYWX1C5RkNzZNjW" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/Qf67kvTeJN9yZ3DUDAXfSZv1KE4tOO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/VDGi1aHMJGgrb57lTNSgEUyvLBOtBH" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/YdSNcdtYPVwHanxsToSI8bRdImG2PR" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test06_mediumRandomFiles/uBChOKOPkCxFMhTxogolxcsjo8SQRg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/1VeyRlnjsaEIQPcy17xQqnE9teVHUo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/G5xVXwooqsDkbtjVZiuGLYjzwvHUxr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/ScZoFUJfhST8w9Bj8liP4A5M6jxS7K" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/Uixtrir8PXNwcLCSfESAIL4dXdmrm7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/cNunZXoYkSTBJTOXEv5EnoyRGjpe5o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/fjdvHvZct8KC0rDJAbcREaR04bB4O2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/k498owAgmYtImssK5uVG1JDoJ0Srqb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/nM1xm8lYGdTreosVCuludB3mbvJ3WY" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/rDzvy6cLeSXOcBWb5x1LMP60IiZlGE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test07_largeRandomFiles/xhYfTWOELPyjm1kryt4W6hhw9pxnjZ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/中持中支持支持你序支支請程序持程問你序請你你問的中國國序中中" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/中支序中的支持你持問持程的支的程國支序國你請支程的的問請國請" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/你中持持請問你序問支程請問請問你的你程問程持中的的請持持支你" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/你序中支程支中問中國國支你持中支持支國序問國國的序你持問序你" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/你的序請你支程持國支中序問支支支的請序中中中國問請問序請中的" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/序請國請中你中請中支序國支國問請你持程程的問問序請問序問程中" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/持國支你請支程程持問程持國程你支你請國支持持你序問請問問國序" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/支序持持程請請請程支國中程序程序支程支程請序國你持你持問問支" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/支的支支持的請問支序國國國國問問序支持支問中你序序國持請請持" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test08_chineseSupport/的你序序請持問的支程請請序序中序的序問你國序中請的中支你支的" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test11_invalidOutput" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test12_singleArgument" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test13_veryLargeFile.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test13_veryLargeFile.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test13_veryLargeFile/YfS1kV7yxN0ZIDEWejqKFRjPRaSGvn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test13_veryLargeFile/xzJrcZyrJcwHuRjIV8SaYMVFBiW1pu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test13_veryLargeFile/zRZuuUibQPyOK1ZTsBXQrCBtwH3Fzm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test14_invalidFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test14_invalidFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/26thOFQ5LpX1RfdMBL1riwPGB6DLuC" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/2koUogAzGbc5YpLSjraCibeEQivRzS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/3IE7ba1Rd3mcOCEUoVI392cHhDifMm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/3eNORLTUR1eFhft1duGDcNVGICsbta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/3rFKmcVj0SfFoAQDWW57oedAfvrhK2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/432GEjSXhQVksKtVLHEUsW47iS65Oq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/4xB4DUy0z613deE8af52OODHQWroAE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/5OeIYu40m8rCXLSZRRyVAqVQZgHurs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/6q2eNSK3eV4DjLu1dCAZnQO6iqJXRc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/9MFYq40MXMKSxF3OKEAm3TV9atsqn1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/9xeu6iXW4zXejpzpl3YtZOFBZfhlCK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/Au0fr3CdBeqLcITpkGnBKhNY2iTuTo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/BE1MfRQjQg2PLuxuPBfg1FD73OmgtJ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/BLsgQyf1GxOyipQTlPQvqQWl4VsthJ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/BwaZ0iaPt6XP7TN45Aek5v7l4x6gPU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/D3dPvH7bYBH56w8JJbxx7u73kjmTMs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/Gje0a5m0rdZmTH0DDQsX8XTBhJ1AvA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/GpAdfpvjM182tlJVOeD1weGcDQreu2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/HLKvDvNYbXE5uteVaA33JpGybN46Yg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/Hswsw7P5mzqhd4TLyN5C6i0yjs31Fe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/I0utNveazr9zelocCyCQTXX7OacetL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/J6l3TOSHyRFkwFJzFfX7xnUngTfrje" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/JeO1p8Oj2sk2hypnVrYzY59bvumFVB" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/KcI1QjRb8U1QIWYCX246cOYEWaUU3w" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/M4vIpRFTWMsk94rNtS582Wta1PqlnJ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/MMqik4r3eU8GTX05LJ9lzHSLzYEM1A" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/QLYM8Z7Gw0TaX4yOzyAV8oTjbRvxU9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/QTy0vd3xm3pUezGFPpp7r2thh4B9gT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/Qt704VVxLxb5KsnI6sgX48bkxiinhx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/RH9JzDDfBMW1jiTsNdXRAW7pyDSGK8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/SQ2XiT8orxb9Bch0zjYL9SylCmONgE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/U0j8TrmfBQKKZd88C3daez8x0pXkTq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/VTR4te7vFhIp8MFCtTNjCAeGQ7QUWH" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/W0FUAQgFSxbrCugxJbndjJ5m4ubLOu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/WDVUv9wWXrqml7t2mg8X1FQI96nYBz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/WcHbSAYUBbBf8eKXyu7kMR4DnPE8PU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/Xq5BT9OTw19pWKBopaXLDYF6fQQP88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/Y7lVup17XLTC1BuNtSNGA6ZKlh9TAB" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/YjeQtwXhX8TGrHOVLGfxe6YikPoTFS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/ZohcQIElv6FpDNWJHswv3xs6wvZT5I" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/bEmKkB1JSFGz1awDLNG1sfhg5HppES" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/bt5quIJ64g94SJXyusTC9kvNIO0kfP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/cDqfX1fcJDx0uqvvndCg1EZWNYce27" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/gP7kM2JGSD9JnhyYUVminpl6n16XbH" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/gVDwuFoMZyk57rQtYakAi62O9s4Brt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/k5HnNcudfmqe3jxzPhr9DWK7hseXpC" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/keXCq8adRfe9Evgsf9OzsJEIfmwzYG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/lyN50AMyKIN5pm1zlrdYsdk9fWgXH8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/mUW4Y6Hc4IkEdvzvYV9HmBW2DoGvEJ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/nJS30ent772DhR8pdnCcrIt2vAaCK7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/oXaB6dkwpuMUzSHqo5rzJpAezRsWh8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/oi6H0PnAnqWTGKpfyqqQ52mgNLZHT8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/qa2XW0qE1cuEUw01U19DKPB1eGjUV4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/rFRAo0dczYWjvKHf02ERvY18LBnRjz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/sLVNXrx5ufTl5VwkO6WNPFLm8o1kEU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/tmbutigo6iBizgw0zrRHIQyMqnES72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/uFNODfjfvgX2v6x3GsGBEGPo7aWg5O" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/uzprhHJqXQ1bsDkVsAfHBpuSRM1Kz5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/voWSq1qLaEuw1EcarspCm8vP59vwte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test15_partiallyMissingFiles/w3kuG3G79h6ZgnYHhRNJbpS8qmNziM" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/8CSVQDX3zuFw9b76qInYVCjNydyyfx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/HO16uYaoAi6LHtgtqQWoR4Z2gjzOEi/0PlEiDIQdhzMwrgfNurxhT9MAJBeDH" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/HO16uYaoAi6LHtgtqQWoR4Z2gjzOEi/RC8RfGP52NwQJFxnobOYfjfX7DDXVV/LwloeKz752vqq9rYLBPJXW4hzjQqh8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/5hbDQR5oHESwJwzJDBUlk9CuselAuh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/FXP9w7Jnsb0zuBnSXiSZNI6ogOnfm2/69WBHOpea8QwPGCck23o5JqEIOU8pD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/FXP9w7Jnsb0zuBnSXiSZNI6ogOnfm2/augEWGeRRORtvTKGSdPyCqEd76CpnL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/FXP9w7Jnsb0zuBnSXiSZNI6ogOnfm2/flJrd3qbRbBkJVCbOn1EkU9IFC6Q9m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/FXP9w7Jnsb0zuBnSXiSZNI6ogOnfm2/oU0MjTzRG8Nj5kLCFfkKdYIR9zavTK/C8XaKhPlJyoFBREx8LjAUYBblihncI" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/FXP9w7Jnsb0zuBnSXiSZNI6ogOnfm2/oU0MjTzRG8Nj5kLCFfkKdYIR9zavTK/UlOB3yiFZdSuCqKdia2dkViBGJybC2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Em3PACLtxzkt9d1fU4iuqB80XGaUJw/FXP9w7Jnsb0zuBnSXiSZNI6ogOnfm2/oU0MjTzRG8Nj5kLCFfkKdYIR9zavTK/tyrd3aOFUWksvjUcFt8UdNmKLYWsJm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/UgzSPRT6ZxedhzCmgCVrZw7TMfjPQy/4OFDzZF1bcnfZvxkP1HVPEAawLrihv/8VDksne3tQyGe9sM4HhrrRf8EDTsNe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/UgzSPRT6ZxedhzCmgCVrZw7TMfjPQy/4OFDzZF1bcnfZvxkP1HVPEAawLrihv/H3jn9RTPKhFCkTMZ6WTGmPMdiqVGqD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/UgzSPRT6ZxedhzCmgCVrZw7TMfjPQy/MvATlZIhEc5gKJTOOrl5nmi13tnfgP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/7VPFHOe7amPEcMSsm9m6nFbDGyUCY8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/FH3UJgyfw5Xr3pHA7NshUACcLZJpiY" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/UNNQ1RV0Llh97x0bCIo9XKh3hHIiYE/R7kjrnYjjcH2zGVNb2718Z6lQ1AcQp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/UNNQ1RV0Llh97x0bCIo9XKh3hHIiYE/SDE6jSO7Jevsfgc5z7lpWCcZCSnYgT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/UNNQ1RV0Llh97x0bCIo9XKh3hHIiYE/eNbGYKZ6pCfD0Tc9xwBVAT1wFhqv1Z" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/0XMq7l3I5rS0Yg7sRpJP17RS7oz4hA/nxsdmNpnJWmfevvx6zBqVH3fmerowN" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/Ft8z3tkp4q1BxxH20ZNP2YTM1NlC2D/TbmfKaMxvKyRThRUnxVvoBaQM1nQTs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/Ft8z3tkp4q1BxxH20ZNP2YTM1NlC2D/cHvZMdWL84GD6vSnnlP7FddEzD5FsR" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/Ft8z3tkp4q1BxxH20ZNP2YTM1NlC2D/vnoKiKe5A6j3qDF6jNLRoxOPF8ELr8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/GWBdMKx77Bh3RlQzBX0eiu70nzDb7n" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/bx5YrM3URaPBY7iA5DGkGnawupXk2s/AXpBvIDNjOGGLiOzsPJh5rzspnREB3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/bx5YrM3URaPBY7iA5DGkGnawupXk2s/RWtooh77T2TWmYQehs5p9WVhbFgEGN" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/bx5YrM3URaPBY7iA5DGkGnawupXk2s/cMrIbdWdEx8j9xYM62eEB2TJdCwM1c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/TlqSrkrwuXbg0adbuB1ZHzTwYW1veQ/Vz7d9mgJsE71LWOttAcStBezgRhNz8/urQqPpJBlTTMZH5gB7w0u1ljLx77pj/lNOGuTYvM5BmhsIvjnFdI86jUvCSaZ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/VTLTjIVw4LEsZydld09iGQNi7yGoQr" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test31_singleRecursion/zTAp7mzvbkx7sXulVDjEgm0yMtOPYG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/A7nUbZaKBL866DkHUarBnxHEWsFY8V" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/8heYNkDYPL8LcNnkih1dWn6tBtBDGF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/JuL84aUmz5jeatnbhOaUX3aXO7GRKw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/bfyT0lxPDklZD61ycKyS4ySUfNAd10/7GnqXEYck24IiOfmMY2HaGQ1w3zRAm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/bfyT0lxPDklZD61ycKyS4ySUfNAd10/AExV0ygFxAnQVfxYR2DCrwhURn8iOp/3RBuvkpyZSrxAmcvVUC43JbAlNszSA/TWFl1i7MJMK4MSQZf1JOvpEk1rCEAe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/bfyT0lxPDklZD61ycKyS4ySUfNAd10/AExV0ygFxAnQVfxYR2DCrwhURn8iOp/DjE4Wj6YL1w1vnUSfHwRqil5oU7Up5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/bfyT0lxPDklZD61ycKyS4ySUfNAd10/MY3yyxaTkK3bZtuL2o4Bbnu7DctYqy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/YZpq5lF8vc0ZBC64QBqLBErlNQBqqS/bfyT0lxPDklZD61ycKyS4ySUfNAd10/TxnY99tqvAhbjuZ18crACi2VENBtN6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/lx9j515diTeL8a0YEMhXayt0B83YQh/AOR3biYS0ZdMRa6bmCehxkAWuSOaED/IedVEXMpyLzkPwa39O0wKHOIfMAUAc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/lx9j515diTeL8a0YEMhXayt0B83YQh/AOR3biYS0ZdMRa6bmCehxkAWuSOaED/jOrk7OziuHRsYtpR8iHgiSxYvqR4UF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/lx9j515diTeL8a0YEMhXayt0B83YQh/m8t21VTWVwCr7cPjuREFC8STq3P4Ux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/lx9j515diTeL8a0YEMhXayt0B83YQh/q7ZAACoI4TvC5hqVeZlzTRjfe829rQ/cSrz5coxzzO38NBTbkTOZXHzw6Ad1F" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/gj5MHGqNvEa5JnR17p1XvnI0R4tUb2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/ricQNbNRgtl7TchLcG8SjZ6wVylD7u/3JQnjqfWizQ7Mqh8NFmXD5FeenkiLO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/5OAiHskTFhRRqRmkhsUmlxf9RGb84A/Tqi4pg2s7XlRM6mRb4nqA25xvFznZ1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/MSSWs9nRfniMAgVvdiuyCVgLTCRkox" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/TWjQMPCfif5ctwAblj43FQjH7EhSVy/1iObln8OUy6eYOIhOf0YT3k9g6tuw1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/TWjQMPCfif5ctwAblj43FQjH7EhSVy/pJ9zbwZSCXFGhWQMV3OBQEUUY8pL5O" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/ZKymuiaSHErhTgNAFytZ7Bei4P3z7U/L4VaC50BexXmznhDM6pp371cS2e3jl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/ZKymuiaSHErhTgNAFytZ7Bei4P3z7U/gqusVfJGlOWwR8hQP806sKXwyASWXn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/3ivMqcKoJku9WjgvyZXbJ4kYXfkppR/zsxZ3lDs5lyLEco1ICqwHWGlwdpXTa/ZKymuiaSHErhTgNAFytZ7Bei4P3z7U/lxRG5ZK6Ae6PgLchTUsXzG1D5n06Wl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/2TO0bzDeXqBx58Fgz5JwN23X45fuSA/HSoqQFHr4NaHVHcrm1vPxno9UueEwg/1gyoiZvYoVMmVXdFpsglNN5U2PychX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/2TO0bzDeXqBx58Fgz5JwN23X45fuSA/HSoqQFHr4NaHVHcrm1vPxno9UueEwg/CloHYj5zrcMXbwCxj6bt0EVRHxLNcS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/2TO0bzDeXqBx58Fgz5JwN23X45fuSA/HSoqQFHr4NaHVHcrm1vPxno9UueEwg/FUZpcS3kc1etP0q36WB0kbsthZpA6x" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/2TO0bzDeXqBx58Fgz5JwN23X45fuSA/J7d5NwCJOY30jLiwzdC8tTLmZ7y2Rj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/2TO0bzDeXqBx58Fgz5JwN23X45fuSA/ZoXAPYFczvHYy7k8MsPWFDVpJlL2MG/dCwgqTdKaT3NwsLridUqc0HqJmT0ed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/2TO0bzDeXqBx58Fgz5JwN23X45fuSA/ZoXAPYFczvHYy7k8MsPWFDVpJlL2MG/oYyHBQm1ajeFrCRawocQpRgmCA4ak3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/acvOEog8U4ybWVLBgcKMKHs7d002Su" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/eJKQqZIc9V7h9RBzRRhHQ3dCq0y5RK/cTXIISSfmIw7UJ8kLkbgJTJJfCTyvq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/eJKQqZIc9V7h9RBzRRhHQ3dCq0y5RK/k61DsI5lGV7oKj6Z9JRmegZPxunHh9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/eJKQqZIc9V7h9RBzRRhHQ3dCq0y5RK/ooRjGCOIUUgJeRASDqVs39YVBj0Rny" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/rRNh25RZLpTo7dxlOEV1LDn3Sd5Re4/gHZ9p2YTJLRfKWeSDLGwJ0e7WBhKwF/guidCqULxvkIdpkMHDtKdwNXAKTNnV" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/rRNh25RZLpTo7dxlOEV1LDn3Sd5Re4/jlTjU5DQ99e0nVgUzkVQaoxJhnPLYT/ELOoZZGc2OGoci7u8RHCkev2rr65k4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/DGlfd8SPyGDfRKwHhiWCtEiHTaheUa/rRNh25RZLpTo7dxlOEV1LDn3Sd5Re4/jlTjU5DQ99e0nVgUzkVQaoxJhnPLYT/h1nlknOEZKmtkeAyengDrZkLLVhwe7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/FHbrXZEU1SnAKcB5iL7u60V5cYegZM" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/S3d7Qnz0O0SsdoTzc7ir4FbXqZMZju" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/vbI1bRqBadfcU6SQH0Wee02IQutRc8/a3CDmVFrUgHOYEKavxUd6lQc7QSddA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/SVGtuMxZZ6JR2mk1GHoxferhNCHeoE/w9HJhRctzo2Omta71iK7jLKJCUflQT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/YHydQJKIgfKWZgwNGpuM5yKXnINiDg/QWSffhn1VKQcE0IMAUjSUzJeS6oQEy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/__Test__Walk__/test32_doubleRecursion/YHydQJKIgfKWZgwNGpuM5yKXnINiDg/kW882ThA92ymgN2WN548eA4Toq5GPU/EHR8x1jOJT8vH2zZuhrnAJAi6rHFBh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -258,23 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/mapper/ParallelMapperImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="77" column="28" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="118" selection-start-line="118" selection-end-line="118" />
+            <state relative-caret-position="124">
+              <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -285,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
+            <state relative-caret-position="775">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -334,10 +93,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java/run10_client.sh">
+        <entry file="file://$PROJECT_DIR$/java/run9.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="31">
-              <caret line="1" column="170" selection-end-line="2" />
+              <caret line="1" column="5" selection-start-line="1" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/java/run10_client.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -347,15 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="62">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java/run8.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="1" column="226" selection-start-line="1" selection-start-column="226" selection-end-line="1" selection-end-column="226" />
             </state>
           </provider>
         </entry>
@@ -479,10 +238,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="293" />
-    <option name="y" value="53" />
-    <option name="width" value="1390" />
-    <option name="height" value="1007" />
+    <option name="x" value="277" />
+    <option name="y" value="27" />
+    <option name="width" value="1853" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -686,8 +445,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Bash.run9.sh" />
-        <item itemvalue="Bash.run10_server.sh" />
         <item itemvalue="Bash.run10_client.sh" />
+        <item itemvalue="Bash.run10_server.sh" />
         <item itemvalue="Bash.run8.sh" />
         <item itemvalue="Bash.impl_build_jar.sh" />
       </list>
@@ -782,14 +541,7 @@
       <workItem from="1556470423021" duration="1244000" />
       <workItem from="1556495141004" duration="1609000" />
       <workItem from="1556563022055" duration="7106000" />
-      <workItem from="1556578395962" duration="4998000" />
-    </task>
-    <task id="LOCAL-00020" summary="add StudentDB task (HW03)">
-      <created>1551102958227</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1551102958227</updated>
+      <workItem from="1556578395962" duration="8309000" />
     </task>
     <task id="LOCAL-00021" summary="fix StudentDB">
       <created>1551173381417</created>
@@ -1127,11 +879,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556615549867</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="upd Crawler">
+      <created>1556620254146</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1556620254146</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320578000" />
+    <option name="totallyTimeSpent" value="323889000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1146,7 +905,7 @@
     <frame x="67" y="27" width="1853" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59032714" visible="true" weight="0.2401771" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59032714" visible="true" weight="0.2401771" />
       <window_info id="Structure" order="1" sideWeight="0.40967283" side_tool="true" weight="0.28389597" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1155,7 +914,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4980631" visible="true" weight="0.27868852" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4980631" visible="true" weight="0.27868852" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1297,9 +1056,9 @@
     <MESSAGE value="add WebCrawler" />
     <MESSAGE value="passed ParallelMapper" />
     <MESSAGE value="create HelloUDP" />
-    <MESSAGE value="upd Crawler" />
     <MESSAGE value="add HelloUDP" />
-    <option name="LAST_COMMIT_MESSAGE" value="add HelloUDP" />
+    <MESSAGE value="upd Crawler" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd Crawler" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1309,13 +1068,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45322">
-          <caret line="1549" column="35" selection-start-line="1549" selection-start-column="35" selection-end-line="1549" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/junit-4.11.jar!/org/junit/runner/JUnitCore.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1891">
@@ -1584,27 +1336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/run9.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="1" column="171" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java/run10_client.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="1" column="170" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java/run10_server.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/java/run8.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -1643,16 +1374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="59" column="48" lean-forward="true" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -1663,10 +1384,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/java/run10_server.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/run9.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="5" selection-start-line="1" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/run10_client.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/helloudp/HelloUDPClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-11-oracle/lib/src.zip!/java.base/java/util/concurrent/ExecutorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="264" column="14" selection-start-line="264" selection-start-column="14" selection-end-line="264" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/java/ru/ifmo/rain/sokolov/crawler/WebCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        <state relative-caret-position="124">
+          <caret line="101" column="40" lean-forward="true" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
