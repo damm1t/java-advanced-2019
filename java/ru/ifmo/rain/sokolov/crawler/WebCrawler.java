@@ -80,6 +80,21 @@ public class WebCrawler implements Crawler {
         }
     }
 
+    private void shutDownHelper(ExecutorService pool) {
+        try {
+            pool.shutdown();
+            pool.awaitTermination(1000, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            throw new RuntimeException("Method close was not completed correctly: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void close() {
+        shutDownHelper(extractorsPool);
+        shutDownHelper(downloadersPool);
+    }
+
     private class TaskPoolPerHost {
         final Queue<Runnable> queueTasks = new ArrayDeque<>();
         int threadCount = 0;
@@ -94,24 +109,12 @@ public class WebCrawler implements Crawler {
         }
 
         private synchronized void nextTask() {
-            Runnable other = queueTasks.poll();
-            if (other != null) {
-                downloadersPool.submit(other);
+            var task = queueTasks.poll();
+            if (task != null) {
+                downloadersPool.submit(task);
             } else {
                 --threadCount;
             }
-        }
-    }
-
-    @Override
-    public void close() {
-        try {
-            extractorsPool.shutdown();
-            extractorsPool.awaitTermination(1000, TimeUnit.MILLISECONDS);
-            downloadersPool.shutdown();
-            downloadersPool.awaitTermination(1000, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException e) {
-            System.err.println("Method close was not completed correctly: " + e.getMessage());
         }
     }
 
