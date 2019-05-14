@@ -16,7 +16,7 @@ public class HelloUDPServer implements HelloServer {
 
     private ExecutorService threadPool;
     private HelloUDPStreams streams;
-    private boolean isRunning = true;
+    private volatile boolean isRunning = true;
 
     public static void main(String[] args) {
         if (args == null || args.length != 2) {
@@ -40,13 +40,12 @@ public class HelloUDPServer implements HelloServer {
             streams = new HelloUDPServerStreams(new DatagramSocket(port));
             threadPool = Executors.newFixedThreadPool(threads + 1);
             threadPool.submit(() -> {
-                while (!streams.isClosed()) {
+                while (!streams.isClosed() && isRunning) {
                     try {
                         DatagramPacket curPacket = streams.readPacket();
                         threadPool.submit(() -> {
-                            String response = process(packetToString(curPacket));
                             try {
-                                curPacket.setData(response.getBytes(StandardCharsets.UTF_8));
+                                curPacket.setData(process(packetToString(curPacket)).getBytes(StandardCharsets.UTF_8));
                                 streams.socket.send(curPacket);
                             } catch (IOException e) {
                                 System.err.println("Failed to send message" + e.getMessage());
@@ -55,8 +54,6 @@ public class HelloUDPServer implements HelloServer {
                     } catch (IOException e) {
                         if (isRunning) {
                             System.err.println("Failed to receive message");
-                        } else {
-                            break;
                         }
                     }
                 }
