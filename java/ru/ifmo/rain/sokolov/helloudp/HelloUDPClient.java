@@ -15,14 +15,12 @@ import java.util.stream.IntStream;
 
 public class HelloUDPClient implements HelloClient {
 
-    private static final int MAX_PORT = 65536;
-
     public static void main(String[] args) {
         if (args == null || args.length != 5) {
             throw new IllegalArgumentException("Expected exactly 5 args : host, port, queryPrefix, threadsCount, queriesPerThread");
         }
-        String host = args[0];
-        String queryPrefix = args[2];
+        var host = args[0];
+        var queryPrefix = args[2];
         int port;
         int threadsCount;
         int queriesPerThread;
@@ -33,31 +31,19 @@ public class HelloUDPClient implements HelloClient {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("port, threadsCount and queriesPerThread should be a integers");
         }
-        if (port < 0 || port > MAX_PORT) {
-            throw new IllegalArgumentException("port should be in [1..65536]");
-        }
-        if (threadsCount < 0) {
-            throw new IllegalArgumentException("threadsCount should be positive number");
-        }
         System.out.println("running client... host = " + host + " , port = " + port + " , prefix = " + queryPrefix);
         try {
-            new HelloUDPClient().run(
-                    host,
-                    port,
-                    queryPrefix,
-                    threadsCount,
-                    queriesPerThread
-            );
+            new HelloUDPClient().run(host, port, queryPrefix, threadsCount, queriesPerThread);
         } catch (Exception e) {
-            System.out.println("Failed to connect " + e.getMessage());
+            System.err.println("Failed to connect " + e.getMessage());
         }
     }
 
-    private String readCheckedMessage(HelloUDPClientStreams streams, String query) throws IOException {
+    private String readMessageWithCheck(HelloUDPClientStreams streams, String query) throws IOException {
         while (true) {
             streams.sendString(query);
             try {
-                String response = streams.readString();
+                var response = streams.readString();
                 if (MessageHelper.check(response, query)) {
                     return response;
                 }
@@ -79,7 +65,7 @@ public class HelloUDPClient implements HelloClient {
     @Override
     public void run(String host, int port, String prefix, int threads, int requests) {
         ExecutorService threadPool = Executors.newFixedThreadPool(threads);
-        IntFunction<Callable<Void>> taskGen = threadId -> () -> {
+        IntFunction<Callable<Void>> callTasks = threadId -> () -> {
             try (HelloUDPClientStreams streams = new HelloUDPClientStreams(
                     InetAddress.getByName(host),
                     port,
@@ -88,19 +74,19 @@ public class HelloUDPClient implements HelloClient {
                 for (int i = 0; i < requests; i++) {
                     try {
                         var query = MessageHelper.createMessage(prefix, threadId, i);
-                        var response = readCheckedMessage(streams, query);
+                        var response = readMessageWithCheck(streams, query);
                         System.out.println("Received response : " + response);
                     } catch (IOException e) {
-                        System.out.println("Failed to send request in thread " + threadId);
+                        System.err.println("Failed to send request in thread " + threadId);
                     }
                 }
             } catch (UnknownHostException | SocketException e) {
-                System.out.println("failed to connect to server");
+                System.err.println("Failed to connect to server");
             }
             return null;
         };
         IntStream.range(0, threads)
-                .mapToObj(taskGen)
+                .mapToObj(callTasks)
                 .forEach(threadPool::submit);
         ShutdownHelper.shutdownAndAwaitTermination(threadPool);
     }

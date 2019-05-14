@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -38,16 +39,17 @@ public class HelloUDPServer implements HelloServer {
         try {
             streams = new HelloUDPServerStreams(new DatagramSocket(port));
             threadPool = Executors.newFixedThreadPool(threads + 1);
-            Runnable readerTask = () -> {
+            threadPool.submit(() -> {
                 while (!streams.isClosed()) {
                     try {
                         DatagramPacket curPacket = streams.readPacket();
                         threadPool.submit(() -> {
                             String response = process(packetToString(curPacket));
                             try {
-                                streams.sendString(response, curPacket.getSocketAddress());
+                                curPacket.setData(response.getBytes(StandardCharsets.UTF_8));
+                                streams.socket.send(curPacket);
                             } catch (IOException e) {
-                                System.err.println("Failed to send message");
+                                System.err.println("Failed to send message" + e.getMessage());
                             }
                         });
                     } catch (IOException e) {
@@ -58,8 +60,7 @@ public class HelloUDPServer implements HelloServer {
                         }
                     }
                 }
-            };
-            threadPool.submit(readerTask);
+            });
         } catch (SocketException e) {
             System.err.println("Failed to bind to address");
         }
