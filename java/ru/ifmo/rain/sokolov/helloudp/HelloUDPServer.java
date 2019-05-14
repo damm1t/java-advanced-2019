@@ -19,15 +19,14 @@ public class HelloUDPServer implements HelloServer {
 
     public static void main(String[] args) {
         if (args == null || args.length != 2) {
-            System.out.println("expected exactly 2 arguments in not-null array");
-            return;
+            throw new IllegalArgumentException("Expected 2 not-null arguments");
         }
         try {
             int port = Integer.parseInt(args[0]);
             int threadsCount = Integer.parseInt(args[1]);
             new HelloUDPServer().start(port, threadsCount);
         } catch (NumberFormatException e) {
-            System.out.println("expected integer arguments");
+            throw new IllegalArgumentException("Expected integer arguments");
         }
     }
 

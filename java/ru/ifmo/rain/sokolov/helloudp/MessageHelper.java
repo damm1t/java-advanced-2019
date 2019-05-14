@@ -14,7 +14,7 @@ public class MessageHelper {
     }
 
     public static boolean check(String response, String request) {
-        return response.contains(request);
+        return response.contains(request); // return response.matches(".*" + Pattern.quote(request) + "(|\\p{Space}.*)");
     }
 
 }

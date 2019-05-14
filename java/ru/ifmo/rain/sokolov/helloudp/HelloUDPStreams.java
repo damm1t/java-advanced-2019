@@ -19,10 +19,7 @@ public abstract class HelloUDPStreams implements AutoCloseable {
         this.socket.setSoTimeout(SOCKET_TIMEOUT);
     }
 
-    public void sendString(
-            String requestMsg,
-            SocketAddress destinationAddress
-    ) throws IOException {
+    public void sendString(String requestMsg, SocketAddress destinationAddress) throws IOException {
         byte[] sendBuffer = requestMsg.getBytes(StandardCharsets.UTF_8);
         DatagramPacket packet = new DatagramPacket(
                 sendBuffer,

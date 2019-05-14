@@ -3,7 +3,10 @@ package ru.ifmo.rain.sokolov.helloudp;
 import info.kgeorgiy.java.advanced.hello.HelloClient;
 
 import java.io.IOException;
-import java.net.*;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -16,8 +19,7 @@ public class HelloUDPClient implements HelloClient {
 
     public static void main(String[] args) {
         if (args == null || args.length != 5) {
-            System.out.println("expected exactly 5 args : host, port, queryPrefix, threadsCount, queriesPerThread");
-            return;
+            throw new IllegalArgumentException("Expected exactly 5 args : host, port, queryPrefix, threadsCount, queriesPerThread");
         }
         String host = args[0];
         String queryPrefix = args[2];
@@ -29,16 +31,13 @@ public class HelloUDPClient implements HelloClient {
             threadsCount = Integer.parseInt(args[3]);
             queriesPerThread = Integer.parseInt(args[4]);
         } catch (NumberFormatException e) {
-            System.out.println("port, threadsCount and queriesPerThread should be a integers");
-            return;
+            throw new IllegalArgumentException("port, threadsCount and queriesPerThread should be a integers");
         }
         if (port < 0 || port > MAX_PORT) {
-            System.out.println("port should be in [1..65536]");
-            return;
+            throw new IllegalArgumentException("port should be in [1..65536]");
         }
         if (threadsCount < 0) {
-            System.out.println("threadsCount should be positive number");
-            return;
+            throw new IllegalArgumentException("threadsCount should be positive number");
         }
         System.out.println("running client... host = " + host + " , port = " + port + " , prefix = " + queryPrefix);
         try {
@@ -50,7 +49,7 @@ public class HelloUDPClient implements HelloClient {
                     queriesPerThread
             );
         } catch (Exception e) {
-            System.out.println("failed to connect " + e.getMessage());
+            System.out.println("Failed to connect " + e.getMessage());
         }
     }
 
@@ -79,11 +78,6 @@ public class HelloUDPClient implements HelloClient {
      */
     @Override
     public void run(String host, int port, String prefix, int threads, int requests) {
-        try {
-            final SocketAddress address = new InetSocketAddress(InetAddress.getByName(host), port);
-        } catch (UnknownHostException e) {
-            System.err.println("Unable to reach specified host: " + e.getMessage());
-        }
         ExecutorService threadPool = Executors.newFixedThreadPool(threads);
         IntFunction<Callable<Void>> taskGen = threadId -> () -> {
             try (HelloUDPClientStreams streams = new HelloUDPClientStreams(
@@ -93,11 +87,11 @@ public class HelloUDPClient implements HelloClient {
             )) {
                 for (int i = 0; i < requests; i++) {
                     try {
-                        String query = MessageHelper.createMessage(prefix, threadId, i);
-                        String response = readCheckedMessage(streams, query);
-                        System.out.println("received response : " + response);
+                        var query = MessageHelper.createMessage(prefix, threadId, i);
+                        var response = readCheckedMessage(streams, query);
+                        System.out.println("Received response : " + response);
                     } catch (IOException e) {
-                        System.out.println("failed to send request in thread " + threadId);
+                        System.out.println("Failed to send request in thread " + threadId);
                     }
                 }
             } catch (UnknownHostException | SocketException e) {
