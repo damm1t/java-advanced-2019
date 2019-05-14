@@ -15,18 +15,12 @@ public class HelloUDPClientStreams extends HelloUDPStreams {
         this.receivePacket = createReceivePacket();
     }
 
-    public void sendMessage(MessageHelper requestMsg) throws IOException {
-        sendString(requestMsg.toString(), serverAddress);
-    }
-
     @Override
     protected DatagramPacket getReceivePacket() {
         return receivePacket;
     }
 
-    public void sendString(
-            String requestMsg
-    ) throws IOException {
+    public void sendString(String requestMsg) throws IOException {
         sendString(requestMsg, serverAddress);
     }
 }

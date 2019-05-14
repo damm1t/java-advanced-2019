@@ -3,10 +3,7 @@ package ru.ifmo.rain.sokolov.helloudp;
 import info.kgeorgiy.java.advanced.hello.HelloClient;
 
 import java.io.IOException;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -82,6 +79,11 @@ public class HelloUDPClient implements HelloClient {
      */
     @Override
     public void run(String host, int port, String prefix, int threads, int requests) {
+        try {
+            final SocketAddress address = new InetSocketAddress(InetAddress.getByName(host), port);
+        } catch (UnknownHostException e) {
+            System.err.println("Unable to reach specified host: " + e.getMessage());
+        }
         ExecutorService threadPool = Executors.newFixedThreadPool(threads);
         IntFunction<Callable<Void>> taskGen = threadId -> () -> {
             try (HelloUDPClientStreams streams = new HelloUDPClientStreams(

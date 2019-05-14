@@ -2,7 +2,6 @@ package ru.ifmo.rain.sokolov.helloudp;
 
 import java.net.DatagramPacket;
 import java.nio.charset.StandardCharsets;
-import java.util.regex.Pattern;
 
 public class MessageHelper {
 
@@ -15,7 +14,7 @@ public class MessageHelper {
     }
 
     public static boolean check(String response, String request) {
-        return response.matches(".*" + Pattern.quote(request) + "(|\\p{Space}.*)");
+        return response.contains(request);
     }
 
 }
