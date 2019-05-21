@@ -53,13 +53,13 @@ public class HelloUDPServer implements HelloServer {
                         });
                     } catch (IOException e) {
                         if (isRunning) {
-                            System.err.println("Failed to receive message");
+                            System.err.println("Failed to receive message " + e.getMessage());
                         }
                     }
                 }
             });
         } catch (SocketException e) {
-            System.err.println("Failed to bind to address");
+            System.err.println("Failed to bind to address " + e.getMessage());
         }
     }
 
