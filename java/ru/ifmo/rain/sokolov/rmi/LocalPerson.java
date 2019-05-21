@@ -44,5 +44,4 @@ public class LocalPerson implements Person, Serializable {
     void addAccount(String name, LocalAccount localAccount) {
         accounts.put(name, localAccount);
     }
-
 }

@@ -134,6 +134,8 @@ public class BankTest {
     @Test
     public void getPersonWithoutCreating() throws RemoteException {
         assertNull(bank.getLocalPerson(9999));
+        assertTrue(bank.createPerson(id, firstName, lastName));
+        assertNull(bank.getLocalPerson(-1));
     }
 
     @Test

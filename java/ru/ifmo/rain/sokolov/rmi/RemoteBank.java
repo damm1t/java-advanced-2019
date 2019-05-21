@@ -12,31 +12,31 @@ import java.util.concurrent.ConcurrentSkipListSet;
 
 public class RemoteBank implements Bank, Remote {
     private final int port;
-    private final ConcurrentMap<String, Account> accounts;
-    private final ConcurrentMap<Integer, Person> persons;
-    private final ConcurrentMap<Integer, Set<String>> accountsByPassportId;
+    private final ConcurrentMap<String, Account> accounts = new ConcurrentHashMap<>();
+    private final ConcurrentMap<Integer, Person> persons = new ConcurrentHashMap<>();
+    private final ConcurrentMap<Integer, Set<String>> accountsByPassportId = new ConcurrentHashMap<>();
 
     public RemoteBank(final int port) {
         this.port = port;
-        accounts = new ConcurrentHashMap<>();
-        persons = new ConcurrentHashMap<>();
-        accountsByPassportId = new ConcurrentHashMap<>();
     }
 
     @Override
     public boolean createAccount(Person person, String id) throws RemoteException {
-        if (person == null || id == null)
+        if (person == null || id == null) {
             return false;
+        }
 
         String accountId = person.getPassportId() + ":" + id;
-        Account account = accounts.get(accountId);
-        if (account != null)
-            return false;
+        synchronized (accounts) {
+            Account account = accounts.get(accountId);
+            if (account != null)
+                return false;
 
-        System.out.println("Creating account " + accountId);
-        account = new RemoteAccount(id);
-        accounts.put(accountId, account);
-        UnicastRemoteObject.exportObject(account, port);
+            System.out.println("Creating account " + accountId);
+            account = new RemoteAccount(id);
+            accounts.put(accountId, account);
+            UnicastRemoteObject.exportObject(account, port);
+        }
         accountsByPassportId.get(person.getPassportId()).add(id);
 
         if (person instanceof LocalPerson) {
