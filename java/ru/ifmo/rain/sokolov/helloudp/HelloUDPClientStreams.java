@@ -2,6 +2,7 @@ package ru.ifmo.rain.sokolov.helloudp;
 
 import java.io.IOException;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 
 
 public class HelloUDPClientStreams extends HelloUDPStreams {
@@ -21,6 +22,16 @@ public class HelloUDPClientStreams extends HelloUDPStreams {
     }
 
     public void sendString(String requestMsg) throws IOException {
-        sendString(requestMsg, serverAddress);
+        //sendString(requestMsg, serverAddress);
+        byte[] sendBuffer = requestMsg.getBytes(StandardCharsets.UTF_8);
+        receivePacket.setData(sendBuffer);
+        receivePacket.setSocketAddress(serverAddress);
+        socket.send(receivePacket);
+        resetAndResize();
+    }
+
+    public void resetAndResize() throws SocketException {
+
+        receivePacket.setData(new byte[socket.getReceiveBufferSize()]);
     }
 }
